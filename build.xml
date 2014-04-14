@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="happyrecruiting" default="deploy-no-pull">
+    <!-- Use this when you want to test the current code -->
+    <target name="test" depends="prepare,composer,update-data-layer,phpunit"/>
+
+    <!-- This target should be used when you what to update a currently running version of the website -->
+    <target name="deploy" depends="git-pull,bump-version,deploy-no-pull"/>
+
+    <!-- This makes a deploy but does not pull the git -->
+    <target name="deploy-no-pull" depends="prepare,composer,update-data-layer,update-assets,clear-cache"/>
+
+    <!-- update the assets -->
+    <target name="update-assets" depends="bower,assetic"/>
+
+    <!-- Update the data layer -->
+    <target name="update-data-layer" depends="migrate,clear-apc"/>
+
+    <!-- Prepare for build -->
+    <target name="prepare" depends="create-folders,purge-cache"/>
+
+    <!-- Remove the logs and cache folders -->
+    <target name="clean" description="Cleanup remains from old build">
+        <delete dir="${basedir}/app/var/build/logs"/>
+    </target>
+
+    <!-- Create new logs and cache folders -->
+    <target name="create-folders" depends="clean" description="Prepare for build, create some folders">
+        <mkdir dir="${basedir}/app/var/build/logs"/>
+        <mkdir dir="${basedir}/app/cache"/>
+        <mkdir dir="${basedir}/app/logs"/>
+        <mkdir dir="${basedir}/app/var/sessions"/>
+        <mkdir dir="${basedir}/web/js"/>
+    </target>
+
+    <target name="phpunit" description="Run unit tests with PHPUnit">
+        <exec executable="phpunit" failonerror="true">
+            <arg line="-c ${basedir}/app/phpunit.xml.dist ${basedir}/src"/>
+        </exec>
+    </target>
+
+    <!-- The composer does also clear the cache -->
+    <target name="composer" description="Install all the vendors">
+        <exec executable="composer" failonerror="true">
+            <arg value="install"/>
+            <arg value="-o"/>
+            <arg value="--working-dir"/>
+            <arg path="${basedir}"/>
+        </exec>
+    </target>
+
+    <target name="reload-db" description="Load the database with fixture data">
+        <exec executable="php" dir="${basedir}" failonerror="true">
+            <arg line="app/console eastit:database:fullreload --force --script"/>
+        </exec>
+        <exec executable="php" dir="${basedir}" failonerror="true">
+            <arg line="app/console eastit:users:load"/>
+        </exec>
+    </target>
+
+    <target name="migrate" description="Use doctrine migration to update changes in the database schema">
+        <exec executable="php" dir="${basedir}" failonerror="true">
+            <arg line="app/console doctrine:migrations:migrate --no-interaction"/>
+        </exec>
+    </target>
+
+    <target name="clear-apc" description="Clear the apc cache">
+        <exec executable="php" dir="${basedir}" failonerror="false">
+            <arg line="app/console apc:clear"/>
+        </exec>
+    </target>
+
+    <target name="assetic" description="Dump the assetics">
+        <!-- move javascript translations -->
+        <exec executable="php" dir="${basedir}" failonerror="true">
+            <arg line="app/console bazinga:expose-translation:dump web/js"/>
+        </exec>
+
+        <exec executable="php" dir="${basedir}" failonerror="true">
+            <arg line="app/console assetic:dump --env=prod --no-debug"/>
+        </exec>
+    </target>
+
+    <target name="git-pull" description="Update to the latest source in the current branch">
+        <exec executable="git" dir="${basedir}" failonerror="true">
+            <arg line="reset --hard HEAD"/>
+        </exec>
+        <exec executable="git" dir="${basedir}" failonerror="true">
+            <arg line="pull"/>
+        </exec>
+    </target>
+
+    <target name="purge-cache" description="Removes cache with force">
+        <delete includeEmptyDirs="true">
+            <fileset dir="${basedir}/app/cache" includes="**/*"/>
+        </delete>
+    </target>
+
+
+    <target name="clear-cache" depends="clear-sessions,clear-logs" description="Clear all the caches">
+        <exec executable="php" dir="${basedir}" failonerror="true">
+            <arg line="app/console cache:clear --no-warmup --env=prod --no-debug"/>
+        </exec>
+        <exec executable="php" dir="${basedir}" failonerror="false">
+            <arg line="app/console cache:clear --no-warmup --env=demo --no-debug"/>
+        </exec>
+        <exec executable="php" dir="${basedir}" failonerror="true">
+            <arg line="app/console cache:clear --no-warmup --env=test --no-debug"/>
+        </exec>
+        <exec executable="php" dir="${basedir}" failonerror="true">
+            <arg line="app/console cache:clear --no-warmup --env=dev --no-debug"/>
+        </exec>
+    </target>
+
+    <!-- remove sessions that are more than 14 days old -->
+    <target name="clear-sessions" description="Clear old sessions">
+        <exec executable="find" dir="${basedir}" failonerror="false">
+            <arg value="app/var/sessions"/>
+            <arg line="-name 'sess_*' -mtime +14 -exec rm {} ';'"/>
+        </exec>
+    </target>
+
+    <target name="bump-version" description="Update the git version in the configs">
+        <exec executable="sh" dir="${basedir}" failonerror="true">
+            <arg value="app/var/scripts/updateVersion.sh" />
+        </exec>
+    </target>
+
+    <target name="clear-logs" description="Make sure that the log files don't gets too big">
+        <exec executable="find" dir="${basedir}" failonerror="false">
+            <arg value="app/logs"/>
+            <arg line="-name '*.log' -size +50M -exec sh app/var/scripts/shortenFile.sh {} 500 ';'"/>
+        </exec>
+    </target>
+
+    <target name="bower" description="Update the bower dependencies">
+        <exec executable="bower" dir="${basedir}" failonerror="true">
+            <arg line="install"/>
+        </exec>
+    </target>
+</project>

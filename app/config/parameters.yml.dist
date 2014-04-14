@@ -1,0 +1,19 @@
+parameters:
+    database_driver:   pdo_mysql
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+
+    mailer_user:       ~
+    mailer_password:   ~
+    mailer_from: ~
+    mailer_from_name:
+
+    # Remove catch all in prod
+    mailer_catch_all:
+
+    locale:            en
+    secret:            ThisTokenIsNotSoSecretChangeIt
+    site_domain:       localhost
