@@ -2,12 +2,29 @@
 
 namespace Symfonyse\ContentBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+use Symfonyse\CoreBundle\Controller\BaseController;
 
-class DefaultController extends Controller
+/**
+ * Class DefaultController
+ *
+ * @author Tobias Nyholm
+ *
+ *
+ */
+class DefaultController extends BaseController
 {
-    public function indexAction($name)
+    /**
+     *
+     * @Template
+     *
+     * @return array
+     */
+    public function homepageAction()
     {
-        return $this->render('SymfonyseContentBundle:Default:index.html.twig', array('name' => $name));
+
+        return array();
     }
 }

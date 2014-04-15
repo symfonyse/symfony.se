@@ -1,0 +1,36 @@
+
+
+{% macro city(obj) %}
+    {% spaceless %}
+        <span itemscope itemtype="http://www.schema.org/City">
+            {% if obj.city is not empty %}
+                <span itemprop="name">{{ obj.city }}</span>,
+            {% endif %}
+            <span>{{ obj.country }}</span>
+
+            {% if obj.hasCoordinates %}
+            <span itemprop="geo" itemscope itemtype="http://www.schema.org/GeoCoordinates">
+                <meta itemprop="latitude" content="{{ obj.coords.lat }}"/>
+                <meta itemprop="longitude" content="{{ obj.coords.lng }}"/>
+            </span>
+            {% endif %}
+    </span>
+    {% endspaceless %}
+{% endmacro %}
+
+{% macro time(obj, format, timeago=false) %}
+    <time datetime="{{ obj|date('c') }}"{% if timeago %} class="timeago"{% endif %}>
+        {{ obj|date(format) }}
+    </time>
+{% endmacro %}
+
+{% macro date(obj, format) %}
+    {# This is not the PHP format.. It is ICU. Get format from here: http://userguide.icu-project.org/formatparse/datetime #}
+    <time datetime="{{ obj|date('c') }}">
+        {% if format=='none' or format=='none' or format=='short' or format=='medium' or format=='long' or format=='full' %}
+            {{ obj|localizeddate(format, 'none', app.request.locale) }}
+        {% else %}
+            {{ obj|localizeddate('none', 'none', app.request.locale, null, format) }}
+        {% endif %}
+    </time>
+{% endmacro %}

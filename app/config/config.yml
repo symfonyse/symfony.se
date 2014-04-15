@@ -15,6 +15,8 @@ framework:
     templating:
         engines: ['twig']
         #assets_version: SomeVersionScheme
+        assets_base_urls:
+          http: [http://%site_domain%]
     default_locale:  "%locale%"
     trusted_proxies: ~
     session:
@@ -28,12 +30,13 @@ twig:
     strict_variables: %kernel.debug%
     globals:
       site_url: http://%site_domain%
+      ga_analytics: UA-26746572-1
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
+    bundles:        [ SymfonyseCoreBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

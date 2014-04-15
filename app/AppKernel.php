@@ -19,6 +19,7 @@ class AppKernel extends Kernel
 
 
             new Symfonyse\ContentBundle\SymfonyseContentBundle(),
+            new Symfonyse\BlogBundle\SymfonyseBlogBundle(),
             new Symfonyse\VideoBundle\SymfonyseVideoBundle(),
             new Symfonyse\AuthorBundle\SymfonyseAuthorBundle(),
             new Symfonyse\CoreBundle\SymfonyseCoreBundle(),

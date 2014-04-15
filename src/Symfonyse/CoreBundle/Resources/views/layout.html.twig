@@ -1,101 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>{% block title bloghoven_settings.get('name') %}
-    </title>
-    <meta name="description" content="">
-    <meta name="author" content="">
+<!doctype html>
+<!--[if lt IE 9]>
+<html class="ie" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="http://www.facebook.com/2008/fbml"
+      xmlns:hx="http://purl.org/NET/hinclude"
+        >
+<![endif]-->
+<!--[if gte IE 9]><!-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:og="http://ogp.me/ns#"
+      xmlns:fb="http://www.facebook.com/2008/fbml"
+      xmlns:hx="http://purl.org/NET/hinclude"
+        >
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8"/>
+    {# Please don't add "maximum-scale=1" here. It's bad for accessibility. #}
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+    {% block meta_tags %}
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Symfony Sverige"/>
+        <meta property="og:image" content="{{ asset('bundles/symfonysecore/images/logo.png') }}" />
+        <meta property="og:site_name" content="Symfony Sverige"/>
+        <meta property="og:url" content="{{ app.request.uri }}"/>
+        <meta property="og:description" content="{% block ogDescription %}{% endblock %}"/>
 
-    <!-- Le styles -->
-    <link rel="stylesheet" href="{{asset('bundles/bloghovenabstracttheme/css/bootstrap.css')}}" />
-    {#<link rel="stylesheet" href="http://twitter.github.com/bootstrap/1.4.0/bootstrap.min.css">#}
-    <style type="text/css">
-      /* Override some defaults */
-      html, body {
-        background-color: #eee;
-      }
-      .container > footer p {
-        text-align: center; /* center align it with the container */
-      }
-      .container {
-        width: 820px; /* downsize our container to make the content feel a bit tighter and more cohesive. NOTE: this removes two full columns from the grid, meaning you only go to 14 columns and not 16. */
-      }
+        <meta name="description" content="{% block metaDescription %}{% endblock %}"/>
+    {% endblock meta_tags %}
 
-      /* The white background content wrapper */
-      .content {
-        background-color: #fff;
-        padding: 20px;
-        margin: 0 -20px; /* negative indent the amount of the padding to maintain the grid system */
-        -webkit-border-radius: 0 0 6px 6px;
-           -moz-border-radius: 0 0 6px 6px;
-                border-radius: 0 0 6px 6px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.15);
-                box-shadow: 0 1px 2px rgba(0,0,0,.15);
-      }
+    <meta name="twitter:site" content="@symfonyse">
+    <meta name="include_mode" content="async" />
 
-      /* Page header tweaks */
-      .page-header {
-        background-color: #f5f5f5;
-        padding: 20px 20px 10px;
-        margin: -20px -20px 20px;
-      }
 
-      /* Styles you shouldn't keep as they are for displaying this base example only */
-      .content .span10,
-      .content .span4 {
-        min-height: 500px;
-      }
-      /* Give a quick and non-cross-browser friendly divider */
-      .content .span4 {
-        margin-left: 0;
-        padding-left: 19px;
-        border-left: 1px solid #eee;
-      }
+    <title>{% block title %}Symfony Sverige{% endblock %}</title>
 
-      .topbar .btn {
-        border: 0;
-      }
+    {% block stylesheets %}
+        {% stylesheets filter='cssrewrite' output='static/styles.css'
+        '@SymfonyseCoreBundle/Resources/public/css/*'
+        'bower/Ink/css/ink.css'
 
-    </style>
+        %}
+        <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
+        {% endstylesheets %}
+    {% endblock %}
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-  </head>
+    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/symfonysecore/images/favicon.png') }}" />
 
-  <body>
+    {% import "SymfonyseCoreBundle:Macro:misc.html.twig" as _misc %}
 
-    <div class="container">
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      <div class="content">
-        <div class="page-header">
-          <h1>{{bloghoven_settings.get('name')}} <small>{{bloghoven_settings.get('tagline')}}</small></h1>
-        </div>
-        <div class="row">
-          <div class="span10">
-            {% block main %}
-            <h2>Main content</h2>
-            {% endblock %}
-          </div>
-          <div class="span4">
-            <h3>Categories</h3>
-            {% render 'BloghovenBlogBundle:Frontend\\Category:tree' %}
-          </div>
-        </div>
-      </div>
+        ga('create', '{{ ga_analytics }}', 'symfony.se');
+        ga('send', 'pageview');
 
-      <footer>
-        <p>&copy; Company 2011</p>
-      </footer>
+    </script>
 
-    </div> <!-- /container -->
+</head>
 
-  </body>
+<body lang="sv" class="body {% block bodyclass %}{% endblock %}" {% block bodytag %}{% endblock %}>
+
+{% block headerWrap %}
+    <header role="banner">
+        {% block header %}{% endblock %}
+    </header>
+{% endblock %}
+
+<!-- OVERVIEW ROW -->
+{% block contentHead %}
+
+{% endblock %}
+<!-- END OVERVIEW ROW -->
+
+{% block contentWrap %}
+    {% block content %}
+
+    {% endblock %}
+{% endblock %}
+
+{% block footerWrap %}
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+{% endblock %}
+
+
+{% block javascripts %}
+
+    {% javascripts  output='static/scripts.js'
+    'bower/jquery/jquery.js'
+    'bower/Ink/js/holder.js'
+    'bower/Ink/js/ink.js'
+    'bower/Ink/js/ink-ui.js'
+    'bower/Ink/js/autoload.js'
+    'bower/Ink/js/html5shiv.js'
+    'bower/happyr-jquery-simple-animate/jquery.simple-animate.js'
+    'bower/jquery-timeago/jquery.timeago.js'
+    'bower/jquery-timeago/locales/jquery.timeago.sv.js'
+    'bower/hinclude/hinclude.js'
+
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+
+    {% endjavascripts %}
+{% endblock %}
+
+</body>
+
 </html>

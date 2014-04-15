@@ -1,0 +1,5 @@
+
+
+services:
+  bloghoven.settings:
+    class: Symfony\Component\HttpFoundation\ParameterBag
