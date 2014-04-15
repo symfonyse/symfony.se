@@ -4,6 +4,7 @@ namespace Symfonyse\CoreBundle\ContentProvider;
 
 use Bloghoven\BlosxomDirProviderBundle\Entity\Entry;
 use Bloghoven\BlosxomDirProviderBundle\Entity\Category;
+use Symfonyse\CoreBundle\Model\FileInfo;
 
 /**
  * Class CoreContentProvider
@@ -12,7 +13,7 @@ use Bloghoven\BlosxomDirProviderBundle\Entity\Category;
  *
  *
  */
-abstract class CoreContentProvider
+class CoreContentProvider
 {
     protected $dataDir;
     protected $fileExtension;
@@ -35,7 +36,7 @@ abstract class CoreContentProvider
      *
      * @return string
      */
-    protected function getDataDir()
+    public function getDataDir()
     {
         return $this->dataDir;
     }
@@ -59,12 +60,18 @@ abstract class CoreContentProvider
      *
      * @param $permalink
      *
-     * @return \SplFileInfo
+     * @return FileInfo|null
      */
-    protected function getFile($permalink)
+    public function getFile($permalink)
     {
         $this->validatePermalinkId($permalink);
+        $file= new FileInfo($this->dataDir.'/'.$permalink.'.'.$this->fileExtension, $permalink);
 
-        return new \SplFileInfo($this->datadir.'/'.$permalink.'.'.$this->file_extension);
+        if ($file->isFile()) {
+            return $file;
+        }
+
+        return null;
+
     }
 }

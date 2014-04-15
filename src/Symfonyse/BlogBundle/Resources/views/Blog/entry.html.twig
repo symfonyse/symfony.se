@@ -1,0 +1,17 @@
+{% extends "SymfonyseBlogBundle::base.html.twig" %}
+
+{% block title %}
+{{entry.title }} — {{parent()}}
+{% endblock %}
+
+{% block content %}
+    <article>
+        <header>
+            <h1><a href="{{path('symfonyse_blog_entry', {'permalink': entry.permalink})}}">{{entry.title}}</a></h1>
+        </header>
+        {{entry.content | markdown}}
+        <footer>
+            <p><small>Published: <time pubdate="pubdate">{{entry.postedAt|date("F jS \\a\\t g:ia")}}</time> | In: {% for category in entry.categories %}{{category.name}} {% endfor %}</small></p>
+        </footer>
+    </article>
+{% endblock %}

@@ -2,13 +2,15 @@
 
 namespace Symfonyse\CoreBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
 /**
  * Class BaseController
  *
  * @author Tobias Nyholm
  *
  */
-abstract class BaseController
+abstract class BaseController extends Controller
 {
     /**
      * Get the entity manager

@@ -1,5 +1,6 @@
 
 
 services:
-  bloghoven.settings:
-    class: Symfony\Component\HttpFoundation\ParameterBag
+  symfonyse.blog.content_provider:
+    class: Symfonyse\CoreBundle\ContentProvider\CoreContentProvider
+    arguments: [~ , 'md']

@@ -18,16 +18,8 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('bloghoven_blog');
+        $treeBuilder->root('symfonyse_blog');
 
-        $rootNode
-            ->children()
-                ->scalarNode('provider')->defaultValue('doctrine.orm')->end()
-                ->scalarNode('per_page')->defaultValue(10)->end()
-                ->scalarNode('name')->defaultValue('Your blog')->end()
-                ->scalarNode('tagline')->defaultValue('Just another Symfonyse blog')->end()
-            ->end()
-        ;
 
         return $treeBuilder;
     }

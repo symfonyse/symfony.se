@@ -16,10 +16,4 @@ use Symfonyse\BlogBundle\DependencyInjection\Compiler\TaggedProviderPass;
  */
 class SymfonyseBlogBundle extends Bundle
 {
-  public function build(ContainerBuilder $container)
-  {
-    parent::build($container);
-
-    $container->addCompilerPass(new TaggedProviderPass());
-  }
 }
