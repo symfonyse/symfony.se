@@ -11,7 +11,7 @@
         </header>
         {{entry.content | markdown}}
         <footer>
-            <p><small>Published: <time pubdate="pubdate">{{entry.postedAt|date("F jS \\a\\t g:ia")}}</time> | In: {% for category in entry.categories %}{{category.name}} {% endfor %}</small></p>
+            <p><small>Published: <time pubdate="pubdate">{{entry.postedAt|date("F jS \\a\\t g:ia")}}</time> | In: {% for tag in entry.tags %}{{tag.name}} {% endfor %}</small></p>
         </footer>
     </article>
 {% endblock %}
