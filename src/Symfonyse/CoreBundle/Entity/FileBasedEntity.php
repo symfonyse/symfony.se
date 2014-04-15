@@ -1,6 +1,8 @@
 <?php
 
-namespace Symfonyse\CoreBundle\Entity;
+namespace Bloghoven\BlosxomDirProviderBundle\Entity;
+
+use Symfonyse\CoreBundle\ContentProvider\CoreContentProvider;
 
 /**
 *

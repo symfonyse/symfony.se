@@ -1,0 +1,7 @@
+parameters:
+#    symfonyse_video.example.class: Symfonyse\VideoBundle\Example
+
+services:
+#    symfonyse_video.example:
+#        class: %symfonyse_video.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

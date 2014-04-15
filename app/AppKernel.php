@@ -18,6 +18,11 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
 
+            new Symfonyse\ContentBundle\SymfonyseContentBundle(),
+            new Symfonyse\VideoBundle\SymfonyseVideoBundle(),
+            new Symfonyse\AuthorBundle\SymfonyseAuthorBundle(),
+            new Symfonyse\CoreBundle\SymfonyseCoreBundle(),
+            new Symfonyse\EventBundle\SymfonyseEventBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

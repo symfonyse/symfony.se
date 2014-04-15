@@ -1,0 +1,7 @@
+parameters:
+#    symfonyse_event.example.class: Symfonyse\EventBundle\Example
+
+services:
+#    symfonyse_event.example:
+#        class: %symfonyse_event.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

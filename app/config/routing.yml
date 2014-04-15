@@ -1,0 +1,24 @@
+symfonyse_event:
+    resource: "@SymfonyseEventBundle/Resources/config/routing.yml"
+    prefix:   /event
+
+symfonyse_core:
+    resource: "@SymfonyseCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
+symfonyse_author:
+    resource: "@SymfonyseAuthorBundle/Resources/config/routing.yml"
+    prefix:   /author
+
+symfonyse_video:
+    resource: "@SymfonyseVideoBundle/Resources/config/routing.yml"
+    prefix:   /video
+
+symfonyse_blog:
+    resource: "@SymfonyseBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
+
+symfonyse_content:
+    resource: "@SymfonyseContentBundle/Resources/config/routing.yml"
+    prefix:   /
+

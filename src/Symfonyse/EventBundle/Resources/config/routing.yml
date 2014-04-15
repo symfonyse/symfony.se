@@ -1,0 +1,3 @@
+symfonyse_event_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: SymfonyseEventBundle:Default:index }

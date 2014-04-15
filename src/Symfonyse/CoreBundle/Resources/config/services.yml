@@ -1,0 +1,7 @@
+parameters:
+#    symfonyse_core.example.class: Symfonyse\CoreBundle\Example
+
+services:
+#    symfonyse_core.example:
+#        class: %symfonyse_core.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

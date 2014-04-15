@@ -1,0 +1,7 @@
+parameters:
+#    symfonyse_author.example.class: Symfonyse\AuthorBundle\Example
+
+services:
+#    symfonyse_author.example:
+#        class: %symfonyse_author.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
