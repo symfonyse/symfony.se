@@ -1,0 +1,9 @@
+<article>
+  <header>
+    <h1><a href="{{path('Bloghoven_permalink', {'permalink_id': entry.permalinkId})}}">{{entry.title}}</a></h1>
+  </header>
+  {{entry.content | markdown}}
+  <footer>
+    <p><small>Published: <time pubdate="pubdate">{{entry.postedAt|date("F jS \\a\\t g:ia")}}</time> | In: {% for category in entry.categories %}{{category.name}} {% endfor %}</small></p>
+  </footer>
+</article>
