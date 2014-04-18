@@ -24,5 +24,8 @@ class SymfonyseTagExtension extends Extension
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('services.yml');
+
+        $def = $container->getDefinition('symfonyse.tag.content_provider');
+        $def->replaceArgument(0, __DIR__.'/../Resources/data');
     }
 }

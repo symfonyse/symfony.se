@@ -1,3 +1,12 @@
-symfonyse_event_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SymfonyseEventBundle:Default:index }
+
+
+event_index:
+  pattern:  /index
+  defaults: { _controller: SymfonyseEventBundle:Event:index }
+
+
+event:
+  pattern:  /{permalink}
+  defaults: { _controller: SymfonyseEventBundle:Event:entry }
+  requirements:
+    permalink:  .+

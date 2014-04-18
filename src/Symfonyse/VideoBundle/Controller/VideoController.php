@@ -1,21 +1,32 @@
 <?php
 
-namespace Symfonyse\TagBundle\Controller;
+namespace Symfonyse\VideoBundle\Controller;
 
-use Symfonyse\TagBundle\Entity\Tag;
 use Symfonyse\CoreBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 
 /**
- * Class TagController
+ * Class VideoController
  *
  * @author Tobias Nyholm
  *
  */
-class TagController extends BaseController
+class VideoController extends BaseController
 {
+    /**
+     *
+     * @Template
+     *
+     * @return array
+     */
+    public function indexAction()
+    {
+
+        return array();
+    }
+
     /**
      *
      * @Template
@@ -24,14 +35,14 @@ class TagController extends BaseController
      */
     public function entryAction($permalink)
     {
-        if (null === $file = $this->get('symfonyse.tag.content_provider')->getFile($permalink)) {
+        if (null === $file = $this->get('symfonyse.video.content_provider')->getFile($permalink)) {
             throw $this->createNotFoundException();
         }
 
-        $tag=new Tag($file);
+        $video=new Video($file);
 
         return array(
-            'tag'=>$tag,
+            'video'=>$video,
         );
     }
 } 

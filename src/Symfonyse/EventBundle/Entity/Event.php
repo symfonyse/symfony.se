@@ -1,17 +1,17 @@
 <?php
 
-namespace Symfonyse\TagBundle\Entity;
+
+namespace Symfonyse\EventBundle\Entity;
 
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;
 
 /**
- * Class Tag
+ * Class Event
  *
  * @author Tobias Nyholm
  *
- *
  */
-class Tag extends FileBasedEntity
+class Event extends FileBasedEntity
 {
 
-}
+} 

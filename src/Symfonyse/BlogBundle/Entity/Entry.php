@@ -31,16 +31,6 @@ class Entry extends FileBasedEntity
     }
 
     /**
-     * Get the title
-     *
-     * @return mixed|null
-     */
-    public function getTitle()
-    {
-        return $this->getMeta('title');
-    }
-
-    /**
      * Get the excerpt
      *
      * @return string

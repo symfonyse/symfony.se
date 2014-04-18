@@ -1,0 +1,12 @@
+{% extends "SymfonyseEventBundle::base.html.twig" %}
+
+{% block title %}
+{{event.title}} — {{parent()}}
+{% endblock %}
+
+{% block content %}
+  <h1>{{event.title}}</h1>
+
+    {{ event.content|markdown }}
+
+{% endblock %}

@@ -1,17 +1,17 @@
 <?php
 
-namespace Symfonyse\TagBundle\Entity;
+
+namespace Symfonyse\ContentBundle\Entity;
 
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;
 
 /**
- * Class Tag
+ * Class Page
  *
  * @author Tobias Nyholm
  *
- *
  */
-class Tag extends FileBasedEntity
+class Page extends FileBasedEntity
 {
 
-}
+} 

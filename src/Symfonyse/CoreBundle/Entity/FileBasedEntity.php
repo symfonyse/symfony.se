@@ -120,6 +120,7 @@ abstract class FileBasedEntity
      */
     public function getMeta($name)
     {
+        $this->loadFile();
         if (!isset($this->meta[$name])) {
             return null;
         }
@@ -150,5 +151,19 @@ abstract class FileBasedEntity
         }
 
         return $tags;
+    }
+
+    /**
+     * Get the title
+     *
+     * @return mixed|null
+     */
+    public function getTitle()
+    {
+        if (null === $title = $this->getMeta('title')) {
+            return $this->fileInfo->getPermalink();
+        }
+
+        return $title;
     }
 }

@@ -1,3 +1,5 @@
-symfonyse_author_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SymfonyseAuthorBundle:Default:index }
+author:
+  pattern:  /{permalink}
+  defaults: { _controller: SymfonyseTagBundle:Tag:entry }
+  requirements:
+    permalink:  .+

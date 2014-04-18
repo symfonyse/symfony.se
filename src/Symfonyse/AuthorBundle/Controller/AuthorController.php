@@ -1,20 +1,23 @@
 <?php
 
-namespace Symfonyse\TagBundle\Controller;
+namespace Symfonyse\AuthorBundle\Controller;
 
-use Symfonyse\TagBundle\Entity\Tag;
-use Symfonyse\CoreBundle\Controller\BaseController;
+
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+use Symfonyse\AuthorBundle\Entity\Author;
+use Symfonyse\ContentBundle\Entity\Page;
+use Symfonyse\CoreBundle\Controller\BaseController;
 
 /**
- * Class TagController
+ * Class PageController
  *
  * @author Tobias Nyholm
  *
+ *
  */
-class TagController extends BaseController
+class AuthorController extends BaseController
 {
     /**
      *
@@ -24,14 +27,14 @@ class TagController extends BaseController
      */
     public function entryAction($permalink)
     {
-        if (null === $file = $this->get('symfonyse.tag.content_provider')->getFile($permalink)) {
+        if (null === $file = $this->get('symfonyse.author.content_provider')->getFile($permalink)) {
             throw $this->createNotFoundException();
         }
 
-        $tag=new Tag($file);
+        $author=new Author($file);
 
         return array(
-            'tag'=>$tag,
+            'author'=>$author,
         );
     }
-} 
+}

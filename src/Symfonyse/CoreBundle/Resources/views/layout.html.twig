@@ -67,7 +67,9 @@
 
 {% block headerWrap %}
     <header role="banner">
-        {% block header %}{% endblock %}
+        {% block header %}
+        {% include "SymfonyseCoreBundle:Navigation:primary.html.twig" %}
+        {% endblock %}
     </header>
 {% endblock %}
 

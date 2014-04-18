@@ -1,17 +1,17 @@
 <?php
 
-namespace Symfonyse\TagBundle\Entity;
+
+namespace Symfonyse\AuthorBundle\Entity;
 
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;
 
 /**
- * Class Tag
+ * Class Author
  *
  * @author Tobias Nyholm
  *
- *
  */
-class Tag extends FileBasedEntity
+class Author extends FileBasedEntity
 {
 
-}
+} 

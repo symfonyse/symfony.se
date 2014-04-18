@@ -1,0 +1,12 @@
+{% extends "SymfonyseVideoBundle::base.html.twig" %}
+
+{% block title %}
+{{video.title}} — {{parent()}}
+{% endblock %}
+
+{% block content %}
+  <h1>{{video.title}}</h1>
+
+    {{ video.content|markdown }}
+
+{% endblock %}

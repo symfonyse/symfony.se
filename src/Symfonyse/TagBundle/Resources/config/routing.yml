@@ -1,3 +1,6 @@
-symfonyse_tag_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SymfonyseTagBundle:Default:index }
+
+tag:
+  pattern:  /{permalink}
+  defaults: { _controller: SymfonyseTagBundle:Tag:entry }
+  requirements:
+    permalink:  .+

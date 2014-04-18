@@ -24,7 +24,6 @@ class DefaultController extends BaseController
      */
     public function homepageAction()
     {
-
         return array();
     }
 }

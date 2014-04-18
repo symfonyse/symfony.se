@@ -1,3 +1,11 @@
-symfonyse_video_homepage:
-    pattern:  /hello/{name}
-    defaults: { _controller: SymfonyseVideoBundle:Default:index }
+
+
+video_index:
+  pattern:  /index
+  defaults: { _controller: SymfonyseVideoBundle:Video:index }
+
+video:
+  pattern:  /{permalink}
+  defaults: { _controller: SymfonyseVideoBundle:Video:entry }
+  requirements:
+    permalink:  .+

@@ -1,15 +1,10 @@
-symfonyse_blog_index:
+blog_index:
   pattern:  /index
   defaults: { _controller: SymfonyseBlogBundle:Blog:index }
 
-symfonyse_blog_entry:
+blog:
   pattern:  /post/{permalink}
   defaults: { _controller: SymfonyseBlogBundle:Blog:entry }
   requirements:
     permalink:  .+
 
-symfonyse_blog_tag:
-  pattern:  /tag/{permalink}
-  defaults: { _controller: SymfonyseBlogBundle:Tag:entry }
-  requirements:
-    permalink:  .+

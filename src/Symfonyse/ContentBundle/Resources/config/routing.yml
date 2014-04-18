@@ -1,3 +1,9 @@
-symfonyse_homepage:
+homepage:
     pattern:  /
     defaults: { _controller: SymfonyseContentBundle:Default:homepage }
+
+page:
+  pattern:  /page/{permalink}
+  defaults: { _controller: SymfonyseContentBundle:Page:page }
+  requirements:
+    permalink:  .+

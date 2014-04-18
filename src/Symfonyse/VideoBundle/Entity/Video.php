@@ -1,17 +1,17 @@
 <?php
 
-namespace Symfonyse\TagBundle\Entity;
+
+namespace Symfonyse\VideoBundle\Entity;
 
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;
 
 /**
- * Class Tag
+ * Class Video
  *
  * @author Tobias Nyholm
  *
- *
  */
-class Tag extends FileBasedEntity
+class Video extends FileBasedEntity
 {
 
-}
+} 

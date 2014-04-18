@@ -1,6 +1,6 @@
 symfonyse_tag:
     resource: "@SymfonyseTagBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /tag
 
 symfonyse_event:
     resource: "@SymfonyseEventBundle/Resources/config/routing.yml"

@@ -1,11 +1,12 @@
 {% extends "SymfonyseTagBundle::base.html.twig" %}
 
 {% block title %}
-{{tag.name}} — {{parent()}}
+{{tag.title}} — {{parent()}}
 {% endblock %}
 
 {% block content %}
-  <h1>{{tag.name}}</h1>
+  <h1>{{tag.title}}</h1>
 
+    {{ tag.content|markdown }}
 
 {% endblock %}

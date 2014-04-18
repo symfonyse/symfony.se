@@ -1,0 +1,12 @@
+{% extends "SymfonyseAuthorBundle::base.html.twig" %}
+
+{% block title %}
+{{author.title}} — {{parent()}}
+{% endblock %}
+
+{% block content %}
+  <h1>{{author.title}}</h1>
+
+    {{ author.content|markdown }}
+
+{% endblock %}
