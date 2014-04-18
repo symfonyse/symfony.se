@@ -145,7 +145,7 @@ abstract class FileBasedEntity
             return $this->getModifiedAt();
         }
 
-        return \DateTime::createFromFormat('U', $posted);
+        return new \DateTime($posted);
     }
 
     public function getModifiedAt()

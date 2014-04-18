@@ -114,7 +114,7 @@ class CoreContentProvider
      * @param \Symfonyse\CoreBundle\Entity\FileBasedEntity[] $entries
      *
      */
-    public function sortEntries($entries)
+    public function sortEntries(&$entries)
     {
         usort($entries, function($a, $b) {
             $timeDiff = $b->getPostedAt()->getTimestamp() - $a->getPostedAt()->getTimestamp();
@@ -125,5 +125,6 @@ class CoreContentProvider
 
             return $timeDiff;
         });
+
     }
 }
