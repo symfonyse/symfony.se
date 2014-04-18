@@ -9,4 +9,4 @@ event:
   pattern:  /{permalink}
   defaults: { _controller: SymfonyseEventBundle:Event:entry }
   requirements:
-    permalink:  .+
+    permalink:  "[0-9]+/.+"

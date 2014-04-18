@@ -3,8 +3,8 @@ blog_index:
   defaults: { _controller: SymfonyseBlogBundle:Blog:index }
 
 blog:
-  pattern:  /post/{permalink}
+  pattern:  /{permalink}
   defaults: { _controller: SymfonyseBlogBundle:Blog:entry }
   requirements:
-    permalink:  .+
+    permalink:  "[0-9]+/.+"
 
