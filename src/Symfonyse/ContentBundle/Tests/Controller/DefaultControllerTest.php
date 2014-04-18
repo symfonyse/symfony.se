@@ -2,16 +2,16 @@
 
 namespace Symfonyse\ContentBundle\Tests\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfonyse\CoreBundle\Tests\BaseTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class DefaultControllerTest extends BaseTestCase
 {
-    public function testIndex()
+    public function testHomepageAction()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', '/hello/Fabien');
+        $crawler = $client->request('GET', $this->generateUrl('homepage'));
 
-        $this->assertTrue($crawler->filter('html:contains("Hello Fabien")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("Startsida")')->count() > 0);
     }
 }

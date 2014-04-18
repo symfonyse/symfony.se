@@ -6,6 +6,7 @@ use Symfonyse\CoreBundle\Controller\BaseController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
+use Symfonyse\VideoBundle\Entity\Video;
 
 /**
  * Class VideoController

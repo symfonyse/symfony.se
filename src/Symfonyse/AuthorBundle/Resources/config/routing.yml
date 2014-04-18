@@ -1,5 +1,5 @@
 author:
   pattern:  /{permalink}
-  defaults: { _controller: SymfonyseTagBundle:Tag:entry }
+  defaults: { _controller: SymfonyseAuthorBundle:Author:entry }
   requirements:
     permalink:  .+
