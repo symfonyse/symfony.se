@@ -24,14 +24,16 @@ class TagController extends BaseController
      */
     public function entryAction($permalink)
     {
-        if (null === $file = $this->get('symfonyse.tag.content_provider')->getFile($permalink)) {
+        $cp=$this->get('symfonyse.tag.content_provider');
+        if (null === $tag = $cp->getEntry($permalink)) {
             throw $this->createNotFoundException();
         }
 
-        $tag=new Tag($file);
+        $entries = $cp->getEntriesByTag($tag);
 
         return array(
             'tag'=>$tag,
+            'entries'=>$entries,
         );
     }
 } 

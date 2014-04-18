@@ -13,5 +13,8 @@ use Symfonyse\CoreBundle\Entity\FileBasedEntity;
  */
 class Video extends FileBasedEntity
 {
-
+    function getType()
+    {
+        return 'video';
+    }
 } 

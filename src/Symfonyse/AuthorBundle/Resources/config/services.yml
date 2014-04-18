@@ -3,5 +3,7 @@ parameters:
 
 services:
   symfonyse.author.content_provider:
-    class: Symfonyse\CoreBundle\ContentProvider\CoreContentProvider
+    class: Symfonyse\AuthorBundle\ContentProvider\ContentProvider
     arguments: [~ , 'md']
+    calls:
+      - [setContentProviders, [[@symfonyse.blog.content_provider, @symfonyse.video.content_provider, @symfonyse.event.content_provider]]]

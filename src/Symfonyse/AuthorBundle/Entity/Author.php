@@ -13,5 +13,8 @@ use Symfonyse\CoreBundle\Entity\FileBasedEntity;
  */
 class Author extends FileBasedEntity
 {
-
-} 
+    function getType()
+    {
+        return 'author';
+    }
+}

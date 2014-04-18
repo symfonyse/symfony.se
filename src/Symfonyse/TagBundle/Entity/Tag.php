@@ -13,5 +13,8 @@ use Symfonyse\CoreBundle\Entity\FileBasedEntity;
  */
 class Tag extends FileBasedEntity
 {
-
+    function getType()
+    {
+        return 'tag';
+    }
 }

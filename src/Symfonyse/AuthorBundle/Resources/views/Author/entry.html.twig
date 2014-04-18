@@ -9,4 +9,13 @@
 
     {{ author.content|markdown }}
 
+
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <a href="{{ path(entry.type, {permalink:entry.permalink}) }}">{{ entry.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}

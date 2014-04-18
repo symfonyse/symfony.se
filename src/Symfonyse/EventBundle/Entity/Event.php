@@ -13,5 +13,8 @@ use Symfonyse\CoreBundle\Entity\FileBasedEntity;
  */
 class Event extends FileBasedEntity
 {
-
+    function getType()
+    {
+        return 'event';
+    }
 } 

@@ -27,14 +27,16 @@ class AuthorController extends BaseController
      */
     public function entryAction($permalink)
     {
-        if (null === $file = $this->get('symfonyse.author.content_provider')->getFile($permalink)) {
+        $cp=$this->get('symfonyse.author.content_provider');
+        if (null === $author = $cp->getEntry($permalink)) {
             throw $this->createNotFoundException();
         }
 
-        $author=new Author($file);
+        $entries = $cp->getEntriesByAuthor($author);
 
         return array(
             'author'=>$author,
+            'entries'=>$entries,
         );
     }
 }

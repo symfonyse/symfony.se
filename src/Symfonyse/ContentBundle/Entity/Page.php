@@ -13,5 +13,8 @@ use Symfonyse\CoreBundle\Entity\FileBasedEntity;
  */
 class Page extends FileBasedEntity
 {
-
+    function getType()
+    {
+        return 'page';
+    }
 } 

@@ -47,6 +47,13 @@ abstract class FileBasedEntity
     }
 
     /**
+     * Get the type of the entity. This should be the same as the route
+     *
+     * @return string
+     */
+    abstract function getType();
+
+    /**
      * Get the absolute path to the file
      *
      * @return string
