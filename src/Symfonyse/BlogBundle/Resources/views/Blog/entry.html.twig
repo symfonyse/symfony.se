@@ -5,10 +5,10 @@
 {% endblock %}
 
 {% block content %}
-    <article>
-        <header>
+    <div>
+
             <h1><a href="{{path('blog', {'permalink': entry.permalink})}}">{{entry.title}}</a></h1>
-        </header>
+
         {{ entry.content|markdown }}
         <div>
             <p><small>Published: {{ _misc.date(entry.postedAt, 'long') }} |
@@ -16,5 +16,5 @@
                     In: {{ _misc.tags(entry.meta('tags')) }}
                 </small></p>
         </div>
-    </article>
+    </div>
 {% endblock %}

@@ -21,7 +21,8 @@ class PageController extends BaseController
      *
      * @Template
      *
-     * @Cache(expires="+2weeks", public=true)
+     * cache for 1 week and 1 hour in private cache
+     * @Cache(smaxage=604800, maxage=3600)
      *
      * @return array
      */

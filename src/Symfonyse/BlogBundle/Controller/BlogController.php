@@ -20,7 +20,8 @@ class BlogController extends BaseController
      *
      * @Template
      *
-     * @Cache(expires="+2weeks", public=true)
+     * cache for 2 weeks and 20 minutes in private cache
+     * @Cache(smaxage=1209600, maxage=1200)
      *
      * @return array
      */
@@ -39,7 +40,8 @@ class BlogController extends BaseController
      *
      * @Template
      *
-     * @Cache(expires="+1week", public=true)
+     * cache for 1 week and 1 hour in private cache
+     * @Cache(smaxage=604800, maxage=3600)
      *
      * @return array
      */

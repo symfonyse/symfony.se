@@ -20,7 +20,8 @@ class EventController extends BaseController
      *
      * @Template
      *
-     * @Cache(expires="+7days", public=true)
+     * cache for 1 week and 10 minutes in private cache
+     * @Cache(smaxage=604800, maxage=600)
      *
      * @return array
      */
@@ -40,7 +41,8 @@ class EventController extends BaseController
      *
      * @Template
      *
-     * @Cache(expires="+5days", public=true)
+     * cache for 3 days and 10 minutes in private cache
+     * @Cache(smaxage=259200, maxage3600)
      *
      * @return array
      */
