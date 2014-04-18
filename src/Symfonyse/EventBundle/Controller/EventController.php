@@ -26,7 +26,10 @@ class EventController extends BaseController
      */
     public function indexAction()
     {
-        $events=$this->get('symfonyse.event.content_provider')->getAllEntries();
+        $cp=$this->get('symfonyse.event.content_provider');
+        $events=$cp->getAllEntries();
+
+        $cp->sortEntries($events);
 
         return array(
             'events'=>$events,

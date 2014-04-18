@@ -32,6 +32,7 @@ class TagController extends BaseController
         }
 
         $entries = $cp->getEntriesByTag($tag);
+        $cp->sortEntries($entries);
 
         return array(
             'tag'=>$tag,

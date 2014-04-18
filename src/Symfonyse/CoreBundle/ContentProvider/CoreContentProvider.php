@@ -125,7 +125,5 @@ class CoreContentProvider
 
             return $timeDiff;
         });
-
-        return $entries;
     }
 }

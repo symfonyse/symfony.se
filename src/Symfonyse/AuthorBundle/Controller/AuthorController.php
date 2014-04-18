@@ -35,6 +35,7 @@ class AuthorController extends BaseController
         }
 
         $entries = $cp->getEntriesByAuthor($author);
+        $cp->sortEntries($entries);
 
         return array(
             'author'=>$author,

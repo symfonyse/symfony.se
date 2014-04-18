@@ -26,7 +26,9 @@ class BlogController extends BaseController
      */
     public function indexAction()
     {
-        $entries=$this->get('symfonyse.blog.content_provider')->getAllEntries();
+        $cp=$this->get('symfonyse.blog.content_provider');
+        $entries=$cp->getAllEntries();
+        $cp->sortEntries($entries);
 
         return array(
             'entries'=>$entries,

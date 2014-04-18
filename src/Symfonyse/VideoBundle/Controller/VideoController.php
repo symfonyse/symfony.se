@@ -26,7 +26,10 @@ class VideoController extends BaseController
      */
     public function indexAction()
     {
-        $videos=$this->get('symfonyse.video.content_provider')->getAllEntries();
+        $cp=$this->get('symfonyse.video.content_provider');
+        $videos=$cp->getAllEntries();
+
+        $cp->sortEntries($videos);
 
         return array(
             'videos'=>$videos,
