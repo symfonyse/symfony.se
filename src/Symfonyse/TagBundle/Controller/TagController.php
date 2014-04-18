@@ -20,6 +20,8 @@ class TagController extends BaseController
      *
      * @Template
      *
+     * @Cache(expires="+2weeks", public=true)
+     *
      * @return array
      */
     public function entryAction($permalink)

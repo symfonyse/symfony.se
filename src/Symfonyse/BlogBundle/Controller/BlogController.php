@@ -20,6 +20,8 @@ class BlogController extends BaseController
      *
      * @Template
      *
+     * @Cache(expires="+2weeks", public=true)
+     *
      * @return array
      */
     public function indexAction()
@@ -34,6 +36,8 @@ class BlogController extends BaseController
     /**
      *
      * @Template
+     *
+     * @Cache(expires="+1week", public=true)
      *
      * @return array
      */

@@ -20,6 +20,8 @@ class DefaultController extends BaseController
      *
      * @Template
      *
+     * @Cache(expires="+2weeks", public=true)
+     *
      * @return array
      */
     public function homepageAction()

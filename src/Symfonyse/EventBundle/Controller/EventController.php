@@ -6,7 +6,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfonyse\CoreBundle\Controller\BaseController;
-use Symfonyse\EventBundle\Entity\Event;
 
 /**
  * Class EventController
@@ -20,6 +19,8 @@ class EventController extends BaseController
     /**
      *
      * @Template
+     *
+     * @Cache(expires="+7days", public=true)
      *
      * @return array
      */
@@ -35,6 +36,8 @@ class EventController extends BaseController
     /**
      *
      * @Template
+     *
+     * @Cache(expires="+5days", public=true)
      *
      * @return array
      */

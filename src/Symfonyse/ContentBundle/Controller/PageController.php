@@ -18,11 +18,13 @@ use Symfonyse\CoreBundle\Controller\BaseController;
 class PageController extends BaseController
 {
     /**
- *
- * @Template
- *
- * @return array
- */
+     *
+     * @Template
+     *
+     * @Cache(expires="+2weeks", public=true)
+     *
+     * @return array
+     */
     public function pageAction($permalink)
     {
         if (null === $file = $this->get('symfonyse.content.content_provider')->getFile($permalink)) {
