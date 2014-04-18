@@ -2,5 +2,5 @@
 
 services:
   symfonyse.blog.content_provider:
-    class: Symfonyse\CoreBundle\ContentProvider\CoreContentProvider
+    class: Symfonyse\BlogBundle\ContentProvider\ContentProvider
     arguments: [~ , 'md']

@@ -11,7 +11,7 @@ use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
  * @author Tobias Nyholm
  *
  */
-class BaseTestCase extends WebTestCase
+abstract class BaseTestCase extends WebTestCase
 {
     /**
      * @var \Symfony\Component\DependencyInjection\ContainerInterface container

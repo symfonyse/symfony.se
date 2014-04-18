@@ -8,4 +8,12 @@ Blogg — {{parent()}}
 
     Detta är våra blogginlägg
 
+    <ul>
+        {% for entry in entries %}
+            <li>
+                <a href="{{ path('blog', {permalink:entry.permalink}) }}">{{ entry.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
 {% endblock %}

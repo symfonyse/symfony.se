@@ -24,8 +24,11 @@ class BlogController extends BaseController
      */
     public function indexAction()
     {
+        $entries=$this->get('symfonyse.blog.content_provider')->getAllEntries();
 
-        return array();
+        return array(
+            'entries'=>$entries,
+        );
     }
 
     /**
@@ -36,11 +39,9 @@ class BlogController extends BaseController
      */
     public function entryAction($permalink)
     {
-        if (null === $file = $this->get('symfonyse.blog.content_provider')->getFile($permalink)) {
+        if (null === $entry = $this->get('symfonyse.blog.content_provider')->getEntry($permalink)) {
             throw $this->createNotFoundException();
         }
-
-        $entry=new Entry($file);
 
         return array(
             'entry'=>$entry,

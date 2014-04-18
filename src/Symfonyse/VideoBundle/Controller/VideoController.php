@@ -24,8 +24,11 @@ class VideoController extends BaseController
      */
     public function indexAction()
     {
+        $videos=$this->get('symfonyse.video.content_provider')->getAllEntries();
 
-        return array();
+        return array(
+            'videos'=>$videos,
+        );
     }
 
     /**
@@ -36,11 +39,9 @@ class VideoController extends BaseController
      */
     public function entryAction($permalink)
     {
-        if (null === $file = $this->get('symfonyse.video.content_provider')->getFile($permalink)) {
+        if (null === $video = $this->get('symfonyse.video.content_provider')->getEntry($permalink)) {
             throw $this->createNotFoundException();
         }
-
-        $video=new Video($file);
 
         return array(
             'video'=>$video,

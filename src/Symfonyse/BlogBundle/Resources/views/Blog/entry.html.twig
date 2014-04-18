@@ -11,10 +11,8 @@
         </header>
         {{ entry.content|markdown }}
         <div>
-            <p><small>Published: <time pubdate="pubdate">{{entry.postedAt|date("F jS \\a\\t g:ia")}}</time> | In: 
-                    {% for tag in entry.tags %}
-                        <a href="{{path('tag', {'permalink': tag})}}">{{ tag }}</a>
-                    {% endfor %}
+            <p><small>Published: {{ _misc.date(entry.postedAt, 'long') }} |
+                    In: {{ _misc.tags(entry.tags) }}
                 </small></p>
         </div>
     </article>

@@ -25,8 +25,11 @@ class EventController extends BaseController
      */
     public function indexAction()
     {
+        $events=$this->get('symfonyse.event.content_provider')->getAllEntries();
 
-        return array();
+        return array(
+            'events'=>$events,
+        );
     }
 
     /**
@@ -37,11 +40,9 @@ class EventController extends BaseController
      */
     public function entryAction($permalink)
     {
-        if (null === $file = $this->get('symfonyse.event.content_provider')->getFile($permalink)) {
+        if (null === $event = $this->get('symfonyse.event.content_provider')->getEntry($permalink)) {
             throw $this->createNotFoundException();
         }
-
-        $event=new Event($file);
 
         return array(
             'event'=>$event,

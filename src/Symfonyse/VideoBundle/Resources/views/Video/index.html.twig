@@ -8,4 +8,12 @@ Video — {{parent()}}
 
     Detta är våra videor
 
+    <ul>
+    {% for video in videos %}
+        <li>
+        <a href="{{ path('video', {permalink:video.permalink}) }}">{{ video.title }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+
 {% endblock %}

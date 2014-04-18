@@ -3,5 +3,5 @@ parameters:
 
 services:
   symfonyse.video.content_provider:
-    class: Symfonyse\CoreBundle\ContentProvider\CoreContentProvider
+    class: Symfonyse\VideoBundle\ContentProvider\ContentProvider
     arguments: [~ , 'md']

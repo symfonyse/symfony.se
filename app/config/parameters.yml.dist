@@ -14,6 +14,6 @@ parameters:
     # Remove catch all in prod
     mailer_catch_all:
 
-    locale:            en
+    locale:            sv
     secret:            ThisTokenIsNotSoSecretChangeIt
     site_domain:       localhost

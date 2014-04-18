@@ -34,3 +34,9 @@
         {% endif %}
     </time>
 {% endmacro %}
+
+{% macro tags(tags) %}
+    {% for tag in tags %}
+        <a href="{{ path('tag', {'permalink': tag|lower|replace({' ':'-'})} ) }}">{{ tag }}</a>
+    {% endfor %}
+{% endmacro %}

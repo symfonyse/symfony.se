@@ -3,5 +3,5 @@ parameters:
 
 services:
   symfonyse.event.content_provider:
-    class: Symfonyse\CoreBundle\ContentProvider\CoreContentProvider
+    class: Symfonyse\EventBundle\ContentProvider\ContentProvider
     arguments: [~ , 'md']

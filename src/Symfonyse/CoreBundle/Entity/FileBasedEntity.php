@@ -130,7 +130,12 @@ abstract class FileBasedEntity
 
     public function getPostedAt()
     {
-        return \DateTime::createFromFormat('U', $this->getMeta('published'));
+        $posted=$this->getMeta('published');
+        if (!$posted) {
+            return $this->getModifiedAt();
+        }
+
+        return \DateTime::createFromFormat('U', $posted);
     }
 
     public function getModifiedAt()
@@ -161,9 +166,20 @@ abstract class FileBasedEntity
     public function getTitle()
     {
         if (null === $title = $this->getMeta('title')) {
-            return $this->fileInfo->getPermalink();
+            return $this->getPermalink();
         }
 
         return $title;
+    }
+
+    /**
+     * get the perma link
+     *
+     *
+     * @return string
+     */
+    public function getPermalink()
+    {
+        return $this->fileInfo->getPermalink();
     }
 }
