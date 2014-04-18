@@ -48,7 +48,7 @@ class CoreContentProvider
      *
      * @throws \RuntimeException
      */
-    protected function validatePermalinkId($permalink)
+    protected function validatePermalink($permalink)
     {
         if (strpos($permalink, '..') !== false) {
             throw new \RuntimeException("Permalinks with double dots are not allowed with the current provider, and are always advised against.");
@@ -64,7 +64,7 @@ class CoreContentProvider
      */
     public function getFile($permalink)
     {
-        $this->validatePermalinkId($permalink);
+        $this->validatePermalink($permalink);
         $file= new FileInfo($this->dataDir.'/'.$permalink.'.'.$this->fileExtension, $permalink);
 
         if ($file->isFile()) {

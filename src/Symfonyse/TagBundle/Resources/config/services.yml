@@ -1,0 +1,7 @@
+parameters:
+#    symfonyse_tag.example.class: Symfonyse\TagBundle\Example
+
+services:
+#    symfonyse_tag.example:
+#        class: %symfonyse_tag.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

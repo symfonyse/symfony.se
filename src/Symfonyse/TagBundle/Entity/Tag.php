@@ -1,6 +1,6 @@
 <?php
 
-namespace Symfonyse\BlogBundle\Entity;
+namespace Symfonyse\TagBundle\Entity;
 
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;
 

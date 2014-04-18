@@ -13,29 +13,24 @@ class FileInfo extends \SplFileInfo
     /**
      * @var string permalink
      *
+     * This is the path relative the dataDir. This might contain slashes.
+     *
      */
     private $permalink;
 
     /**
-     * @var string dataDir
-     *
-     */
-    private $dataDir;
-
-    /**
-     * @param string $path
+     * @param string $fullPath
      * @param string $permalink
      */
-    public function __construct($path, $permalink)
+    public function __construct($fullPath, $permalink)
     {
         $this->permalink = $permalink;
-        $this->dataDir = $path;
-        parent::__construct($path);
+        parent::__construct($fullPath);
     }
 
     /**
      *
-     * @return mixed
+     * @return string
      */
     public function getPermalink()
     {
@@ -43,12 +38,12 @@ class FileInfo extends \SplFileInfo
     }
 
     /**
+     * Get the content of the file
      *
      * @return string
      */
-    public function getDataDir()
+    public function getContent()
     {
-        return $this->dataDir;
+        return file_get_contents($this->getRealPath());
     }
-
 }

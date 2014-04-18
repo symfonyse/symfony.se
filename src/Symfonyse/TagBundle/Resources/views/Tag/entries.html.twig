@@ -1,0 +1,11 @@
+{% extends "SymfonyseTagBundle::base.html.twig" %}
+
+{% block title %}
+{{tag.name}} — {{parent()}}
+{% endblock %}
+
+{% block content %}
+  <h1>{{tag.name}}</h1>
+
+
+{% endblock %}

@@ -25,6 +25,7 @@ class AppKernel extends Kernel
             new Symfonyse\AuthorBundle\SymfonyseAuthorBundle(),
             new Symfonyse\CoreBundle\SymfonyseCoreBundle(),
             new Symfonyse\EventBundle\SymfonyseEventBundle(),
+            new Symfonyse\TagBundle\SymfonyseTagBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

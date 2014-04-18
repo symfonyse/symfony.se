@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Symfonyse\BlogBundle\Controller;
+namespace Symfonyse\TagBundle\Controller;
 
 use Symfonyse\BlogBundle\Entity\Tag;
 use Symfonyse\CoreBundle\Controller\BaseController;

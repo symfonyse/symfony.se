@@ -9,9 +9,9 @@
         <header>
             <h1><a href="{{path('symfonyse_blog_entry', {'permalink': entry.permalink})}}">{{entry.title}}</a></h1>
         </header>
-        {{entry.content | markdown}}
-        <footer>
+        {{ entry.content|markdown }}
+        <div>
             <p><small>Published: <time pubdate="pubdate">{{entry.postedAt|date("F jS \\a\\t g:ia")}}</time> | In: {% for tag in entry.tags %}{{tag.name}} {% endfor %}</small></p>
-        </footer>
+        </div>
     </article>
 {% endblock %}
