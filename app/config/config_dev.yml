@@ -26,6 +26,3 @@ monolog:
 
 assetic:
     use_controller: false
-
-swiftmailer:
-    delivery_address: %mailer_catch_all%
