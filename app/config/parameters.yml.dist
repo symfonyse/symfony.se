@@ -6,13 +6,6 @@ parameters:
     database_user:     root
     database_password: ~
 
-    mailer_user:       ~
-    mailer_password:   ~
-    mailer_from: ~
-    mailer_from_name:
-
-    # Remove catch all in prod
-    mailer_catch_all:
 
     locale:            sv
     secret:            ThisTokenIsNotSoSecretChangeIt

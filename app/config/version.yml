@@ -1,0 +1,3 @@
+#This is an auto generated file that will be updated at every deploy
+parameters:
+  git_commit: 'sha1'

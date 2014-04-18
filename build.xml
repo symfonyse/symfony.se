@@ -4,7 +4,7 @@
     <target name="test" depends="prepare,composer,phpunit"/>
 
     <!-- This target should be used when you what to update a currently running version of the website -->
-    <target name="deploy" depends="git-pull,deploy-no-pull"/>
+    <target name="deploy" depends="git-pull,bump-version,deploy-no-pull"/>
 
     <!-- This makes a deploy but does not pull the git -->
     <target name="deploy-no-pull" depends="prepare,composer,update-assets,clear-cache"/>
@@ -45,14 +45,7 @@
         </exec>
     </target>
 
-
-
     <target name="assetic" description="Dump the assetics">
-        <!-- move javascript translations -->
-        <exec executable="php" dir="${basedir}" failonerror="true">
-            <arg line="app/console bazinga:expose-translation:dump web/js"/>
-        </exec>
-
         <exec executable="php" dir="${basedir}" failonerror="true">
             <arg line="app/console assetic:dump --env=prod --no-debug"/>
         </exec>
@@ -74,15 +67,9 @@
     </target>
 
 
-    <target name="clear-cache" depends="clear-sessions,clear-logs" description="Clear all the caches">
+    <target name="clear-cache" depends="clear-sessions" description="Clear all the caches">
         <exec executable="php" dir="${basedir}" failonerror="true">
             <arg line="app/console cache:clear --no-warmup --env=prod --no-debug"/>
-        </exec>
-        <exec executable="php" dir="${basedir}" failonerror="false">
-            <arg line="app/console cache:clear --no-warmup --env=demo --no-debug"/>
-        </exec>
-        <exec executable="php" dir="${basedir}" failonerror="true">
-            <arg line="app/console cache:clear --no-warmup --env=test --no-debug"/>
         </exec>
         <exec executable="php" dir="${basedir}" failonerror="true">
             <arg line="app/console cache:clear --no-warmup --env=dev --no-debug"/>
@@ -100,6 +87,12 @@
     <target name="bower" description="Update the bower dependencies">
         <exec executable="bower" dir="${basedir}" failonerror="true">
             <arg line="install"/>
+        </exec>
+    </target>
+
+    <target name="bump-version" description="Update the git version in the configs">
+        <exec executable="sh" dir="${basedir}" failonerror="true">
+            <arg value="app/var/scripts/updateVersion.sh" />
         </exec>
     </target>
 </project>

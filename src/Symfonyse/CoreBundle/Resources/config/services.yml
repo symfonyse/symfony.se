@@ -1,5 +1,5 @@
 parameters:
-#    symfonyse_core.example.class: Symfonyse\CoreBundle\Example
+  assetic.value_supplier.class: Symfonyse\CoreBundle\Assetic\CustomValueSupplier
 
 services:
   symfonyse.core.twig.intl_extension:

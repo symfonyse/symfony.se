@@ -37,10 +37,10 @@
     <title>{% block title %}Symfony Sverige{% endblock %}</title>
 
     {% block stylesheets %}
-        {% stylesheets filter='cssrewrite' output='static/styles.css'
+        {% stylesheets filter='cssrewrite' output='static/styles.{version}.css'
         '@SymfonyseCoreBundle/Resources/public/css/*'
         'bower/Ink/css/ink.css'
-
+        vars=["version"]
         %}
         <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
         {% endstylesheets %}
@@ -94,7 +94,7 @@
 
 {% block javascripts %}
 
-    {% javascripts  output='static/scripts.js'
+    {% javascripts  output='static/scripts.{version}.js'
     'bower/jquery/jquery.js'
     'bower/Ink/js/holder.js'
     'bower/Ink/js/ink.js'
@@ -105,7 +105,7 @@
     'bower/jquery-timeago/jquery.timeago.js'
     'bower/jquery-timeago/locales/jquery.timeago.sv.js'
     'bower/hinclude/hinclude.js'
-
+    vars=["version"]
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
 

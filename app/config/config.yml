@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
+    - { resource: version.yml }
 
 framework:
     esi:             ~
@@ -37,6 +38,8 @@ assetic:
     debug:          %kernel.debug%
     use_controller: false
     bundles:        [ SymfonyseCoreBundle ]
+    variables:
+        version: [%git_commit%]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
@@ -63,14 +66,3 @@ doctrine:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
-# Swiftmailer Configuration
-swiftmailer:
-    transport: gmail
-    host:      %site_domain%
-    username:  %mailer_user%
-    password:  %mailer_password%
-    # Catch all emails. Use a valid email in develop but just a empty string in prod
-    delivery_address: %mailer_catch_all%
-    spool:
-      type: file
-      path: %kernel.root_dir%/EmailSpool
