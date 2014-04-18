@@ -12,7 +12,8 @@
         {{ entry.content|markdown }}
         <div>
             <p><small>Published: {{ _misc.date(entry.postedAt, 'long') }} |
-                    In: {{ _misc.tags(entry.tags) }}
+                    By: {{ _misc.authors(entry.meta('authors')) }}
+                    In: {{ _misc.tags(entry.meta('tags')) }}
                 </small></p>
         </div>
     </article>

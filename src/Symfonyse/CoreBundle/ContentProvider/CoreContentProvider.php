@@ -2,8 +2,6 @@
 
 namespace Symfonyse\CoreBundle\ContentProvider;
 
-use Bloghoven\BlosxomDirProviderBundle\Entity\Entry;
-use Bloghoven\BlosxomDirProviderBundle\Entity\Category;
 use Symfony\Component\Finder\Finder;
 use Symfonyse\CoreBundle\Model\FileInfo;
 

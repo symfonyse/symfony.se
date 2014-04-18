@@ -3,10 +3,13 @@
 namespace Symfonyse\CoreBundle\Entity;
 
 use Symfony\Component\Yaml\Yaml;
-use Symfonyse\CoreBundle\ContentProvider\CoreContentProvider;
 use Symfonyse\CoreBundle\Model\FileInfo;
 
 /**
+ * Class FileBasedEntity
+ *
+ * @author Tobias Nyholm
+ *
  *
  */
 abstract class FileBasedEntity
@@ -141,21 +144,6 @@ abstract class FileBasedEntity
     public function getModifiedAt()
     {
         return \DateTime::createFromFormat('U', $this->fileInfo->getMTime());
-    }
-
-    /**
-     * Get name of tags
-     *
-     * @return mixed|null
-     */
-    public function getTags()
-    {
-        $tags=$this->getMeta('tags');
-        if ($tags==null) {
-            return array();
-        }
-
-        return $tags;
     }
 
     /**
