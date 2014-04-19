@@ -37,16 +37,16 @@
     <!-- We filter because of the code coverage report -->
     <filter>
         <whitelist>
-            <directory suffix=".php">../src</directory>
+            <directory suffix=".php">../src/</directory>
             <exclude>
-                <directory>../src/*/*/Tests/</directory>
-                <directory>../src/*/*/*/Tests/</directory>
-                <directory>../src/*/*/*/*/Tests/</directory>
+                <directory>../src/*/*Bundle/Resources</directory>
+                <directory>../src/*/*Bundle/Tests</directory>
 
-                <directory>../src/*/*/Resources/</directory>
-                <directory>../src/*/*/*/Resources/</directory>
-                <directory>../src/*/*/*/*/Resources/</directory>
+                <directory>../src/*/*/*Bundle/Resources</directory>
+                <directory>../src/*/*/*Bundle/Tests</directory>
 
+                <directory>../src/*/*/*/*Bundle/Resources</directory>
+                <directory>../src/*/*/*/*Bundle/Tests</directory>
             </exclude>
         </whitelist>
     </filter>

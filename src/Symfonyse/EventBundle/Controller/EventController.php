@@ -42,7 +42,7 @@ class EventController extends BaseController
      * @Template
      *
      * cache for 3 days and 10 minutes in private cache
-     * @Cache(smaxage=259200, maxage3600)
+     * @Cache(smaxage=259200, maxage=3600)
      *
      * @return array
      */
