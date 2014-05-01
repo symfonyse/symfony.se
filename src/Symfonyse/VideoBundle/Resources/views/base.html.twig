@@ -1,5 +1,7 @@
 {% extends "SymfonyseCoreBundle::layout.html.twig" %}
 
+{% import "@SymfonyseVideo/Macro/video.html.twig" as _macro %}
+
 {% block breadcrumb %}
     {{ parent() }}
     <li><a href="{{ path('video_index') }}">Videos</a></li>

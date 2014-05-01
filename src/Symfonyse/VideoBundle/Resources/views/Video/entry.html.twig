@@ -13,7 +13,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                {# add video here#}
+                {{ _macro.video(video.meta('youtube')) }}
             </div>
             <div class="col-sm-6">
                 <h3 class="headline second-child"><span>{{ video.title }}</span></h3>
