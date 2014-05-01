@@ -31,9 +31,10 @@
     <title>{% block title %}Symfony Sverige{% endblock %}</title>
 
     {% block stylesheets %}
-        {% stylesheets filter='cssrewrite' output='static/styles.{version}.css'
+        {% stylesheets filter='cssrewrite,less' output='static/styles.{version}.css'
         'bower/font-awesome/css/font-awesome.css'
         '@SymfonyseCoreBundle/Resources/public/css/*'
+        '@SymfonyseCoreBundle/Resources/public/less/style.less'
         '@SymfonyseAuthorBundle/Resources/public/css/*'
 
         vars=["version"]

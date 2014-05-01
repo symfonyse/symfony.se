@@ -10,3 +10,5 @@ parameters:
     locale:            sv
     secret:            ThisTokenIsNotSoSecretChangeIt
     site_domain:       localhost
+
+    node_path: /usr/bin/node
