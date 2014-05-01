@@ -12,15 +12,15 @@ class EventControllerTest extends BaseTestCase
 
         $crawler = $client->request('GET', $this->generateUrl('event_index'));
 
-        $this->assertTrue($crawler->filter('html:contains("Detta är våra event")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("Planerade events")')->count() > 0);
     }
 
     public function testEntryAction()
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', $this->generateUrl('event', array('permalink'=>'2014/phparlor')));
+        $crawler = $client->request('GET', $this->generateUrl('event', array('permalink'=>'2014/phparlor-neo4j')));
 
-        $this->assertTrue($crawler->filter('html:contains("berätta om Neo4js och Symfony")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("Neo4js")')->count() > 0);
     }
 }
