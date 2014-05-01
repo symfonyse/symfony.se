@@ -4,17 +4,35 @@
 {{entry.title }} — {{parent()}}
 {% endblock %}
 
+{% block breadcrumb %}
+    {{ parent() }}
+    <li>Inlägg</li>
+{% endblock %}
+
 {% block content %}
-    <div>
+    <div class="blog">
+        <img src="img/author-1.jpg">
+        <div class="blog-desc">
+            <h3>
+                <a href="{{path('blog', {'permalink': entry.permalink})}}">{{entry.title}}</a>
+            </h3>
+            {% if entry.meta('tags') is not empty %}
+                <i class="fa-tags"></i>{{ _misc.tags(entry.meta('tags')) }}
+            {% endif %}
+            <hr>
 
-            <h1><a href="{{path('blog', {'permalink': entry.permalink})}}">{{entry.title}}</a></h1>
+            <p class="text-muted">av {{ _misc.authors(entry.meta('authors')) }} den {{ _misc.date(entry.postedAt, 'medium') }}</p>
+            {{ entry.content|markdown }}
 
-        {{ entry.content|markdown }}
-        <div>
-            <p><small>Published: {{ _misc.date(entry.postedAt, 'long') }} |
-                    By: {{ _misc.authors(entry.meta('authors')) }}
-                    In: {{ _misc.tags(entry.meta('tags')) }}
-                </small></p>
         </div>
+
+        <!-- Pagination -->
+        <!--
+        <ul class="pager pull-right">
+            <li><a href="#">Förgående</a></li>
+            <li><a href="#">Nästa</a></li>
+        </ul>
+        <div class="clearfix"></div>
+        -->
     </div>
 {% endblock %}

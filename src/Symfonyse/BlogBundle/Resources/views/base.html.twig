@@ -1,5 +1,50 @@
 {% extends "SymfonyseCoreBundle::layout.html.twig" %}
 
-{% block content %}
+{% block breadcrumb %}
+    {{ parent() }}
+    <li><a href="{{ path('blog_index') }}">Blogg</a></li>
+{% endblock %}
 
+{% block contentWrap %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-9">
+                {% block content %}
+
+                {% endblock %}
+            </div>
+            <div class="col-sm-3">
+                <!-- Search -->
+                <form role="form">
+                    <div class="well">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Search here...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-red" type="button"><i class="fa fa-search"></i></button>
+                      </span>
+                                </div><!-- /input-group -->
+                            </div><!-- /.col-lg-6 -->
+                        </div><!-- /.row -->
+                    </div>
+                </form>
+                <!-- Categories -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        Taggar
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li><a href="#">Databases (12)</a></li>
+                            <li><a href="#">Design (25)</a></li>
+                            <li><a href="#">Hardware (17)</a></li>
+                            <li><a href="#">Management (15)</a></li>
+                            <li><a href="#">Security (8)</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
 {% endblock %}
