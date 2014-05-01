@@ -1,0 +1,18 @@
+<div class="video">
+    <div class="blog-desc">
+        <h3>
+            <a href="{{path('video', {'permalink': entry.permalink})}}">{{entry.title}}</a>
+        </h3>
+        {% if entry.meta('tags') is not empty %}
+        <i class="fa-tags"></i>{{ _misc.tags(entry.meta('tags')) }}
+        {% endif %}
+        <hr>
+
+        <p class="text-muted">av {{ _misc.authors(entry.meta('authors')) }} den {{ _misc.date(entry.postedAt, 'medium') }}</p>
+        {{ entry.content|markdown }}
+
+
+        <a class="btn btn-lg btn-red" href="{{path('video', {'permalink': entry.permalink})}}">Läs mer</a>
+
+    </div>
+</div>
