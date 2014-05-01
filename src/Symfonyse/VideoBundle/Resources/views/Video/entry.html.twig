@@ -4,9 +4,40 @@
 {{video.title}} — {{parent()}}
 {% endblock %}
 
-{% block content %}
-  <h1>{{video.title}}</h1>
+{% block breadcrumb %}
+    {{ parent() }}
+    <li>Video</li>
+{% endblock %}
 
-    {{ video.content|markdown }}
+{% block contentWrap %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                {# add video here#}
+            </div>
+            <div class="col-sm-6">
+                <h3 class="headline second-child"><span>{{ video.title }}</span></h3>
+                {{ video.content|markdown }}
+                <br />
+                <h4 class="headline"><span>Info</span></h4>
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <td>Författare<td>
+                        <td>{{ _misc.authors(video.meta('authors')) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Taggar <i class="fa-tags"></i><td>
+                        <td>{{ _misc.tags(video.meta('tags')) }}</td>
+                    </tr>
+                    <tr>
+                        <td>Inspelad<td>
+                        <td>{{ _misc.date(video.postedAt, 'medium') }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div> <!-- / .row -->
 
+    </div> <!-- / .container -->
 {% endblock %}

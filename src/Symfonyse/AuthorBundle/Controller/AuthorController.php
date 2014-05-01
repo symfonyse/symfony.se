@@ -23,7 +23,8 @@ class AuthorController extends BaseController
      *
      * @Template
      *
-     * @Cache(expires="+2weeks", public=true)
+     * Two weeks
+     * @Cache(smaxage=1209600)
      *
      * @return array
      */

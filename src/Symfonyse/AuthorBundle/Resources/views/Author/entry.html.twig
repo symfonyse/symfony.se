@@ -4,18 +4,50 @@
 {{author.title}} — {{parent()}}
 {% endblock %}
 
-{% block content %}
-  <h1>{{author.title}}</h1>
+{% block contentWrap %}
+    <div class="container">
+        <div class="row">
 
-    {{ author.content|markdown }}
-
-
-    <ul>
-        {% for entry in entries %}
-            <li>
-                <a href="{{ path(entry.type, {permalink:entry.permalink}) }}">{{ entry.title }}</a>
-            </li>
-        {% endfor %}
-    </ul>
-
+            <div class="col-sm-12">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="user-avatar text-center">
+                            <img class="img-responsive center-block" src="img/photo-1.jpg" alt="...">
+                            {{author.title}}
+                            <p class="text-muted">{{author.meta("jobtitle")}}</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-7">
+                        <h3 class="second-child">{{author.title}}</h3>
+                        <p class="text-muted">
+                            {{ author.content|markdown }}
+                        </p>
+                        <p><a href="{{author.meta("website")}}">{{author.meta("website")}}</a></p>
+                        <div class="social user-social">
+                            <ul class="list-inline">
+                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <hr class="arrow-down">
+                        <ul>
+                            {% for entry in entries %}
+                                {% if entry.type == 'blog' %}
+                                    {% include "@SymfonyseBlog/Blog/extract.html.twig" %}
+                                {% elseif entry.type == 'video' %}
+                                    {% include "@SymfonyseBlog/Video/extract.html.twig" %}
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
 {% endblock %}
+
