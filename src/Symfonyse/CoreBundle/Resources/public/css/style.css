@@ -6633,6 +6633,7 @@ body {
 /* ===== Homepage Slider ===== */
 .home-slider {
   margin-top: -30px;
+  padding: 30px 0;
 }
 .home-slider .carousel-inner > .item {
   padding: 80px 0 0;
@@ -7004,6 +7005,9 @@ body {
   border-left: 30px solid transparent;
 }
 /* ===== Recent Blogs ===== */
+.recent-blog-posts {
+    padding-bottom: 30px;
+}
 .blog {
   margin-top: 30px;
 }
