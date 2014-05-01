@@ -1,4 +1,9 @@
-{% extends "SymfonyseCoreBundle::layout.html.twig" %}
+{% extends "SymfonyseEventBundle::base.html.twig" %}
+
+{% block breadcrumb %}
+    {{ parent() }}
+    <li>Event</li>
+{% endblock %}
 
 {% block title %}
 {{event.title}} — {{parent()}}

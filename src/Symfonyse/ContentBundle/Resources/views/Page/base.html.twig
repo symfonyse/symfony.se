@@ -1,2 +1,6 @@
 {% extends "SymfonyseContentBundle::base.html.twig" %}
 
+{% block breadcrumb %}
+    {{ parent() }}
+    <li>{{ page.title }}</li>
+{% endblock %}
