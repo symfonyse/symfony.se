@@ -40,4 +40,34 @@ class TagController extends BaseController
             'entries'=>$entries,
         );
     }
+
+    /**
+     * Get all tags with count
+     *
+     * @Template
+     *
+     * cache for 4 weeks
+     * @Cache(smaxage=2419200)
+     *
+     * @return array
+     */
+    public function indexAction()
+    {
+        $cp=$this->get('symfonyse.tag.content_provider');
+        $entries = $cp->getAllEntries();
+
+        usort($entries, function($a, $b) {
+                $timeDiff = $b->getCount() - $a->getCount();
+
+                if ($timeDiff == 0){
+                    return strcmp($a->getTitle(), $b->getTitle());
+                }
+
+                return $timeDiff;
+            });
+
+        return array(
+            'entries'=>$entries,
+        );
+    }
 } 

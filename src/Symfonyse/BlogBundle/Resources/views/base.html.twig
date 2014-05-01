@@ -31,21 +31,7 @@
                     </div>
                 </form>
                 #}
-                <!-- Categories -->
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        Taggar
-                    </div>
-                    <div class="panel-body">
-                        <ul>
-                            <li><a href="#">Databases (12)</a></li>
-                            <li><a href="#">Design (25)</a></li>
-                            <li><a href="#">Hardware (17)</a></li>
-                            <li><a href="#">Management (15)</a></li>
-                            <li><a href="#">Security (8)</a></li>
-                        </ul>
-                    </div>
-                </div>
+                {{ render_esi(controller("SymfonyseTagBundle:Tag:index")) }}
             </div>
         </div> <!-- / .row -->
     </div> <!-- / .container -->

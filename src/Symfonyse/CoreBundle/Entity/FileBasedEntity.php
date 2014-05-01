@@ -47,6 +47,16 @@ abstract class FileBasedEntity
     }
 
     /**
+     * Get the title as string
+     *
+     * @return string
+     */
+    function __toString()
+    {
+        return $this->getTitle();
+    }
+
+    /**
      * Get the type of the entity. This should be the same as the route
      *
      * @return string
@@ -166,7 +176,7 @@ abstract class FileBasedEntity
     /**
      * Get the title
      *
-     * @return mixed|null
+     * @return string
      */
     public function getTitle()
     {

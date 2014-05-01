@@ -3,5 +3,5 @@ parameters:
 
 services:
   symfonyse.content.content_provider:
-    class: Symfonyse\CoreBundle\ContentProvider\CoreContentProvider
+    class: Symfonyse\ContentBundle\ContentProvider\ContentProvider
     arguments: [~ , 'md']

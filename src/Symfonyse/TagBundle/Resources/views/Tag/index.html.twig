@@ -1,0 +1,17 @@
+<!-- Categories -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        Taggar
+    </div>
+    <div class="panel-body">
+        <ul>
+            {% for tag in entries %}
+            <li>
+                <a href="{{ path('tag', {permalink:tag.permalink}) }}">
+                    {{ tag }} ({{ tag.count }})
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

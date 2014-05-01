@@ -52,7 +52,7 @@ class ContentProvider extends CoreContentProvider
     }
 
     /**
-     * Get all entries by this author
+     * Get all entries that is tagged with $tag
      *
      * @param Tag $tag
      *
@@ -63,15 +63,57 @@ class ContentProvider extends CoreContentProvider
         $tagEntries=array();
         foreach ($this->contentProviders as $cp) {
             $tagEntries = array_merge($tagEntries, array_filter($cp->getAllEntries(), function($e) use ($tag) {
-                if (null == $authors = $e->getMeta('tags')) {
+                if (null == $tags = $e->getMeta('tags')) {
                     return false;
                 }
-                return in_array($tag->getTitle(), $authors);
+                return in_array($tag->getTitle(), $tags);
             }));
         }
 
 
         return $tagEntries;
+    }
+
+    /**
+     * Get all tags with the correct entry count
+     *
+     *
+     * @return Tag[]
+     */
+    public function getAllEntries()
+    {
+        /*
+         * Find out how often the tags are being used
+         */
+        $tags=array();
+        foreach ($this->contentProviders as $cp) {
+            $taggableEntries=$cp->getAllEntries();
+            foreach ($taggableEntries as $entry) {
+                if ($entry->getMeta('tags')===null) {
+                    continue;
+                }
+                foreach ($entry->getMeta('tags') as $tag) {
+                    if (empty($tags[$tag])) {
+                        $tags[$tag]=0;
+                    }
+                    $tags[$tag]++;
+                }
+            }
+        }
+
+        $files = $this->getAllFiles();
+        $entries=array();
+        foreach ($files as $file) {
+            $tag = new Tag($file);
+
+            if (!empty($tags[$tag->getTitle()])) {
+                $tag->setCount($tags[$tag->getTitle()]);
+            }
+
+            $entries[]=$tag;
+        }
+
+        return $entries;
     }
 
 }

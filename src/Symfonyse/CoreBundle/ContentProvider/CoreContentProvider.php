@@ -12,7 +12,7 @@ use Symfonyse\CoreBundle\Model\FileInfo;
  *
  *
  */
-class CoreContentProvider
+abstract class CoreContentProvider
 {
     /**
      * @var string dataDir
@@ -125,6 +125,12 @@ class CoreContentProvider
 
             return $timeDiff;
         });
-
     }
+
+    /**
+     * Get all entries of the object.
+     *
+     * @return array
+     */
+    abstract public function getAllEntries();
 }
