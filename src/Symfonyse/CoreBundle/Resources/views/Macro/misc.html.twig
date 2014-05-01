@@ -24,9 +24,9 @@
     </time>
 {% endmacro %}
 
-{% macro date(obj, format) %}
+{% macro date(obj, format, timeago=false) %}
     {# This is not the PHP format.. It is ICU. Get format from here: http://userguide.icu-project.org/formatparse/datetime #}
-    <time datetime="{{ obj|date('c') }}">
+    <time datetime="{{ obj|date('c') }}"{% if timeago %} class="timeago"{% endif %}>
         {% if format=='none' or format=='none' or format=='short' or format=='medium' or format=='long' or format=='full' %}
             {{ obj|localizeddate(format, 'none', app.request.locale) }}
         {% else %}

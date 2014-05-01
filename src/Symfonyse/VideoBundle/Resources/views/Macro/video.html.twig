@@ -7,6 +7,6 @@
 {% macro meta(video) %}
     {% import "SymfonyseCoreBundle:Macro:misc.html.twig" as _misc %}
 
-    Inspelad: {{ _misc.date(video.postedAt, 'medium') }}<br />
+    Inspelad: {{ _misc.date(video.recordedAt, 'medium') }}<br />
     Medverkande: {{ _misc.authors(video.meta('authors')) }}
 {% endmacro %}
