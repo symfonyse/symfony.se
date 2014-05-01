@@ -1,7 +1,7 @@
 ---
 title: "Planering inför November Camp 2014"
 tags: ["November Camp"]
-authors: ["Tobias Nyholm", "Magnus Nordlander"]
+authors: ["Tobias Nyholm"]
 published: "2014-04-18"
 ---
 
