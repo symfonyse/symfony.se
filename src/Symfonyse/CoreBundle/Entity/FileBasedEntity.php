@@ -138,6 +138,11 @@ abstract class FileBasedEntity
         return $this->meta[$name];
     }
 
+    /**
+     *
+     *
+     * @return \DateTime
+     */
     public function getPostedAt()
     {
         $posted=$this->getMeta('published');
@@ -148,6 +153,11 @@ abstract class FileBasedEntity
         return new \DateTime($posted);
     }
 
+    /**
+     *
+     *
+     * @return \DateTime
+     */
     public function getModifiedAt()
     {
         return \DateTime::createFromFormat('U', $this->fileInfo->getMTime());
@@ -168,7 +178,7 @@ abstract class FileBasedEntity
     }
 
     /**
-     * get the perma link
+     * get the permalink
      *
      *
      * @return string

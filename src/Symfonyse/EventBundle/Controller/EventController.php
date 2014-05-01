@@ -18,19 +18,19 @@ class EventController extends BaseController
 {
     /**
      *
+     * Show upcoming events
+     *
      * @Template
      *
-     * cache for 1 week and 10 minutes in private cache
-     * @Cache(smaxage=604800, maxage=600)
+     * cache for 1 day
+     * @Cache(smaxage=86400)
      *
      * @return array
      */
     public function indexAction()
     {
         $cp=$this->get('symfonyse.event.content_provider');
-        $events=$cp->getAllEntries();
-
-        $cp->sortEntries($events);
+        $events=$cp->getUpcomingEvents();
 
         return array(
             'events'=>$events,
@@ -39,17 +39,17 @@ class EventController extends BaseController
 
     /**
      *
-     * @Template
+     * @Template("SymfonyseEventBundle:Event:entry.html.twig")
      *
-     * cache for 3 days and 10 minutes in private cache
-     * @Cache(smaxage=259200, maxage=3600)
+     * cache for 1 day
+     * @Cache(smaxage=86400)
      *
      * @return array
      */
-    public function entryAction($permalink)
+    public function nextEventAction()
     {
-        if (null === $event = $this->get('symfonyse.event.content_provider')->getEntry($permalink)) {
-            throw $this->createNotFoundException();
+        if (null === $event = $this->get('symfonyse.event.content_provider')->getNextEvent()) {
+            return $this->render('SymfonyseEventBundle:Event:no-upcoming-event.html.twig');
         }
 
         return array(

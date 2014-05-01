@@ -35,7 +35,6 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <hr class="arrow-down">
-                        <ul>
                             {% for entry in entries %}
                                 {% if entry.type == 'blog' %}
                                     {% include "@SymfonyseBlog/Blog/extract.html.twig" %}
@@ -43,7 +42,6 @@
                                     {% include "@SymfonyseVideo/Video/extract.html.twig" %}
                                 {% endif %}
                             {% endfor %}
-                        </ul>
                     </div>
                 </div>
             </div>

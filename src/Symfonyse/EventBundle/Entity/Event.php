@@ -13,6 +13,22 @@ use Symfonyse\CoreBundle\Entity\FileBasedEntity;
  */
 class Event extends FileBasedEntity
 {
+
+    /**
+     *
+     *
+     * @return \DateTime
+     */
+    public function getPostedAt()
+    {
+        $posted=$this->getMeta('timestamp');
+        if (!$posted) {
+            return parent::getPostedAt();
+        }
+
+        return new \DateTime($posted);
+    }
+
     function getType()
     {
         return 'event';

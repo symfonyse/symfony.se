@@ -9,11 +9,13 @@
 
     {{ tag.content|markdown }}
 
-    <ul>
         {% for entry in entries %}
-            <li>
-                <a href="{{ path(entry.type, {permalink:entry.permalink}) }}">{{ entry.title }}</a>
-            </li>
+            {% for entry in entries %}
+                {% if entry.type == 'blog' %}
+                    {% include "@SymfonyseBlog/Blog/extract.html.twig" %}
+                {% elseif entry.type == 'video' %}
+                    {% include "@SymfonyseVideo/Video/extract.html.twig" %}
+                {% endif %}
+            {% endfor %}
         {% endfor %}
-    </ul>
 {% endblock %}

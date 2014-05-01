@@ -1,12 +1,10 @@
 
 
 event_index:
-  pattern:  /index
+  pattern:  /esi/index
   defaults: { _controller: SymfonyseEventBundle:Event:index }
 
 
-event:
-  pattern:  /{permalink}
-  defaults: { _controller: SymfonyseEventBundle:Event:entry }
-  requirements:
-    permalink:  "[0-9]+/.+"
+event_next:
+  pattern:  /esi/next-event
+  defaults: { _controller: SymfonyseEventBundle:Event:nextEvent }

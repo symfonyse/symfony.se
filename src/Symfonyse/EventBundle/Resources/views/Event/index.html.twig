@@ -6,12 +6,10 @@ Event — {{parent()}}
 
 {% block content %}
 
-    Detta är våra event
-
     <ul>
         {% for event in events %}
             <li>
-                <a href="{{ path('event', {permalink:event.permalink}) }}">{{ event.title }}</a>
+               { event.title }}
             </li>
         {% endfor %}
     </ul>
