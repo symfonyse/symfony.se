@@ -39,7 +39,7 @@ class EventController extends BaseController
 
     /**
      *
-     * @Template("SymfonyseEventBundle:Event:entry.html.twig")
+     * @Template("SymfonyseEventBundle:Event:box.html.twig")
      *
      * cache for 1 day
      * @Cache(smaxage=86400)
@@ -49,7 +49,27 @@ class EventController extends BaseController
     public function nextEventAction()
     {
         if (null === $event = $this->get('symfonyse.event.content_provider')->getNextEvent()) {
-            return $this->render('SymfonyseEventBundle:Event:no-upcoming-event.html.twig');
+            return $this->render('SymfonyseEventBundle:Event:box.no-upcoming-event.html.twig');
+        }
+
+        return array(
+            'event'=>$event,
+        );
+    }
+
+    /**
+     *
+     * @Template()
+     *
+     * cache for 1 day
+     * @Cache(smaxage=86400)
+     *
+     * @return array
+     */
+    public function entryAction($permalink)
+    {
+        if (null === $event = $this->get('symfonyse.event.content_provider')->getEntry($permalink)) {
+            return $this->createNotFoundException('Event not found');
         }
 
         return array(

@@ -138,7 +138,7 @@
                 </div>
                 <!-- Recent Tweets -->
                 <div class="col-sm-4">
-                    <h4><i class="fa fa-twitter-square text-red"></i> Recent Tweets</h4>
+                    {#<h4><i class="fa fa-twitter-square text-red"></i> Recent Tweets</h4>
                     <div class="tweet">
                         <i class="fa fa-twitter fa-2x"></i>
                         <p>
@@ -153,28 +153,11 @@
                             <a href="#">2 days ago</a>
                         </p>
                     </div>
+                    #}
                 </div>
                 <!-- Newsletter -->
                 <div class="col-sm-4">
-                    <h4><i class="fa fa-envelope text-red"></i> Newsletter</h4>
-                    <p>
-                        Enter your e-mail below to subscribe to our free newsletter.
-                        <br>
-                        We promise not to bother you often!
-                    </p>
-                    <form class="form" role="form">
-                        <div class="row">
-                            <div class="col-sm-8">
-                                <div class="input-group">
-                                    <label class="sr-only" for="subscribe-email">Email address</label>
-                                    <input type="email" class="form-control" id="subscribe-email" placeholder="Enter your email">
-                    <span class="input-group-btn">
-                      <button type="submit" class="btn btn-default">OK</button>
-                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                    {{ render_esi(path('event_index')) }}
                 </div>
             </div>
             {% endblock %}
@@ -187,11 +170,11 @@
     {% javascripts  output='static/scripts.{version}.js'
     'bower/jquery/jquery.js'
     'bower/bootstrap/dist/js/bootstrap.js'
-    '@SymfonyseCoreBundle/Resources/public/js/*'
     'bower/happyr-jquery-simple-animate/jquery.simple-animate.js'
     'bower/jquery-timeago/jquery.timeago.js'
     'bower/jquery-timeago/locales/jquery.timeago.sv.js'
     'bower/hinclude/hinclude.js'
+    '@SymfonyseCoreBundle/Resources/public/js/*'
     vars=["version"]
     %}
     <script type="text/javascript" src="{{ asset_url }}"></script>

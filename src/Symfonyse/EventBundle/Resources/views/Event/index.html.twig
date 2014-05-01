@@ -1,17 +1,16 @@
-{% extends "SymfonyseEventBundle::base.html.twig" %}
-
-{% block title %}
-Event — {{parent()}}
-{% endblock %}
+{% extends "SymfonyseEventBundle::box.html.twig" %}
 
 {% block content %}
 
-    <ul>
+    <h4><i class="fa fa-calendar text-red"></i> Planerade events</h4>
         {% for event in events %}
-            <li>
-               { event.title }}
-            </li>
+            <div class="event">
+                <p>
+                    {{ event.title }}
+                    <br />
+                    <a href="{{ path('event', {'permalink':event.permalink}) }}">{{ _misc.time(event.meta('timestamp'), 'j M -y', true)}}</a>
+                </p>
+            </div>
         {% endfor %}
-    </ul>
 
 {% endblock %}

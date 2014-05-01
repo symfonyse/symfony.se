@@ -8,3 +8,9 @@ event_index:
 event_next:
   pattern:  /esi/next-event
   defaults: { _controller: SymfonyseEventBundle:Event:nextEvent }
+
+event:
+  pattern:  /{permalink}
+  defaults: { _controller: SymfonyseEventBundle:Event:entry }
+  requirements:
+    permalink:  "[0-9]+/.+"
