@@ -1,5 +1,10 @@
 ---
 title: "Tobias Nyholm"
+jobtitle: 'CTO på Happyr'
+twitter: 'tobiasnyholm'
+linkedin: 'tobiasnyholm'
+facebook: 'Tobias.Nyholm'
+github: 'Nyholm'
 ---
 
-Här är en beskrivning om Tobias Nyholm
+Beskrivning av Tobias

@@ -3,3 +3,11 @@
     clear:both;
     margin-bottom: 5px;
 }
+
+.user-avatar {
+    height: 200px;
+}
+
+.user-avatar > img{
+    max-height: 130px;
+}

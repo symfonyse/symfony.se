@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="user-avatar text-center">
-                            <img class="img-responsive center-block" src="img/photo-1.jpg" alt="...">
+                            <img class="img-responsive center-block" src="{{ asset('bundles/symfonyseauthor/images/'~staticCall('Symfonyse\\AuthorBundle\\Entity\\Author', 'getPhoto', author.permalink)) }}">
                             {{author.title}}
                             <p class="text-muted">{{author.meta("jobtitle")}}</p>
                         </div>
@@ -25,9 +25,19 @@
                         <p><a href="{{author.meta("website")}}">{{author.meta("website")}}</a></p>
                         <div class="social user-social">
                             <ul class="list-inline">
-                                <li><a href="#" class="twitter"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#" class="facebook"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#" class="pinterest"><i class="fa fa-pinterest"></i></a></li>
+                                {% if author.meta('twitter') %}
+                                    <li><a href="https://twitter.com/{{ author.meta('twitter') }}" class="twitter"><i class="fa fa-twitter"></i></a></li>
+                                {% endif %}
+                                {% if author.meta('facebook') %}
+                                    <li><a href="https://www.facebook.com/{{ author.meta('facebook') }}" class="facebook"><i class="fa fa-facebook"></i></a></li>
+                                {% endif %}
+                                {% if author.meta('linkedin') %}
+                                    <li><a href="http://se.linkedin.com/in/{{ author.meta('linkedin') }}" class="linkedin"><i class="fa fa-linkedin"></i></a></li>
+                                {% endif %}
+                                {% if author.meta('github') %}
+                                    <li><a href="https://github.com/{{ author.meta('github') }}" class="github"><i class="fa fa-github"></i></a></li>
+                                {% endif %}
+
                             </ul>
                         </div>
                     </div>
