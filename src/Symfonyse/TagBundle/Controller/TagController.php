@@ -20,8 +20,8 @@ class TagController extends BaseController
      *
      * @Template
      *
-     * cache for 4 week and 1 hour in private cache
-     * @Cache(smaxage=2419200, maxage=3600)
+     * cache for 4 weeks
+     * @Cache(smaxage=2419200)
      *
      * @return array
      */

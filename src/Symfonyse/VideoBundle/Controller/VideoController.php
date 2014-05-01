@@ -20,8 +20,8 @@ class VideoController extends BaseController
      *
      * @Template
      *
-     * cache for 2 weeks and 60 minutes in private cache
-     * @Cache(smaxage=1209600, maxage=3600)
+     * cache for 2 weeks
+     * @Cache(smaxage=1209600)
      *
      * @return array
      */
@@ -41,8 +41,8 @@ class VideoController extends BaseController
      *
      * @Template
      *
-     * cache for 1 week and 20 minutes in private cache
-     * @Cache(smaxage=604800, maxage=1200)
+     * cache for 1 week
+     * @Cache(smaxage=604800)
      *
      * @return array
      */
