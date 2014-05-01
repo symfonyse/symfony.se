@@ -1,0 +1,14 @@
+{% extends 'SymfonyseCoreBundle::layout.html.twig' %}
+
+{% block title_prefix %}{%trans%}common.error.general.title{%endtrans%}{% endblock %}
+
+{% block content %}
+    <div class="error-page">
+        <div class="not-found">
+            <span>Not Found</span>
+        </div>
+        <p>The page you were looking for couldn't be found.</p>
+        <p class="text-muted">You can try to reload it some time later or browse our fabulous website right now!</p>
+        <a href="index.html">Homepage</a> <span class="divider">|</span> <a href="about-us.html">About Us</a> <span class="divider">|</span> <a href="contact-us.html">Contact Us</a>
+    </div>
+{% endblock %}

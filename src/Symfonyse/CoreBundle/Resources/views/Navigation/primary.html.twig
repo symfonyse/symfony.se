@@ -1,9 +1,36 @@
-<nav>
-    <ul>
-        <li><a href="{{ path('homepage') }}">Start</a></li>
-        <li><a href="{{ path('blog_index') }}">Blogg</a></li>
-        <li><a href="{{ path('event_index') }}">Events</a></li>
-        <li><a href="{{ path('video_index') }}">Video</a></li>
-        <li><a href="{{ path('page', {permalink:'styrelsen'}) }}">Styrelsen</a></li>
-    </ul>
-</nav>
+
+<!-- Navigation -->
+
+        <div class="collapse navbar-collapse" role="navigation">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ path('homepage') }}">Start</a></li>
+                <li><a href="{{ path('blog_index') }}">Blogg</a></li>
+                <li><a href="{{ path('event_index') }}">Events</a></li>
+                <li><a href="{{ path('video_index') }}">Video</a></li>
+                <li><a href="{{ path('page', {permalink:'styrelsen'}) }}">Styrelsen</a></li>
+
+                <!-- Navbar Search -->
+                <li class="hidden-xs" id="navbar-search">
+                    <a href="#">
+                        <i class="fa fa-search"></i>
+                    </a>
+                    <div class="hidden" id="navbar-search-box">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Go!</button>
+                  </span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <!-- Mobile Search -->
+            <form class="navbar-form navbar-right visible-xs" role="search">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search">
+              <span class="input-group-btn">
+                <button class="btn btn-red" type="button">Search!</button>
+              </span>
+                </div>
+            </form>
+        </div><!--/.nav-collapse -->

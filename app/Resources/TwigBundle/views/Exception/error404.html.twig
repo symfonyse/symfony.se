@@ -1,0 +1,14 @@
+{% extends 'SymfonyseCoreBundle::layout.html.twig' %}
+
+{% block mainMenuWrapper %}{% endblock %}
+
+{% block title_prefix %}{%trans%}common.error.404.title{%endtrans%}{% endblock %}
+
+{% block content %}
+
+    <h1>{%trans%}common.error.404.title{%endtrans%}</h1>
+	<p>{%trans%}common.error.404.message{%endtrans%}</p>
+
+	<br /><br />
+	<p><a href="javascript:window.history.back();">{%trans%}common.error.backlink{%endtrans%}</a></p>
+{% endblock %}

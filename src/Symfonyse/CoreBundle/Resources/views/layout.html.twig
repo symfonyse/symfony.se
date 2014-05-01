@@ -1,19 +1,12 @@
 <!doctype html>
-<!--[if lt IE 9]>
-<html class="ie" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:og="http://ogp.me/ns#"
-      xmlns:fb="http://www.facebook.com/2008/fbml"
-      xmlns:hx="http://purl.org/NET/hinclude"
-        >
-<![endif]-->
-<!--[if gte IE 9]><!-->
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="http://www.facebook.com/2008/fbml"
       xmlns:hx="http://purl.org/NET/hinclude"
-        >
-<!--<![endif]-->
+      lang="sv"
+      >
 <head>
+    {% import "SymfonyseCoreBundle:Macro:misc.html.twig" as _misc %}
     <meta charset="utf-8"/>
     {# Please don't add "maximum-scale=1" here. It's bad for accessibility. #}
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -32,6 +25,7 @@
 
     <meta name="twitter:site" content="@symfonyse">
     <meta name="include_mode" content="async" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/symfonysecore/images/favicon.png') }}" />
 
 
     <title>{% block title %}Symfony Sverige{% endblock %}</title>
@@ -39,16 +33,21 @@
     {% block stylesheets %}
         {% stylesheets filter='cssrewrite' output='static/styles.{version}.css'
         '@SymfonyseCoreBundle/Resources/public/css/*'
-        'bower/Ink/css/ink.css'
+        'bower/font-awesome/css/font-awesome.css'
         vars=["version"]
         %}
         <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>
         {% endstylesheets %}
     {% endblock %}
 
-    <link rel="icon" type="image/x-icon" href="{{ asset('bundles/symfonysecore/images/favicon.png') }}" />
-
-    {% import "SymfonyseCoreBundle:Macro:misc.html.twig" as _misc %}
+    <!-- Resources -->
+    <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700' rel='stylesheet' type='text/css'>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 
     <script>
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -60,7 +59,6 @@
         ga('send', 'pageview');
 
     </script>
-
 </head>
 
 <body lang="sv" class="body {% block bodyclass %}{% endblock %}" {% block bodytag %}{% endblock %}>
@@ -68,39 +66,139 @@
 {% block headerWrap %}
     <header role="banner">
         {% block header %}
-        {% include "SymfonyseCoreBundle:Navigation:primary.html.twig" %}
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="{{ asset('bundles/symfonysecore/images/logo.png') }}">
+                        Symfony Sverige
+                    </a>
+                </div>
+                {% include "SymfonyseCoreBundle:Navigation:primary.html.twig" %}
+            </div>
+        </div> <!-- / .navigation -->
         {% endblock %}
     </header>
 {% endblock %}
 
+<!-- Wrapper -->
+<div class="wrapper">
 <!-- OVERVIEW ROW -->
-{% block contentHead %}
-
+{% block contentHeadWrap %}
+    <!-- Topic Header -->
+    <div class="topic">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    {% block contentHead %}{% endblock %}
+                </div>
+                <div class="col-sm-8">
+                    <ol class="breadcrumb pull-right hidden-xs">
+                        {% block breadcrumb %}
+                            <li><a href="{{ path('homepage') }}">Start</a></li>
+                        {% endblock %}
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 <!-- END OVERVIEW ROW -->
 
 {% block contentWrap %}
-    {% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6 col-md-offset-3">
+                {% block content %}
 
-    {% endblock %}
+                {% endblock %}
+            </div>
+        </div> <!-- / .row -->
+    </div> <!-- / .container -->
 {% endblock %}
+</div> <!-- / .wrapper -->
 
 {% block footerWrap %}
+    <!-- Footer -->
     <footer>
-        {% block footer %}{% endblock %}
+        <div class="container">
+            {% block footer %}
+            <div class="row">
+                <!-- Contact Us -->
+                <div class="col-sm-4">
+                    <h4><i class="fa fa-map-marker text-red"></i> Contact Us</h4>
+                    <p>Do not hesitate to contact us if you have any questions or feature requests:</p>
+                    <p>
+                        San Francisco, CA 94101<br />
+                        1987 Lincoln Street<br />
+                        Phone: +0 000 000 00 00<br />
+                        Fax: +0 000 000 00 00<br />
+                        Email: <a href="#">admin@mysite.com</a>
+                    </p>
+                </div>
+                <!-- Recent Tweets -->
+                <div class="col-sm-4">
+                    <h4><i class="fa fa-twitter-square text-red"></i> Recent Tweets</h4>
+                    <div class="tweet">
+                        <i class="fa fa-twitter fa-2x"></i>
+                        <p>
+                            Ut tincidunt erat quis viverra consectetur. Suspendisse tempus vulputate leo.
+                            <a href="#">1 day ago</a>
+                        </p>
+                    </div>
+                    <div class="tweet">
+                        <i class="fa fa-twitter fa-2x"></i>
+                        <p>
+                            Mauris eget lacus ut ipsum dignissim malesuada quis nec ante.
+                            <a href="#">2 days ago</a>
+                        </p>
+                    </div>
+                </div>
+                <!-- Newsletter -->
+                <div class="col-sm-4">
+                    <h4><i class="fa fa-envelope text-red"></i> Newsletter</h4>
+                    <p>
+                        Enter your e-mail below to subscribe to our free newsletter.
+                        <br>
+                        We promise not to bother you often!
+                    </p>
+                    <form class="form" role="form">
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="input-group">
+                                    <label class="sr-only" for="subscribe-email">Email address</label>
+                                    <input type="email" class="form-control" id="subscribe-email" placeholder="Enter your email">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-default">OK</button>
+                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            {% endblock %}
+        </div>
     </footer>
 {% endblock %}
 
+<!-- Copyright -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="copyright">
+                Copyright 2014 - Paperclip Theme by <a href="https://twitter.com/YevSim">Yevgeny S.</a> | All Rights Reserved
+            </div>
+        </div>
+    </div>  <!-- / .row -->
+</div> <!-- / .container -->
 
 {% block javascripts %}
 
     {% javascripts  output='static/scripts.{version}.js'
     'bower/jquery/jquery.js'
-    'bower/Ink/js/holder.js'
-    'bower/Ink/js/ink.js'
-    'bower/Ink/js/ink-ui.js'
-    'bower/Ink/js/autoload.js'
-    'bower/Ink/js/html5shiv.js'
+    'bower/bootstrap/dist/js/bootstrap.js'
+    '@SymfonyseCoreBundle/Resources/public/js/*'
     'bower/happyr-jquery-simple-animate/jquery.simple-animate.js'
     'bower/jquery-timeago/jquery.timeago.js'
     'bower/jquery-timeago/locales/jquery.timeago.sv.js'
