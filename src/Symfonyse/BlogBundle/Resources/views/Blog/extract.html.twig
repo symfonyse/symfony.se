@@ -1,5 +1,5 @@
 <div class="blog">
-    <img src="img/author-1.jpg">
+    {{ _misc.authorPhoto(entry.meta('authors')) }}
     <div class="blog-desc">
         <h3>
             <a href="{{path('blog', {'permalink': entry.permalink})}}">{{entry.title}}</a>

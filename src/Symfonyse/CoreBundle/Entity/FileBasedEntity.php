@@ -51,7 +51,7 @@ abstract class FileBasedEntity
      *
      * @return string
      */
-    abstract function getType();
+    abstract public function getType();
 
     /**
      * Get the absolute path to the file

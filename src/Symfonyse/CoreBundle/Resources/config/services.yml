@@ -8,3 +8,7 @@ services:
         - { name: twig.extension }
 
 
+  symfonyse.core.twig.static_extension:
+    class: Symfonyse\CoreBundle\Twig\StaticExtension
+    tags:
+      - { name: twig.extension }

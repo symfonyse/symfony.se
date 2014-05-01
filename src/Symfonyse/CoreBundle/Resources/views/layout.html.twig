@@ -32,8 +32,10 @@
 
     {% block stylesheets %}
         {% stylesheets filter='cssrewrite' output='static/styles.{version}.css'
-        '@SymfonyseCoreBundle/Resources/public/css/*'
         'bower/font-awesome/css/font-awesome.css'
+        '@SymfonyseCoreBundle/Resources/public/css/*'
+        '@SymfonyseAuthorBundle/Resources/public/css/*'
+
         vars=["version"]
         %}
         <link rel="stylesheet" type="text/css" href="{{ asset_url }}"/>

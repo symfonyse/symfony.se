@@ -13,8 +13,32 @@ use Symfonyse\CoreBundle\Entity\FileBasedEntity;
  */
 class Author extends FileBasedEntity
 {
-    function getType()
+    public function getType()
     {
         return 'author';
+    }
+
+    /**
+     * Get a photo
+     *
+     * @param $permalink
+     *
+     * @return string
+     */
+    static function getPhoto($permalink)
+    {
+        $path=dirname(__DIR__).'/Resources/public/images/'.$permalink;
+
+        $photo=$path.'.jpg';
+        if (file_exists($photo)) {
+            return $permalink.'.jpg';
+        }
+
+        $photo=$path.'.png';
+        if (file_exists($photo)) {
+            return $permalink.'.png';
+        }
+
+        return 'default-photo.png';
     }
 }
