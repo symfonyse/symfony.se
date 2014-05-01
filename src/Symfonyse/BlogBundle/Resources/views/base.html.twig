@@ -1,5 +1,6 @@
 {% extends "SymfonyseCoreBundle::layout.html.twig" %}
 
+{% block contentHead %}<h3>Blogg</h3>{% endblock %}
 {% block breadcrumb %}
     {{ parent() }}
     <li><a href="{{ path('blog_index') }}">Blogg</a></li>

@@ -1,14 +1,13 @@
 {% extends 'SymfonyseCoreBundle::layout.html.twig' %}
 
-{% block title_prefix %}{%trans%}common.error.general.title{%endtrans%}{% endblock %}
-
 {% block content %}
     <div class="error-page">
         <div class="not-found">
-            <span>Not Found</span>
+            <span>Något blev fel</span>
         </div>
-        <p>The page you were looking for couldn't be found.</p>
-        <p class="text-muted">You can try to reload it some time later or browse our fabulous website right now!</p>
-        <a href="index.html">Homepage</a> <span class="divider">|</span> <a href="about-us.html">About Us</a> <span class="divider">|</span> <a href="contact-us.html">Contact Us</a>
+        <p>Något blev fel. Hjälp oss att fixa det! Skapa en <a href="https://github.com/symfonyse/symfony.se/issues">Issue på Github</a> eller gör
+        en PR med en fix på en gång. </p>
+        <p class="text-muted">Om du inte kan/vill hjälpa till så följ något av länkarna nedan</p>
+        <a href="{{ path('homepage') }}">Start</a> <span class="divider">|</span> <a href="javascript:window.history.back();">Tillbaka</a>
     </div>
 {% endblock %}

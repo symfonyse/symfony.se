@@ -1,14 +1,14 @@
 {% extends 'SymfonyseCoreBundle::layout.html.twig' %}
 
-{% block mainMenuWrapper %}{% endblock %}
-
-{% block title_prefix %}{%trans%}common.error.404.title{%endtrans%}{% endblock %}
-
 {% block content %}
 
-    <h1>{%trans%}common.error.404.title{%endtrans%}</h1>
-	<p>{%trans%}common.error.404.message{%endtrans%}</p>
-
-	<br /><br />
-	<p><a href="javascript:window.history.back();">{%trans%}common.error.backlink{%endtrans%}</a></p>
+    <div class="error-page">
+        <div class="not-found">
+            <span>Sidan hittades inte</span>
+        </div>
+        <p>Sidan kan inte hittas. Kanske har någon glömt att skapa den? Du kan skapa denna sida genom att göra en PR till
+            oss på <a href="https://github.com/symfonyse/symfony.se">Github</a>.</p>
+        <p class="text-muted">Om du inte kan/vill hjälpa till så följ något av länkarna nedan</p>
+        <a href="{{ path('homepage') }}">Start</a> <span class="divider">|</span> <a href="javascript:window.history.back();">Tillbaka</a>
+    </div>
 {% endblock %}

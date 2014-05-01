@@ -74,4 +74,14 @@ class ContentProvider extends CoreContentProvider
         return $authorEntries;
     }
 
+    /**
+     * Get all entries of the object.
+     *
+     * @return array
+     */
+    public function getAllEntries()
+    {
+        //TODO implement me
+        return array();
+    }
 }
