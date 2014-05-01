@@ -39,7 +39,7 @@
     <target name="composer" description="Install all the vendors">
         <exec executable="composer" failonerror="true">
             <arg value="install"/>
-            <arg value="-o"/>
+            <!--<arg value="-o"/> This is an error with hhvm-->
             <arg value="--working-dir"/>
             <arg path="${basedir}"/>
         </exec>
