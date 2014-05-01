@@ -40,6 +40,10 @@ class Entry extends FileBasedEntity
         return mb_substr($this->getContent(), 0, self::EXCERPT_LENGTH);
     }
 
+    /**
+     *
+     * @return string
+     */
     function getType()
     {
         return 'blog';
