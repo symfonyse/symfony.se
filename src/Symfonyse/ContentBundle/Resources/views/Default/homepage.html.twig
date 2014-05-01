@@ -297,41 +297,5 @@
     </div> <!-- / .feedback -->
 
     <!-- Recent Blog Posts -->
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12">
-                <h2 class="text-center">Recent Blog Posts</h2>
-            </div>
-        </div> <!-- / .row -->
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="blog">
-                    <img src="img/photo-1.jpg" alt="...">
-                    <div class="blog-desc">
-                        <h3>
-                            <a href="blog-post.html">Sed lacinia suscipit lacus non sodales. Pellentesque lacinia ornare justo eu tincidunt.</a>
-                        </h3>
-                        <hr>
-                        <p class="text-muted">by John Doe</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisi lorem, elementum sed feugiat ac, pharetra lacinia mi. Integer iaculis risus sed quam vehicula, sit amet lacinia sem rutrum. Integer ligula orci.</p>
-                        <a class="btn btn-lg btn-red" href="blog-post.html">Read More...</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-6">
-                <div class="blog">
-                    <img src="img/photo-2.jpg" alt="...">
-                    <div class="blog-desc">
-                        <h3>
-                            <a href="blog-post.html">Nulla pretium libero interdum, tempus lorem non, rutrum diam. Lorem ipsum dolor sit amet.</a>
-                        </h3>
-                        <hr>
-                        <p class="text-muted">by John Doe</p>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc nisi lorem, elementum sed feugiat ac, pharetra lacinia mi. Integer iaculis risus sed quam vehicula, sit amet lacinia sem rutrum. Integer ligula orci.</p>
-                        <a class="btn btn-lg btn-red" href="blog-post.html">Read More...</a>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- / .row -->
-    </div> <!-- / .container -->
+    {{ render_esi(controller('SymfonyseBlogBundle:Blog:entriesForHomepage')) }}
 {% endblock %}

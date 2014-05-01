@@ -20,8 +20,8 @@ class BlogController extends BaseController
      *
      * @Template
      *
-     * cache for 2 weeks and 20 minutes in private cache
-     * @Cache(smaxage=1209600, maxage=1200)
+     * cache for 2 weeks
+     * @Cache(smaxage=1209600)
      *
      * @return array
      */
@@ -40,8 +40,8 @@ class BlogController extends BaseController
      *
      * @Template
      *
-     * cache for 1 week and 1 hour in private cache
-     * @Cache(smaxage=604800, maxage=3600)
+     * cache for 1 week
+     * @Cache(smaxage=604800)
      *
      * @return array
      */
@@ -55,4 +55,34 @@ class BlogController extends BaseController
             'entry'=>$entry,
         );
     }
+
+    /**
+     * Get some entries for the homepage
+     *
+     * @Template
+     *
+     * cache for 2 weeks
+     * @Cache(smaxage=1209600)
+     *
+     * @return array
+     */
+    public function entriesForHomepageAction()
+    {
+        $cp= $this->get('symfonyse.blog.content_provider');
+        $events = $cp->getAllEntries();
+        $cp->sortEntries($events);
+
+        $entries=array();
+        $now = new \DateTime();
+        foreach ($events as $event) {
+            /* @var $event \Symfonyse\EventBundle\Entity\Event */
+            if ($event->getPostedAt() < $now) {
+                $entries[]= $event;
+            }
+        }
+
+
+        return array('entries'=>$entries);
+    }
+
 } 

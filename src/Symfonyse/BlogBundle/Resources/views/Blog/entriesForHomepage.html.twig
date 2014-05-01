@@ -1,0 +1,33 @@
+{% import "SymfonyseCoreBundle:Macro:misc.html.twig" as _misc %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 class="text-center">Senaste blogginlägg</h2>
+        </div>
+    </div> <!-- / .row -->
+    <div class="row">
+        {% for entry in entries[:2] %}
+        <div class="col-sm-6">
+            <div class="blog">
+                <img src="img/author-1.jpg">
+                <div class="blog-desc">
+                    <h3>
+                        <a href="{{path('blog', {'permalink': entry.permalink})}}">{{entry.title}}</a>
+                    </h3>
+                    {% if entry.meta('tags') is not empty %}
+                        <i class="fa-tags"></i>{{ _misc.tags(entry.meta('tags')) }}
+                    {% endif %}
+                    <hr>
+                    <p class="text-muted">av {{ _misc.authors(entry.meta('authors')) }} den {{ _misc.date(entry.postedAt, 'medium') }}</p>
+                    {{ entry.content|markdown }}
+
+
+                    <a class="btn btn-lg btn-red" href="{{path('blog', {'permalink': entry.permalink})}}">Läs mer</a>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div> <!-- / .row -->
+</div> <!-- / .container -->
