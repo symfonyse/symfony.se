@@ -1,12 +1,12 @@
 {% extends "SymfonyseEventBundle::box.html.twig" %}
 
-{% block title %}
-{{event.title}} — {{parent()}}
-{% endblock %}
 
 {% block content %}
-  <h1>{{event.title}}</h1>
+    <h4><i class="fa fa-calendar text-red"></i> Nästa event</h4>
+    <h5><a href="{{ path('event', {'permalink':event.permalink}) }}">{{event.title}}</a></h5>
+    <small>{{ _misc.time(event.meta('timestamp'), 'j M -y', true)}}</small>
 
     {{ event.content|markdown }}
+
 
 {% endblock %}

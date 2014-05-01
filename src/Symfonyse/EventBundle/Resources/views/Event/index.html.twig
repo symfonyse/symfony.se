@@ -11,6 +11,10 @@
                     <a href="{{ path('event', {'permalink':event.permalink}) }}">{{ _misc.time(event.meta('timestamp'), 'j M -y', true)}}</a>
                 </p>
             </div>
+        {% else %}
+            <div class="event">
+                <p>Det finns inga planerade event just nu.</p>
+            </div>
         {% endfor %}
 
 {% endblock %}
