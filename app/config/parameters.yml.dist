@@ -11,4 +11,4 @@ parameters:
     secret:            ThisTokenIsNotSoSecretChangeIt
     site_domain:       localhost
 
-    node_modules_path: /usr/local/lib/node_modules
+    node_modules_path: %kernel.root_dir%/../node_modules

@@ -1,0 +1,20 @@
+{
+    "name": "symfony.se",
+    "version": "1.0.0",
+    "description": "Symfony Sweden",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/symfonyse/symfony.se.git"
+    },
+    "keywords": [
+        "symfony",
+        "sweden"
+    ],
+    "bugs": {
+        "url": "https://github.com/symfonyse/symfony.se/issues"
+    },
+    "homepage": "http://www.symfony.se",
+    "devDependencies": {
+        "less": "~1.7.0"
+    }
+}
