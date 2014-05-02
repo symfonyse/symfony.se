@@ -21,6 +21,6 @@ class EventControllerTest extends BaseTestCase
 
         $crawler = $client->request('GET', $this->generateUrl('event', array('permalink'=>'2014/phparlor-neo4j')));
 
-        $this->assertTrue($crawler->filter('html:contains("Neo4js")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("Jacob Hansson")')->count() > 0);
     }
 }
