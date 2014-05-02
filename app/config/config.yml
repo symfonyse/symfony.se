@@ -70,3 +70,6 @@ doctrine:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
 
+dms_meetup_api:
+    client:
+        key: %meetup_api_key%
