@@ -2,6 +2,7 @@
 title: PHParlor tar sommarledigt
 published: "2013-07-19"
 authors: ["Tobias Sjösten"]
+tags: ["PHParlor"]
 ---
 Även webbhackare behöver ta ledigt ibland, komma ut i solen och ladda D-vitaminförråden. Därför kommer [Stockholm PHParlor](/phparlor/) ta en paus över sommaren och återkomma igen den 12:e augusti.
 

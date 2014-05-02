@@ -2,6 +2,7 @@
 title: "Stockholm PHParlor"
 published: "2013-06-09"
 authors: ["Tobias Sjösten"]
+tags: ["PHParlor"]
 ---
 I måndags körde vi igång [Stockholm PHParlor](/phparlor/); regelbundna träffar för PHP-utvecklare i Stockholm. Kom förbi och dela med dig av en cool lösning eller passa på att bolla ett problem du stött på.
 
