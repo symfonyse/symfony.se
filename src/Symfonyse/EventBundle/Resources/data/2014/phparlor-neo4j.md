@@ -1,6 +1,6 @@
 ---
 title: PHParlor
-timestamp: "2014-05-29 17:30"
+timestamp: "2014-04-29 17:30"
 ---
 
 Welcome to an other PHParlor. This time we will have two speaker who will present some of their work. We will be introduced
