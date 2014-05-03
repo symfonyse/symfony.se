@@ -7,7 +7,6 @@
 
         <hr>
         <div class="col-sm-6">
-            <div class="col-sm-6">
                 <h4 class="headline"><span>Info</span></h4>
                 <table class="table">
                     <tbody>
@@ -17,14 +16,13 @@
                     </tr>
                     <tr>
                         <td><i class="fa-video-camera"></i> Inspelad<td>
-                        <td>{{ _misc.date(entry.postedAt, 'medium') }}</td>
+                        <td>{{ _misc.date(entry.recordedAt, 'medium') }}</td>
                     </tr>
                     </tbody>
                 </table>
 
 
             <a class="btn btn-lg btn-red" href="{{path('video', {'permalink': entry.permalink})}}">Läs mer</a>
-            </div>
         </div>
         <div class="col-sm-6">
             {{ _macro.video(entry.meta('youtube')) }}
