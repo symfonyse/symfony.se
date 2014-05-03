@@ -66,7 +66,7 @@ class ContentProvider extends CoreContentProvider
                 if (null == $tags = $e->getMeta('tags')) {
                     return false;
                 }
-                return in_array($tag->getTitle(), $tags);
+                return in_array($tag->getTitle(), $tags, false);
             }));
         }
 
