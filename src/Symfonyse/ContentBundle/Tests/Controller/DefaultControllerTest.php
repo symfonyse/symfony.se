@@ -12,6 +12,6 @@ class DefaultControllerTest extends BaseTestCase
 
         $crawler = $client->request('GET', $this->generateUrl('homepage'));
 
-        $this->assertTrue($crawler->filter('html:contains("Svenska Symfony-utvcklare")')->count() > 0);
+        $this->assertTrue($crawler->filter('html:contains("Svenska Symfony-utvecklare")')->count() > 0);
     }
 }
