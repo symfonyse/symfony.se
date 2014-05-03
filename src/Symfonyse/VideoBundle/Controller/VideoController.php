@@ -30,7 +30,7 @@ class VideoController extends BaseController
         $cp=$this->get('symfonyse.video.content_provider');
         $videos=$cp->getAllEntries();
 
-        $cp->sortEntries($videos);
+        $cp->sortEntries($videos, 'getRecordedAt');
 
         return array(
             'videos'=>$videos,

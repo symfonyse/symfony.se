@@ -28,6 +28,12 @@ class Video extends FileBasedEntity
         return new \DateTime($posted);
     }
 
+
+    public function getSortableTimestamp()
+    {
+        return $this->getRecordedAt()->getTimestamp();
+    }
+
     function getType()
     {
         return 'video';

@@ -13,33 +13,6 @@ use Symfonyse\CoreBundle\Entity\FileBasedEntity;
  */
 class Entry extends FileBasedEntity
 {
-    const EXCERPT_LENGTH=250;
-
-    protected function getFileExtension()
-    {
-        return $this->fileInfo->getExtension();
-    }
-
-    /**
-     * Get the permalink
-     *
-     * @return string
-     */
-    public function getPermalink()
-    {
-        return $this->fileInfo->getPermalink();
-    }
-
-    /**
-     * Get the excerpt
-     *
-     * @return string
-     */
-    public function getExcerpt()
-    {
-        return mb_substr($this->getContent(), 0, self::EXCERPT_LENGTH);
-    }
-
     /**
      *
      * @return string

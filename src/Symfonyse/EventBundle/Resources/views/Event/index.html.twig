@@ -8,7 +8,7 @@
                 <p>
                     {{ event.title }}
                     <br />
-                    <a href="{{ path('event', {'permalink':event.permalink}) }}">{{ _misc.date(event.meta('timestamp'), 'medium', true)}}</a>
+                    <a href="{{ path('event', {'permalink':event.permalink}) }}">{{ _misc.date(event.time, 'medium', true)}}</a>
                 </p>
             </div>
         {% else %}

@@ -197,4 +197,14 @@ abstract class FileBasedEntity
     {
         return $this->fileInfo->getPermalink();
     }
+
+    /**
+     * Get a unix timestamp that we should use when we sort with this entity
+     *
+     * @return int
+     */
+    public function getSortableTimestamp()
+    {
+        return $this->getPostedAt()->getTimestamp();
+    }
 }

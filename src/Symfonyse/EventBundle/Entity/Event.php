@@ -19,14 +19,20 @@ class Event extends FileBasedEntity
      *
      * @return \DateTime
      */
-    public function getPostedAt()
+    public function getTime()
     {
-        $posted=$this->getMeta('timestamp');
-        if (!$posted) {
+        $timestamp=$this->getMeta('timestamp');
+        if (!$timestamp) {
             return parent::getPostedAt();
         }
 
-        return new \DateTime($posted);
+        return new \DateTime($timestamp);
+    }
+
+
+    public function getSortableTimestamp()
+    {
+        return $this->getTime()->getTimestamp();
     }
 
     function getType()

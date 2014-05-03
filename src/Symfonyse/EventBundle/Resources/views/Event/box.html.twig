@@ -4,7 +4,7 @@
 {% block content %}
     <h4><i class="fa fa-calendar text-red"></i> Nästa event</h4>
     <h5><a href="{{ path('event', {'permalink':event.permalink}) }}">{{event.title}}</a></h5>
-    <small>{{ _misc.date(event.meta('timestamp'), 'medium', true)}}</small>
+    <small>{{ _misc.date(event.time, 'medium', true)}}</small>
 
     {{ event.content|markdown }}
 

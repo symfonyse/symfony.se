@@ -117,7 +117,7 @@ abstract class CoreContentProvider
     public function sortEntries(&$entries)
     {
         usort($entries, function($a, $b) {
-            $timeDiff = $b->getPostedAt()->getTimestamp() - $a->getPostedAt()->getTimestamp();
+            $timeDiff = $b->getSortableTimestamp() - $a->getSortableTimestamp();
 
             if ($timeDiff == 0){
                 return strcmp($a->getAbsolutePath(), $b->getAbsolutePath());

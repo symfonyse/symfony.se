@@ -21,21 +21,13 @@ class ContentProvider extends CoreContentProvider
      */
     public function getNextEvent()
     {
-        $events = $this->getAllEntries();
-        $this->sortEntries($events);
+        $events = $this->getUpcomingEvents();
 
-        $prevEvent=null;
-        $now = new \DateTime();
-        foreach ($events as $event) {
-            /* @var $event \Symfonyse\EventBundle\Entity\Event */
-            if ($event->getPostedAt() < $now) {
-                return $prevEvent;
-            }
-
-            $prevEvent = $event;
+        if (empty($events)) {
+            return null;
         }
 
-        return null;
+        return array_shift($events);
     }
 
     /**
@@ -53,7 +45,7 @@ class ContentProvider extends CoreContentProvider
         $now = new \DateTime();
         foreach ($events as $event) {
             /* @var $event \Symfonyse\EventBundle\Entity\Event */
-            if ($event->getPostedAt() > $now) {
+            if ($event->getTime() > $now) {
                 $upcoming[]= $event;
             }
         }
