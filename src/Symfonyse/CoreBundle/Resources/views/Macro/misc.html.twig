@@ -38,7 +38,7 @@
 {# Print tags with a link #}
 {% macro tags(tags) %}
     {% for tag in tags %}
-        <a href="{{ path('tag', {'permalink': tag|lower|replace({' ':'-'})} ) }}">{{ tag }}</a>
+        <a href="{{ path('tag', {'permalink': tag|slugify} ) }}">{{ tag }}</a>
         {%- if not loop.last %},{% endif %}
     {% endfor %}
 {% endmacro %}
@@ -46,7 +46,7 @@
 {# Print authors with a link #}
 {% macro authors(authors) %}
     {% for author in authors %}
-        <a href="{{ path('author', {'permalink': author|lower|replace({' ':'-'})} ) }}">{{ author }}</a>
+        <a href="{{ path('author', {'permalink': author|slugify} ) }}">{{ author }}</a>
         {%- if not loop.last %},{% endif %}
     {% endfor %}
 {% endmacro %}
@@ -54,7 +54,7 @@
 {# Print author photos #}
 {% macro authorPhoto(authors) %}
     {% for author in authors %}
-        {% set permalink = author|lower|replace({' ':'-'}) %}
+        {% set permalink = author|slugify %}
             <img class="author-photo" title="{{ author }}" src="{{ asset('bundles/symfonyseauthor/images/'~staticCall('Symfonyse\\AuthorBundle\\Entity\\Author', 'getPhoto', permalink)) }}" />
     {% endfor %}
 {% endmacro %}
