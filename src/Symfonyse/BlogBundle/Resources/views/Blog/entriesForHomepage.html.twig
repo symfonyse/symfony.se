@@ -15,11 +15,15 @@
                     <h3>
                         <a href="{{path('blog', {'permalink': entry.permalink})}}">{{entry.title}}</a>
                     </h3>
-                    {% if entry.meta('tags') is not empty %}
-                        <i class="fa-tags"></i>{{ _misc.tags(entry.meta('tags')) }}
-                    {% endif %}
+
                     <hr>
-                    <p class="text-muted">av {{ _misc.authors(entry.meta('authors')) }} den {{ _misc.date(entry.postedAt, 'medium') }}</p>
+                    <p class="text-muted">
+                        av {{ _misc.authors(entry.meta('authors')) }} den {{ _misc.date(entry.postedAt, 'medium') }}
+                        <br />
+                        {% if entry.meta('tags') is not empty %}
+                            <i class="fa-tags"></i>{{ _misc.tags(entry.meta('tags')) }}
+                        {% endif %}
+                    </p>
                     {{ entry.content|markdown }}
 
 
