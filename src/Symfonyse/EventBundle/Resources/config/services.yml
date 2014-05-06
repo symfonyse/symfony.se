@@ -1,12 +1,14 @@
 parameters:
-#    symfonyse_event.example.class: Symfonyse\EventBundle\Example
+    symfonyse.event.meetup_group_name: symfony-se
 
 services:
-  symfonyse.event.content_provider:
+  symfonyse.event.file_content_provider:
     class: Symfonyse\EventBundle\ContentProvider\FileContentProvider
     arguments: [~ , 'md']
 
 
-  symfonyse.event.meetup_content_provider:
+  symfonyse.event.content_provider:
     class: Symfonyse\EventBundle\ContentProvider\MeetupContentProvider
-    arguments: [@dms_meetup_api.client_factory]
+    arguments: [@dms_meetup_api.client_factory, %symfonyse.event.meetup_group_name%]
+
+
