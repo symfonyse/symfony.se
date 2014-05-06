@@ -9,13 +9,11 @@
 
     {{ tag.content|markdown }}
 
-        {% for entry in entries %}
-            {% for entry in entries %}
-                {% if entry.type == 'blog' %}
-                    {% include "@SymfonyseBlog/Blog/extract.html.twig" %}
-                {% elseif entry.type == 'video' %}
-                    {% include "@SymfonyseVideo/Video/extract.html.twig" %}
-                {% endif %}
-            {% endfor %}
-        {% endfor %}
+    {% for entry in entries %}
+        {% if entry.type == 'blog' %}
+            {% include "@SymfonyseBlog/Blog/extract.html.twig" %}
+        {% elseif entry.type == 'video' %}
+            {% include "@SymfonyseVideo/Video/extract.html.twig" %}
+        {% endif %}
+    {% endfor %}
 {% endblock %}
