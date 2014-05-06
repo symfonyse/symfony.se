@@ -5,6 +5,7 @@ namespace Symfonyse\EventBundle\ContentProvider;
 use DMS\Bundle\MeetupApiBundle\Service\ClientFactory;
 use DMS\Service\Meetup\AbstractMeetupClient;
 use Symfonyse\EventBundle\Entity\Event;
+use Symfonyse\EventBundle\Entity\MeetupEvent;
 
 class MeetupContentProvider implements EventContentProvider
 {
@@ -13,9 +14,15 @@ class MeetupContentProvider implements EventContentProvider
      */
     private $client;
 
-    public function __construct(ClientFactory $clientFactory)
+    /**
+     * @var string
+     */
+    private $groupName;
+
+    public function __construct(ClientFactory $clientFactory, $groupName)
     {
-        $this->client = $clientFactory->getKeyAuthClient();
+        $this->client    = $clientFactory->getKeyAuthClient();
+        $this->groupName = $groupName;
     }
 
     /**
@@ -41,7 +48,9 @@ class MeetupContentProvider implements EventContentProvider
      */
     public function getUpcomingEvents()
     {
-        return $this->client->getEvents(['status' => 'upcoming']);
+        $response = $this->client->getEvents(['group_urlname' => $this->groupName, 'status' => 'upcoming']);
+
+        return array_map(array($this, 'createEntity'), $response->getData());
     }
 
     /**
@@ -53,7 +62,11 @@ class MeetupContentProvider implements EventContentProvider
      */
     public function getEntry($permalink)
     {
-        // TODO: Implement getEntry() method.
+        list($year, $id) = explode('/', $permalink);
+
+        $response = $this->client->getEvent(['id' => $id]);
+
+        return $this->createEntity($response->getData());
     }
 
     /**
@@ -61,6 +74,20 @@ class MeetupContentProvider implements EventContentProvider
      */
     public function getAllEntries()
     {
-        // TODO: Implement getAllEntries() method.
+        $response = $this->client->getEvents(['group_urlname' => $this->groupName]);
+
+        return array_map(array($this, 'createEntity'), $response->getData());
+    }
+
+    /**
+     * Create a MeetupEvent instance from the API response
+     *
+     * @param $input
+     *
+     * @return MeetupEvent
+     */
+    protected function createEntity(array $input)
+    {
+        return new MeetupEvent($input['id'], $input['name'], $input['time'] / 1000, $input['description']);
     }
 }
