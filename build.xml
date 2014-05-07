@@ -10,7 +10,7 @@
     <target name="deploy-no-pull" depends="prepare,composer,update-assets,clear-cache"/>
 
     <!-- update the assets -->
-    <target name="update-assets" depends="bower,assetic"/>
+    <target name="update-assets" depends="bower,npm,assetic"/>
 
     <!-- Prepare for build -->
     <target name="prepare" depends="create-folders,purge-cache"/>
@@ -86,6 +86,12 @@
 
     <target name="bower" description="Update the bower dependencies">
         <exec executable="bower" dir="${basedir}" failonerror="true">
+            <arg line="install"/>
+        </exec>
+    </target>
+
+    <target name="npm" description="Update the npm dependencies">
+        <exec executable="npm" dir="${basedir}" failonerror="true">
             <arg line="install"/>
         </exec>
     </target>
