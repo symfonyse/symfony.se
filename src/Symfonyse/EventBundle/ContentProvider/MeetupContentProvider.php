@@ -49,7 +49,11 @@ class MeetupContentProvider implements EventContentProvider
      */
     public function getUpcomingEvents()
     {
-        $response = $this->client->getEvents(['group_urlname' => $this->groupName, 'status' => 'upcoming']);
+        try {
+            $response = $this->client->getEvents(['group_urlname' => $this->groupName, 'status' => 'upcoming']);
+        } catch (ClientErrorResponseException $e) {
+            return array();
+        }
 
         return array_map(array($this, 'createEntity'), $response->getData());
     }
@@ -79,7 +83,11 @@ class MeetupContentProvider implements EventContentProvider
      */
     public function getAllEntries()
     {
-        $response = $this->client->getEvents(['group_urlname' => $this->groupName]);
+        try {
+            $response = $this->client->getEvents(['group_urlname' => $this->groupName]);
+        } catch (ClientErrorResponseException $e) {
+            return array();
+        }
 
         return array_map(array($this, 'createEntity'), $response->getData());
     }
