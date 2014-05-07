@@ -4,6 +4,7 @@ namespace Symfonyse\EventBundle\ContentProvider;
 
 use DMS\Bundle\MeetupApiBundle\Service\ClientFactory;
 use DMS\Service\Meetup\AbstractMeetupClient;
+use Guzzle\Http\Exception\ClientErrorResponseException;
 use Symfonyse\EventBundle\Entity\Event;
 use Symfonyse\EventBundle\Entity\MeetupEvent;
 
@@ -64,7 +65,11 @@ class MeetupContentProvider implements EventContentProvider
     {
         list($id, $title) = explode('/', $permalink);
 
-        $response = $this->client->getEvent(['id' => $id]);
+        try {
+            $response = $this->client->getEvent(['id' => $id]);
+        } catch (ClientErrorResponseException $e) {
+            return null;
+        }
 
         return $this->createEntity($response->getData());
     }

@@ -69,7 +69,9 @@ class EventController extends BaseController
     public function entryAction($permalink)
     {
         if (null === $event = $this->get('symfonyse.event.content_provider')->getEntry($permalink)) {
-            return $this->createNotFoundException('Event not found');
+            if (null === $event = $this->get('symfonyse.event.file_content_provider')->getEntry($permalink)) {
+                return $this->createNotFoundException('Event not found');
+            }
         }
 
         return array(
