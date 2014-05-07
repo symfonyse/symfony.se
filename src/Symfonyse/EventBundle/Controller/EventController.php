@@ -70,7 +70,7 @@ class EventController extends BaseController
     {
         if (null === $event = $this->get('symfonyse.event.content_provider')->getEntry($permalink)) {
             if (null === $event = $this->get('symfonyse.event.file_content_provider')->getEntry($permalink)) {
-                return $this->createNotFoundException('Event not found');
+                throw $this->createNotFoundException('Event not found');
             }
         }
 
