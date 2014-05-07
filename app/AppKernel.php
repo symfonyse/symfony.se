@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
 
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new DMS\Bundle\MeetupApiBundle\DMSMeetupApiBundle(),
 
             new Symfonyse\ContentBundle\SymfonyseContentBundle(),
             new Symfonyse\BlogBundle\SymfonyseBlogBundle(),

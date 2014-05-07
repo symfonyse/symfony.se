@@ -12,7 +12,7 @@ use Symfonyse\EventBundle\Entity\Event;
  *
  *
  */
-class ContentProvider extends CoreContentProvider
+class FileContentProvider extends CoreContentProvider implements EventContentProvider
 {
     /**
      * Get the next event.
