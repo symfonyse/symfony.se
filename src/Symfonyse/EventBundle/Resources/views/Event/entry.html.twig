@@ -7,6 +7,9 @@
 {% block content %}
   <h1>{{event.title}}</h1>
 
-    {{ event.content|markdown }}
+    {{ event.content|raw }}
 
+    {% if event.meta('event_url') is not null %}
+        <p>Register at <a href="{{ event.meta('event_url') }}">meetup.com</a></p>
+    {% endif %}
 {% endblock %}

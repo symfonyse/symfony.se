@@ -62,7 +62,7 @@ class MeetupContentProvider implements EventContentProvider
      */
     public function getEntry($permalink)
     {
-        list($year, $id) = explode('/', $permalink);
+        list($id, $title) = explode('/', $permalink);
 
         $response = $this->client->getEvent(['id' => $id]);
 
@@ -88,6 +88,8 @@ class MeetupContentProvider implements EventContentProvider
      */
     protected function createEntity(array $input)
     {
-        return new MeetupEvent($input['id'], $input['name'], $input['time'] / 1000, $input['description']);
+        $input['time'] /= 1000;
+
+        return new MeetupEvent($input);
     }
 }

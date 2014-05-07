@@ -8,28 +8,14 @@ use Symfonyse\CoreBundle\Entity\EntityInterface;
 class MeetupEvent implements EntityInterface
 {
     /**
-     * @var
+     * @var array meta
+     *
      */
-    private $id;
-    /**
-     * @var
-     */
-    private $title;
-    /**
-     * @var
-     */
-    private $timestamp;
-    /**
-     * @var
-     */
-    private $content;
+    private $meta;
 
-    public function __construct($id, $title, $timestamp, $content)
+    public function __construct($meta)
     {
-        $this->id        = $id;
-        $this->title     = $title;
-        $this->timestamp = $timestamp;
-        $this->content   = $content;
+        $this->meta = $meta;
     }
 
     /**
@@ -37,7 +23,7 @@ class MeetupEvent implements EntityInterface
      */
     public function getPermalink()
     {
-        return date('Y', $this->timestamp) . '/' . $this->id;
+        return $this->getMeta('id') . '/' . str_replace(' ', '-', $this->getTitle());
     }
 
     /**
@@ -45,17 +31,37 @@ class MeetupEvent implements EntityInterface
      */
     public function getTitle()
     {
-        return $this->title;
+        return $this->getMeta('name');
     }
 
+    /**
+     *
+     *
+     * @param $name
+     *
+     * @return mixed
+     * @throws \Exception
+     */
     public function getMeta($name)
     {
-        switch ($name) {
-            case 'timestamp':
-                return date('Y-m-d H:i:s', $this->timestamp);
-            default:
-                throw new Exception('Unknown meta name: ' . $name);
+        if (!isset($this->meta[$name])) {
+            return null;
         }
+
+        return $this->meta[$name];
+    }
+
+    /**
+     *
+     *
+     * @return \DateTime
+     */
+    public function getTime()
+    {
+        $date=new \DateTime();
+        $date->setTimestamp($this->getMeta('time'));
+
+        return $date;
     }
 
     /**
@@ -63,6 +69,6 @@ class MeetupEvent implements EntityInterface
      */
     public function getContent()
     {
-        return $this->content;
+        return $this->getMeta('description');
     }
 }

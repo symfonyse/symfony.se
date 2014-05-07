@@ -22,8 +22,8 @@ class EventController extends BaseController
      *
      * @Template
      *
-     * cache for 1 day
-     * @Cache(smaxage=86400)
+     * cache for 6 hours
+     * @Cache(smaxage=21600)
      *
      * @return array
      */
@@ -41,8 +41,8 @@ class EventController extends BaseController
      *
      * @Template("SymfonyseEventBundle:Event:box.html.twig")
      *
-     * cache for 1 day
-     * @Cache(smaxage=86400)
+     * cache for 6 hours
+     * @Cache(smaxage=21600)
      *
      * @return array
      */
@@ -61,8 +61,8 @@ class EventController extends BaseController
      *
      * @Template()
      *
-     * cache for 1 day
-     * @Cache(smaxage=86400)
+     * cache for 6 hours
+     * @Cache(smaxage=21600)
      *
      * @return array
      */
