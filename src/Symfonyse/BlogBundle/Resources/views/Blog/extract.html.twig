@@ -12,7 +12,7 @@
                 <i class="fa-tags"></i>{{ _misc.tags(entry.meta('tags')) }}
             {% endif %}</p>
         <div class="entry-content">
-        {{ entry.content|excerpt|markdown }}
+        {{ entry.content|markdown|excerpt }}
         </div>
 
 
