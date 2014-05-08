@@ -12,8 +12,3 @@ services:
     class: Symfonyse\CoreBundle\Twig\StaticExtension
     tags:
       - { name: twig.extension }
-
-  symfonyse.core.twig.slugify_extension:
-    class: Symfonyse\CoreBundle\Twig\SlugifyExtension
-    tags:
-      - { name: twig.extension }

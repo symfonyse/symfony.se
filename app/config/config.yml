@@ -73,3 +73,6 @@ doctrine:
 dms_meetup_api:
     client:
         key: %meetup_api_key%
+
+happy_r_slugify:
+    twig: true

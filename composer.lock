@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "8ca2788c99bdd55a47b4e8100822d20c",
+    "hash": "99ca56674f6c755e499ee8ccc8b2aae8",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -779,16 +779,16 @@
         },
         {
             "name": "guzzle/guzzle",
-            "version": "v3.9.0",
+            "version": "v3.9.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle3.git",
-                "reference": "e4d12d7d6acccf75a5e504114e2df9195e494108"
+                "reference": "92d9934f2fca1da15178c91239576ae26e505e60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/e4d12d7d6acccf75a5e504114e2df9195e494108",
-                "reference": "e4d12d7d6acccf75a5e504114e2df9195e494108",
+                "url": "https://api.github.com/repos/guzzle/guzzle3/zipball/92d9934f2fca1da15178c91239576ae26e505e60",
+                "reference": "92d9934f2fca1da15178c91239576ae26e505e60",
                 "shasum": ""
             },
             "require": {
@@ -867,7 +867,54 @@
                 "rest",
                 "web service"
             ],
-            "time": "2014-04-23 21:43:40"
+            "time": "2014-05-07 17:04:22"
+        },
+        {
+            "name": "happyr/slugify-bundle",
+            "version": "1.0.1",
+            "target-dir": "HappyR/SlugifyBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HappyR/SlugifyBundle.git",
+                "reference": "729be58f3f10fe0d1d56bfc1f396e35fc4002bdc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HappyR/SlugifyBundle/zipball/729be58f3f10fe0d1d56bfc1f396e35fc4002bdc",
+                "reference": "729be58f3f10fe0d1d56bfc1f396e35fc4002bdc",
+                "shasum": ""
+            },
+            "require": {
+                "jbroadway/urlify": "1.0.*",
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "2.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "HappyR\\SlugifyBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias@happyrecruiting.se"
+                }
+            ],
+            "description": "A Symfony2 Bundle to slugify swedish texts",
+            "homepage": "http://developer.happyr.se/symfony2-bundles/slugify-bundle",
+            "keywords": [
+                "Swedish",
+                "slugify"
+            ],
+            "time": "2014-05-08 13:05:41"
         },
         {
             "name": "incenteev/composer-parameter-handler",
@@ -920,6 +967,61 @@
                 "parameters management"
             ],
             "time": "2013-12-07 10:10:39"
+        },
+        {
+            "name": "jbroadway/urlify",
+            "version": "1.0.3-stable",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jbroadway/urlify.git",
+                "reference": "c9ada9d3873d11f72fa772aecd6896efad11ee67"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jbroadway/urlify/zipball/c9ada9d3873d11f72fa772aecd6896efad11ee67",
+                "reference": "c9ada9d3873d11f72fa772aecd6896efad11ee67",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "URLify": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Johnny Broadway",
+                    "email": "johnny@johnnybroadway.com",
+                    "homepage": "http://www.johnnybroadway.com/",
+                    "role": "Main Developer"
+                }
+            ],
+            "description": "PHP port of URLify.js from the Django project. Transliterates non-ascii characters for use in URLs.",
+            "homepage": "https://github.com/jbroadway/urlify",
+            "keywords": [
+                "encode",
+                "iconv",
+                "link",
+                "slug",
+                "translit",
+                "transliterate",
+                "transliteration",
+                "url",
+                "urlify"
+            ],
+            "time": "2014-03-17 16:14:04"
         },
         {
             "name": "jdorn/sql-formatter",
@@ -1306,25 +1408,28 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.1.0",
+            "version": "v5.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "748c01c1144713ac0118396935d10b6ceec91b68"
+                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/748c01c1144713ac0118396935d10b6ceec91b68",
-                "reference": "748c01c1144713ac0118396935d10b6ceec91b68",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/043e336b871f17a117f76ef8e190eddfc04c8d48",
+                "reference": "043e336b871f17a117f76ef8e190eddfc04c8d48",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2.4"
             },
+            "require-dev": {
+                "mockery/mockery": "~0.9.1"
+            },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.1-dev"
+                    "dev-master": "5.2-dev"
                 }
             },
             "autoload": {
@@ -1353,7 +1458,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-03-18 09:03:27"
+            "time": "2014-05-08 08:11:19"
         },
         {
             "name": "symfony/assetic-bundle",

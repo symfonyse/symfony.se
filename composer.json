@@ -19,7 +19,8 @@
         "sensio/framework-extra-bundle": "2.3.*",
         "incenteev/composer-parameter-handler": "~2.0",
         "knplabs/knp-markdown-bundle": "1.2.*",
-        "dms/meetup-api-bundle": "~1.0"
+        "dms/meetup-api-bundle": "~1.0",
+        "happyr/slugify-bundle": "1.0.*"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3",
