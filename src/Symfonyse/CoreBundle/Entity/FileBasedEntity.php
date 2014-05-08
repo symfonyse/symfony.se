@@ -12,7 +12,7 @@ use Symfonyse\CoreBundle\Model\FileInfo;
  *
  *
  */
-abstract class FileBasedEntity
+abstract class FileBasedEntity implements EntityInterface
 {
     /**
      * @var \Symfonyse\CoreBundle\Model\FileInfo fileInfo

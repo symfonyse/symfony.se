@@ -13,7 +13,7 @@ services:
     tags:
       - { name: twig.extension }
 
-  symfonyse.core.twig.slugify_extension:
-    class: Symfonyse\CoreBundle\Twig\SlugifyExtension
+  symfonyse.core.twig.excerpt_extension:
+    class: Symfonyse\CoreBundle\Twig\ExcerptExtension
     tags:
       - { name: twig.extension }

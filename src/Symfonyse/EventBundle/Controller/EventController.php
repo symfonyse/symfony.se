@@ -22,8 +22,8 @@ class EventController extends BaseController
      *
      * @Template
      *
-     * cache for 1 day
-     * @Cache(smaxage=86400)
+     * cache for 6 hours
+     * @Cache(smaxage=21600)
      *
      * @return array
      */
@@ -41,8 +41,8 @@ class EventController extends BaseController
      *
      * @Template("SymfonyseEventBundle:Event:box.html.twig")
      *
-     * cache for 1 day
-     * @Cache(smaxage=86400)
+     * cache for 6 hours
+     * @Cache(smaxage=21600)
      *
      * @return array
      */
@@ -61,15 +61,17 @@ class EventController extends BaseController
      *
      * @Template()
      *
-     * cache for 1 day
-     * @Cache(smaxage=86400)
+     * cache for 6 hours
+     * @Cache(smaxage=21600)
      *
      * @return array
      */
     public function entryAction($permalink)
     {
         if (null === $event = $this->get('symfonyse.event.content_provider')->getEntry($permalink)) {
-            return $this->createNotFoundException('Event not found');
+            if (null === $event = $this->get('symfonyse.event.file_content_provider')->getEntry($permalink)) {
+                throw $this->createNotFoundException('Event not found');
+            }
         }
 
         return array(

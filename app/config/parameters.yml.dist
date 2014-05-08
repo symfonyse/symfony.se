@@ -10,3 +10,4 @@ parameters:
     locale:            sv
     secret:            ThisTokenIsNotSoSecretChangeIt
     site_domain:       localhost
+    meetup_api_key:    ChangeMe
