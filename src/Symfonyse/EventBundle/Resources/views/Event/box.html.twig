@@ -6,6 +6,7 @@
     <h5><a href="{{ path('event', {'permalink':event.permalink}) }}">{{event.title}}</a></h5>
     <small>{{ _misc.date(event.time, 'medium', true)}}</small>
 
-    {{ event.content|excerpt|markdown|raw }}
-
+    <div class="entry-content">
+        {{ event.content|markdown|excerpt|raw }}
+    </div>
 {% endblock %}
