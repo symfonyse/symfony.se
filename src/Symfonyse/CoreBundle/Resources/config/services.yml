@@ -12,3 +12,8 @@ services:
     class: Symfonyse\CoreBundle\Twig\StaticExtension
     tags:
       - { name: twig.extension }
+
+  symfonyse.core.twig.excerpt_extension:
+    class: Symfonyse\CoreBundle\Twig\ExcerptExtension
+    tags:
+      - { name: twig.extension }
