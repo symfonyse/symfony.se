@@ -32,12 +32,14 @@ class ContentProvider extends CoreContentProvider
 
     /**
      * Get all event entries
+     *
+     * @return Entry[]
      */
     public function getAllEntries()
     {
         $files = $this->getAllFiles();
 
-        $entries=array();
+        $entries = array();
         foreach ($files as $file) {
             $entries[] = new Entry($file);
         }

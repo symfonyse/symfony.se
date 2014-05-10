@@ -1,2 +1,10 @@
 november_camp:
   pattern:  /november-camp
+
+
+feed:
+  pattern: /feed
+  defaults:
+    _controller: DebrilRssAtomBundle:Stream:index
+    format: rss
+    source: symfonyse.core.feedprovider

@@ -17,3 +17,8 @@ services:
     class: Symfonyse\CoreBundle\Twig\ExcerptExtension
     tags:
       - { name: twig.extension }
+
+
+  symfonyse.core.feedprovider:
+   class: Symfonyse\CoreBundle\Feed\FeedProvider
+   arguments: [ @symfonyse.blog.content_provider, @markdown.parser, @router ]
