@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "e6f76f7a77cadfc4cacb05016aecffbc",
+    "hash": "80a61c13e5499885fe0574edb1ee8ff8",
     "packages": [
         {
             "name": "debril/rss-atom-bundle",
@@ -913,6 +913,51 @@
                 "web service"
             ],
             "time": "2014-05-07 17:04:22"
+        },
+        {
+            "name": "happyr/excerpt-bundle",
+            "version": "dev-master",
+            "target-dir": "HappyR/ExcerptBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/HappyR/ExcerptBundle.git",
+                "reference": "2de8ae3c381e69723901f857d1f5a0f92e0873b4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/HappyR/ExcerptBundle/zipball/2de8ae3c381e69723901f857d1f5a0f92e0873b4",
+                "reference": "2de8ae3c381e69723901f857d1f5a0f92e0873b4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "2.*"
+            },
+            "require-dev": {
+                "mockery/mockery": "*"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "HappyR\\ExcerptBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias@happyrecruiting.se"
+                }
+            ],
+            "description": "A Symfony2 Bundle to make excerpts",
+            "homepage": "http://developer.happyr.se/symfony2-bundles/excerpt-bundle",
+            "keywords": [
+                "excerpt"
+            ],
+            "time": "2014-05-10 23:20:34"
         },
         {
             "name": "happyr/slugify-bundle",
@@ -2072,9 +2117,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": [
-
-    ],
+    "stability-flags": {
+        "happyr/excerpt-bundle": 20
+    },
     "platform": {
         "php": ">=5.3.3"
     },

@@ -25,7 +25,7 @@
                         {% endif %}
                     </p>
                     <div class="entry-content">
-                    {{ entry.content|markdown|excerpt }}
+                    {{ entry.content|markdown|excerpt|raw }}
                     </div>
 
                     <a class="btn btn-lg btn-red" href="{{path('blog', {'permalink': entry.permalink})}}">Läs mer</a>

@@ -20,6 +20,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new DMS\Bundle\MeetupApiBundle\DMSMeetupApiBundle(),
             new HappyR\SlugifyBundle\HappyRSlugifyBundle(),
+            new HappyR\ExcerptBundle\HappyRExcerptBundle(),
             new Debril\RssAtomBundle\DebrilRssAtomBundle(),
 
             new Symfonyse\ContentBundle\SymfonyseContentBundle(),
