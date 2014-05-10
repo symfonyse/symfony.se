@@ -921,12 +921,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/HappyR/ExcerptBundle.git",
-                "reference": "2de8ae3c381e69723901f857d1f5a0f92e0873b4"
+                "reference": "423b91f24706a04b8ccf1e23b58aef81ca076ed3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HappyR/ExcerptBundle/zipball/2de8ae3c381e69723901f857d1f5a0f92e0873b4",
-                "reference": "2de8ae3c381e69723901f857d1f5a0f92e0873b4",
+                "url": "https://api.github.com/repos/HappyR/ExcerptBundle/zipball/423b91f24706a04b8ccf1e23b58aef81ca076ed3",
+                "reference": "423b91f24706a04b8ccf1e23b58aef81ca076ed3",
                 "shasum": ""
             },
             "require": {
@@ -957,7 +957,7 @@
             "keywords": [
                 "excerpt"
             ],
-            "time": "2014-05-10 23:20:34"
+            "time": "2014-05-10 23:27:17"
         },
         {
             "name": "happyr/slugify-bundle",
