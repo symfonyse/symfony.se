@@ -61,28 +61,28 @@ class BlogController extends BaseController
      *
      * @Template
      *
-     * cache for 2 weeks
-     * @Cache(smaxage=1209600)
+     * cache for 6 hours
+     * @Cache(smaxage=21600)
      *
      * @return array
      */
     public function entriesForHomepageAction()
     {
         $cp= $this->get('symfonyse.blog.content_provider');
-        $events = $cp->getAllEntries();
-        $cp->sortEntries($events);
+        $entries = $cp->getAllEntries();
+        $cp->sortEntries($entries);
 
-        $entries=array();
+        $publishedEntries=array();
         $now = new \DateTime();
-        foreach ($events as $event) {
+        foreach ($entries as $event) {
             /* @var $event \Symfonyse\EventBundle\Entity\Event */
             if ($event->getPostedAt() < $now) {
-                $entries[]= $event;
+                $publishedEntries[]= $event;
             }
         }
 
 
-        return array('entries'=>$entries);
+        return array('entries'=>$publishedEntries);
     }
 
 } 
