@@ -5,11 +5,11 @@ namespace Symfonyse\CoreBundle\Feed;
 use Debril\RssAtomBundle\Protocol\Parser\FeedContent;
 use Debril\RssAtomBundle\Provider\FeedContentProvider;
 use dflydev\markdown\MarkdownParser;
+use HappyR\ExcerptBundle\Service\ExcerptInterface;
 use Symfony\Component\OptionsResolver\Options;
 use Symfony\Component\Routing\Router;
 use Symfony\Component\Routing\RouterInterface;
 use Symfonyse\BlogBundle\ContentProvider\ContentProvider as BlogContentProvider;
-use Symfonyse\CoreBundle\Twig\ExcerptExtension;
 
 
 class FeedProvider implements FeedContentProvider
@@ -26,15 +26,21 @@ class FeedProvider implements FeedContentProvider
      * @var \Symfony\Component\Routing\RouterInterface
      */
     private $router;
+    /**
+     * @var \HappyR\ExcerptBundle\Service\ExcerptInterface
+     */
+    private $excerpt;
 
     public function __construct(
         BlogContentProvider $blogContentProvider,
         MarkdownParser $markdownParser,
-        RouterInterface $router
+        RouterInterface $router,
+        ExcerptInterface $excerpt
     ) {
         $this->blogContentProvider = $blogContentProvider;
         $this->markdownParser      = $markdownParser;
         $this->router              = $router;
+        $this->excerpt             = $excerpt;
     }
 
     /**
@@ -52,8 +58,6 @@ class FeedProvider implements FeedContentProvider
 
         $maxModified = null;
 
-        $excerpt = new ExcerptExtension();
-
         foreach ($this->blogContentProvider->getAllEntries() as $entry) {
             $markdown = $this->markdownParser->transformMarkdown($entry->getContent());
             $url      = $this->router->generate('blog', ['permalink' => $entry->getPermalink()], Router::ABSOLUTE_URL);
@@ -61,7 +65,7 @@ class FeedProvider implements FeedContentProvider
             $item = new FeedItem();
             $item->setUpdated($entry->getModifiedAt());
             $item->setTitle($entry->getTitle());
-            $item->setDescription($excerpt->getExcerpt($markdown));
+            $item->setDescription($this->excerpt->getExcerpt($markdown));
             $item->setLink($url);
 
             $feed->addItem($item);
