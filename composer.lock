@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "80a61c13e5499885fe0574edb1ee8ff8",
+    "hash": "37f512062797931728efc3c747d93b59",
     "packages": [
         {
             "name": "debril/rss-atom-bundle",
@@ -426,16 +426,16 @@
         },
         {
             "name": "doctrine/common",
-            "version": "v2.4.1",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/common.git",
-                "reference": "ceb18cf9b0230f3ea208b6238130fd415abda0a7"
+                "reference": "5db6ab40e4c531f14dad4ca96a394dfce5d4255b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/common/zipball/ceb18cf9b0230f3ea208b6238130fd415abda0a7",
-                "reference": "ceb18cf9b0230f3ea208b6238130fd415abda0a7",
+                "url": "https://api.github.com/repos/doctrine/common/zipball/5db6ab40e4c531f14dad4ca96a394dfce5d4255b",
+                "reference": "5db6ab40e4c531f14dad4ca96a394dfce5d4255b",
                 "shasum": ""
             },
             "require": {
@@ -445,6 +445,9 @@
                 "doctrine/inflector": "1.*",
                 "doctrine/lexer": "1.*",
                 "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~3.7"
             },
             "type": "library",
             "extra": {
@@ -497,7 +500,7 @@
                 "persistence",
                 "spl"
             ],
-            "time": "2013-09-07 10:20:34"
+            "time": "2014-05-21 19:28:51"
         },
         {
             "name": "doctrine/dbal",
@@ -916,22 +919,22 @@
         },
         {
             "name": "happyr/excerpt-bundle",
-            "version": "dev-master",
+            "version": "0.1.0",
             "target-dir": "HappyR/ExcerptBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/HappyR/ExcerptBundle.git",
-                "reference": "423b91f24706a04b8ccf1e23b58aef81ca076ed3"
+                "reference": "3b088742bed6289c29769b2f83f51de6d190d73e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/HappyR/ExcerptBundle/zipball/423b91f24706a04b8ccf1e23b58aef81ca076ed3",
-                "reference": "423b91f24706a04b8ccf1e23b58aef81ca076ed3",
+                "url": "https://api.github.com/repos/HappyR/ExcerptBundle/zipball/3b088742bed6289c29769b2f83f51de6d190d73e",
+                "reference": "3b088742bed6289c29769b2f83f51de6d190d73e",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.2",
-                "symfony/framework-bundle": "2.*"
+                "php": ">=5.4",
+                "symfony/framework-bundle": "~2"
             },
             "require-dev": {
                 "mockery/mockery": "*"
@@ -939,7 +942,7 @@
             "type": "symfony-bundle",
             "autoload": {
                 "psr-0": {
-                    "HappyR\\ExcerptBundle": ""
+                    "HappyR\\ExcerptBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -948,16 +951,22 @@
             ],
             "authors": [
                 {
+                    "name": "Luis Cordova",
+                    "email": "cordoval@gmail.com",
+                    "homepage": "http://github.com/cordoval/fazer"
+                },
+                {
                     "name": "Tobias Nyholm",
                     "email": "tobias@happyrecruiting.se"
                 }
             ],
             "description": "A Symfony2 Bundle to make excerpts",
-            "homepage": "http://developer.happyr.se/symfony2-bundles/excerpt-bundle",
+            "homepage": "http://developer.happyr.com/symfony2-bundles/excerpt-bundle",
             "keywords": [
-                "excerpt"
+                "excerpt",
+                "hack"
             ],
-            "time": "2014-05-10 23:27:17"
+            "time": "2014-06-05 09:22:53"
         },
         {
             "name": "happyr/slugify-bundle",
@@ -1295,16 +1304,16 @@
         },
         {
             "name": "monolog/monolog",
-            "version": "1.9.1",
+            "version": "1.10.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Seldaek/monolog.git",
-                "reference": "65026b610f8c19e61d7242f600530677b0466aac"
+                "reference": "25b16e801979098cb2f120e697bfce454b18bf23"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/65026b610f8c19e61d7242f600530677b0466aac",
-                "reference": "65026b610f8c19e61d7242f600530677b0466aac",
+                "url": "https://api.github.com/repos/Seldaek/monolog/zipball/25b16e801979098cb2f120e697bfce454b18bf23",
+                "reference": "25b16e801979098cb2f120e697bfce454b18bf23",
                 "shasum": ""
             },
             "require": {
@@ -1332,7 +1341,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.9.x-dev"
+                    "dev-master": "1.10.x-dev"
                 }
             },
             "autoload": {
@@ -1359,7 +1368,7 @@
                 "logging",
                 "psr-3"
             ],
-            "time": "2014-04-24 13:29:03"
+            "time": "2014-06-04 16:30:04"
         },
         {
             "name": "psr/log",
@@ -1780,16 +1789,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v2.3.13",
+            "version": "v2.3.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "9c4b11915d7409a9cecd155d954f2ade273f3359"
+                "reference": "069683a14eb361f892c9bdc9d10d4f5dac3c0ee3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/9c4b11915d7409a9cecd155d954f2ade273f3359",
-                "reference": "9c4b11915d7409a9cecd155d954f2ade273f3359",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/069683a14eb361f892c9bdc9d10d4f5dac3c0ee3",
+                "reference": "069683a14eb361f892c9bdc9d10d4f5dac3c0ee3",
                 "shasum": ""
             },
             "require": {
@@ -1886,7 +1895,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2014-04-27 08:34:33"
+            "time": "2014-05-31 02:04:21"
         },
         {
             "name": "twig/extensions",
@@ -2117,9 +2126,9 @@
 
     ],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "happyr/excerpt-bundle": 20
-    },
+    "stability-flags": [
+
+    ],
     "platform": {
         "php": ">=5.3.3"
     },
