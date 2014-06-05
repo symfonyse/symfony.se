@@ -12,4 +12,4 @@ har som målsättning att komma ut med ett avsnitt i månaden. Avsnitten kommer 
 I varje avsnitt ska vi ha en intervju med en kändis i Symfony världen. I vårt första avsnitt har vi Jeremy Mikola som
 berättar om vad han gör på MongoDB och hans roll i Symfony-communityt.
 
-Det första avsnittet finns här på [www.soundofsymfony.com](http://www.soundofsymfony.com/episode/episode-1).
+Det första avsnittet finns på [www.soundofsymfony.com](http://www.soundofsymfony.com/episode/episode-1).
