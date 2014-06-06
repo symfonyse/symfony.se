@@ -67,7 +67,7 @@ class MeetupContentProvider implements EventContentProvider
      */
     public function getEntry($permalink)
     {
-        list($id, $title) = explode('/', $permalink);
+        list($id) = explode('/', $permalink);
 
         try {
             $response = $this->client->getEvent(['id' => $id]);
