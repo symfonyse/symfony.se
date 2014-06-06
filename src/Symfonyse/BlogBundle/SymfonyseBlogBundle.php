@@ -3,9 +3,6 @@
 namespace Symfonyse\BlogBundle;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
-use Symfony\Component\DependencyInjection\ContainerBuilder;
-
-use Symfonyse\BlogBundle\DependencyInjection\Compiler\TaggedProviderPass;
 
 /**
  * Class SymfonyseBlogBundle

@@ -2,7 +2,6 @@
 
 namespace Symfonyse\EventBundle\Entity;
 
-use Exception;
 use Symfonyse\CoreBundle\Entity\EntityInterface;
 
 class MeetupEvent implements EntityInterface
@@ -40,7 +39,6 @@ class MeetupEvent implements EntityInterface
      * @param $name
      *
      * @return mixed
-     * @throws \Exception
      */
     public function getMeta($name)
     {

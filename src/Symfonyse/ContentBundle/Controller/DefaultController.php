@@ -3,7 +3,6 @@
 namespace Symfonyse\ContentBundle\Controller;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfonyse\CoreBundle\Controller\BaseController;
 

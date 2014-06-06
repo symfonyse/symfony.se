@@ -3,7 +3,6 @@
 namespace Symfonyse\TagBundle\Entity;
 
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;
-use Symfonyse\CoreBundle\Model\FileInfo;
 
 /**
  * Class Tag
