@@ -2,12 +2,8 @@
 
 namespace Symfonyse\AuthorBundle\Controller;
 
-
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
-use Symfonyse\AuthorBundle\Entity\Author;
-use Symfonyse\ContentBundle\Entity\Page;
 use Symfonyse\CoreBundle\Controller\BaseController;
 
 /**
