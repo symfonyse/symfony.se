@@ -55,6 +55,6 @@
 {% macro authorPhoto(authors) %}
     {% for author in authors %}
         {% set permalink = author|slugify %}
-            <img class="author-photo" title="{{ author }}" src="{{ asset('bundles/symfonyseauthor/images/'~staticCall('Symfonyse\\AuthorBundle\\Entity\\Author', 'getPhoto', permalink)) }}" />
+            <img class="author-photo" title="{{ author }}" src="{{ asset(getAuthorPhoto(permalink)) }}" />
     {% endfor %}
 {% endmacro %}

@@ -12,7 +12,7 @@
                 <div class="row">
                     <div class="col-sm-3">
                         <div class="user-avatar text-center">
-                            <img class="img-responsive center-block" src="{{ asset('bundles/symfonyseauthor/images/'~staticCall('Symfonyse\\AuthorBundle\\Entity\\Author', 'getPhoto', author.permalink)) }}">
+                            <img class="img-responsive center-block" src="{{ asset(getAuthorPhoto(author)) }}">
                             {{author.title}}
                             <p class="text-muted">{{author.meta("jobtitle")}}</p>
                         </div>

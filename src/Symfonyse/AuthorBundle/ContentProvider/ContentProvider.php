@@ -81,7 +81,13 @@ class ContentProvider extends CoreContentProvider
      */
     public function getAllEntries()
     {
-        //TODO implement me
-        return array();
+        $files = $this->getAllFiles();
+
+        $entries = array();
+        foreach ($files as $file) {
+            $entries[] = new Author($file);
+        }
+
+        return $entries;
     }
 }

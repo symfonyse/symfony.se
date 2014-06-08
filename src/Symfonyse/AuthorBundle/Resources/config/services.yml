@@ -7,3 +7,13 @@ services:
     arguments: [~ , 'md']
     calls:
       - [setContentProviders, [[@symfonyse.blog.content_provider, @symfonyse.video.content_provider, @symfonyse.event.content_provider]]]
+
+  symfonyse.author.service.photo:
+    class: Symfonyse\AuthorBundle\Service\PhotoService
+    arguments: [@kernel]
+
+  symfonyse.core.twig.author_extension:
+    class: Symfonyse\AuthorBundle\Twig\AuthorExtension
+    arguments: [@symfonyse.author.service.photo]
+    tags:
+      - { name: twig.extension }
