@@ -20,31 +20,4 @@ class AppCache extends HttpCache
             'stale_if_error'         => 60,
         );
     }
-
-    /**
-     * Invalidate cache
-     *
-     * @param Request $request
-     * @param Boolean $catch   Whether to process exceptions
-     *
-     * @return Response
-     */
-    protected function invalidate(Request $request, $catch = false)
-    {
-        if ($_SERVER['SERVER_ADDR'] !== $request->getClientIp() || 'PURGE' !== $request->getMethod()) {
-            return parent::invalidate($request, $catch);
-        }
-
-        /**
-         * Assert: This is a HTTP PURGE method from this web server
-         */
-        $response = new Response();
-        if (!$this->getStore()->purge($request->getUri())) {
-            $response->setStatusCode(404, 'Not purged');
-        } else {
-            $response->setStatusCode(200, 'Purged');
-        }
-
-        return $response;
-    }
 }
