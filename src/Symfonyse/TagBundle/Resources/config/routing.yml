@@ -2,5 +2,6 @@
 tag:
   pattern:  /{permalink}
   defaults: { _controller: SymfonyseTagBundle:Tag:entry }
+  methods: [GET]
   requirements:
     permalink:  .+
