@@ -22,6 +22,7 @@ framework:
     trusted_proxies: ~
     session:
       save_path: %kernel.root_dir%/var/sessions
+      name: sysession
     fragments:       ~
     http_method_override: true
 
