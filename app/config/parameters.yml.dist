@@ -8,6 +8,6 @@ parameters:
 
 
     locale:            sv
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    secret:            ChangedForSensioLabsInsight
     site_domain:       localhost
     meetup_api_key:    ChangeMe

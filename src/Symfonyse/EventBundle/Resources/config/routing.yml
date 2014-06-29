@@ -3,14 +3,17 @@
 event_index:
   pattern:  /esi/index
   defaults: { _controller: SymfonyseEventBundle:Event:index }
+  methods: [GET]
 
 
 event_next:
   pattern:  /esi/next-event
   defaults: { _controller: SymfonyseEventBundle:Event:nextEvent }
+  methods: [GET]
 
 event:
   pattern:  /{permalink}
   defaults: { _controller: SymfonyseEventBundle:Event:entry }
+  methods: [GET]
   requirements:
     permalink:  "[0-9]+/.+"
