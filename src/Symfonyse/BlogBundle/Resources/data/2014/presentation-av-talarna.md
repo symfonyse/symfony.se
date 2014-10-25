@@ -5,10 +5,6 @@ authors: ["Tobias Nyholm"]
 published: "2014-10-24"
 ---
 
-Symfony.se
-
-En presentation av talarna
-
 Det var väldigt svårt att välja ut vilka som skulle tala bland alla call for papers. Men till slut lyckades vi och
 vi är väldigt glada över att ha en sådan bra uppsättning talare i år. Schemat för vem som ska tala när är inte klart
 ännu men jag tänkte presentera talarna och deras tal.
