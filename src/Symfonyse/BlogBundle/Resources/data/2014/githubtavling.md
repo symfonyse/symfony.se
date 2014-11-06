@@ -2,7 +2,7 @@
 title: "GitHubtävling"
 tags: ["November Camp"]
 authors: ["Jon Gotlin"]
-published: "2014-11-05"
+published: "2014-11-06"
 ---
 
 GitHub är snälla och sponsrar November Camp med 20 rabattkuponger! Dessa tänkte vi lotta ut till de konferensbesökare
