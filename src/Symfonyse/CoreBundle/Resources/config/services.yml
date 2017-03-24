@@ -15,4 +15,4 @@ services:
 
   symfonyse.core.feedprovider:
      class: Symfonyse\CoreBundle\Feed\FeedProvider
-     arguments: [ @symfonyse.blog.content_provider, @markdown.parser, @router, @happyr.excerpt.service ]
+     arguments: [ "@symfonyse.blog.content_provider", "@markdown.parser", "@router", "@happyr.excerpt.service"]

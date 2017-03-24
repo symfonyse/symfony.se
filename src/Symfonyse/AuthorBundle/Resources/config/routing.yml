@@ -1,7 +1,6 @@
 author:
-  pattern:  /{permalink}
-  defaults: { _controller: SymfonyseAuthorBundle:Author:entry }
+  path:  /{permalink}
+  defaults: { _controller: "SymfonyseAuthorBundle:Author:entry" }
   methods: [GET]
   requirements:
     permalink:  .+
-

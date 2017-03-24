@@ -62,7 +62,7 @@ class ContentProvider extends CoreContentProvider
     {
         $authorEntries=array();
         foreach ($this->contentProviders as $cp) {
-            $authorEntries = array_merge($authorEntries, array_filter($cp->getAllEntries(), function($e) use ($author) {
+            $authorEntries = array_merge($authorEntries, array_filter($cp->getAllEntries(), function ($e) use ($author) {
                 if (null == $authors = $e->getMeta('authors')) {
                     return false;
                 }

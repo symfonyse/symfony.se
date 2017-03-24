@@ -1,13 +1,11 @@
-
-
 video_index:
-  pattern:  /index
-  defaults: { _controller: SymfonyseVideoBundle:Video:index }
+  path:  /index
+  defaults: { _controller: "SymfonyseVideoBundle:Video:index" }
   methods: [GET]
 
 video:
-  pattern:  /{permalink}
-  defaults: { _controller: SymfonyseVideoBundle:Video:entry }
+  path:  /{permalink}
+  defaults: { _controller: "SymfonyseVideoBundle:Video:entry" }
   methods: [GET]
   requirements:
     permalink:  .+

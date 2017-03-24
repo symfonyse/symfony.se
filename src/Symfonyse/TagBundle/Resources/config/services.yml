@@ -6,4 +6,4 @@ services:
     class: Symfonyse\TagBundle\ContentProvider\ContentProvider
     arguments: [~ , 'md']
     calls:
-      - [setContentProviders, [[@symfonyse.blog.content_provider, @symfonyse.video.content_provider, @symfonyse.event.content_provider]]]
+      - [setContentProviders, [["@symfonyse.blog.content_provider", "@symfonyse.video.content_provider", "@symfonyse.event.content_provider"]]]

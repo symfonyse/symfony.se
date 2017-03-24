@@ -1,5 +1,3 @@
-
-
 services:
   symfonyse.blog.content_provider:
     class: Symfonyse\BlogBundle\ContentProvider\ContentProvider

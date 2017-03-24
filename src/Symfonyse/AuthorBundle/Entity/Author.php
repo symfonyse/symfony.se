@@ -1,6 +1,5 @@
 <?php
 
-
 namespace Symfonyse\AuthorBundle\Entity;
 
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;

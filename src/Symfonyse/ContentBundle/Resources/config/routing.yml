@@ -1,11 +1,11 @@
 homepage:
-  pattern:  /
-  defaults: { _controller: SymfonyseContentBundle:Default:homepage }
+  path:  /
+  defaults: { _controller: "SymfonyseContentBundle:Default:homepage" }
   methods: [GET]
 
 page:
-  pattern:  /page/{permalink}
-  defaults: { _controller: SymfonyseContentBundle:Page:page }
+  path:  /page/{permalink}
+  defaults: { _controller: "SymfonyseContentBundle:Page:page" }
   methods: [GET]
   requirements:
     permalink:  .+
