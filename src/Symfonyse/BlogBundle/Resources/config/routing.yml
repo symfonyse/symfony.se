@@ -1,12 +1,11 @@
 blog_index:
-  pattern:  /index
-  defaults: { _controller: SymfonyseBlogBundle:Blog:index }
+  path:  /index
+  defaults: { _controller: "SymfonyseBlogBundle:Blog:index" }
   methods: [GET]
 
 blog:
-  pattern:  /{permalink}
-  defaults: { _controller: SymfonyseBlogBundle:Blog:entry }
+  path:  /{permalink}
+  defaults: { _controller: "SymfonyseBlogBundle:Blog:entry" }
   methods: [GET]
   requirements:
     permalink:  "[0-9]+/.+"
-

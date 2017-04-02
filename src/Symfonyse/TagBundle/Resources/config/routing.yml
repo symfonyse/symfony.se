@@ -1,6 +1,6 @@
 
 tag:
-  pattern:  /{permalink}
+  path:  /{permalink}
   defaults: { _controller: SymfonyseTagBundle:Tag:entry }
   methods: [GET]
   requirements:

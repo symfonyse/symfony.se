@@ -6,11 +6,9 @@ use Symfonyse\AuthorBundle\Entity\Author;
 use Symfonyse\CoreBundle\ContentProvider\CoreContentProvider;
 
 /**
- * Class ContentProvider
+ * Class ContentProvider.
  *
  * @author Tobias Nyholm
- *
- *
  */
 class ContentProvider extends CoreContentProvider
 {
@@ -18,12 +16,10 @@ class ContentProvider extends CoreContentProvider
      * @var CoreContentProvider[] contentProviders
      *
      * This is an array with content providers that provide entries that have a "authors" meta tag
-     *
      */
     private $contentProviders;
 
     /**
-     *
      * @param \Symfonyse\CoreBundle\ContentProvider\CoreContentProvider[] $cps
      *
      * @return $this
@@ -36,7 +32,7 @@ class ContentProvider extends CoreContentProvider
     }
 
     /**
-     * Get a Author entry
+     * Get a Author entry.
      *
      * @param $permalink
      *
@@ -52,7 +48,7 @@ class ContentProvider extends CoreContentProvider
     }
 
     /**
-     * Get all entries by this author
+     * Get all entries by this author.
      *
      * @param Author $author
      *
@@ -60,16 +56,16 @@ class ContentProvider extends CoreContentProvider
      */
     public function getEntriesByAuthor(Author $author)
     {
-        $authorEntries=array();
+        $authorEntries = array();
         foreach ($this->contentProviders as $cp) {
-            $authorEntries = array_merge($authorEntries, array_filter($cp->getAllEntries(), function($e) use ($author) {
+            $authorEntries = array_merge($authorEntries, array_filter($cp->getAllEntries(), function ($e) use ($author) {
                 if (null == $authors = $e->getMeta('authors')) {
                     return false;
                 }
+
                 return in_array($author->getTitle(), $authors);
             }));
         }
-
 
         return $authorEntries;
     }

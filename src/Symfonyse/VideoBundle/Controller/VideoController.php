@@ -7,15 +7,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 
 /**
- * Class VideoController
+ * Class VideoController.
  *
  * @author Tobias Nyholm
- *
  */
 class VideoController extends BaseController
 {
     /**
-     *
      * @Template
      *
      * cache for 2 weeks
@@ -25,18 +23,17 @@ class VideoController extends BaseController
      */
     public function indexAction()
     {
-        $cp=$this->get('symfonyse.video.content_provider');
-        $videos=$cp->getAllEntries();
+        $cp = $this->get('symfonyse.video.content_provider');
+        $videos = $cp->getAllEntries();
 
         $cp->sortEntries($videos, 'getRecordedAt');
 
         return array(
-            'videos'=>$videos,
+            'videos' => $videos,
         );
     }
 
     /**
-     *
      * @Template
      *
      * cache for 1 week
@@ -51,7 +48,7 @@ class VideoController extends BaseController
         }
 
         return array(
-            'video'=>$video,
+            'video' => $video,
         );
     }
-} 
+}

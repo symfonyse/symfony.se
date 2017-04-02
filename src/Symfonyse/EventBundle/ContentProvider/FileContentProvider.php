@@ -6,11 +6,9 @@ use Symfonyse\CoreBundle\ContentProvider\CoreContentProvider;
 use Symfonyse\EventBundle\Entity\Event;
 
 /**
- * Class ContentProvider
+ * Class ContentProvider.
  *
  * @author Tobias Nyholm
- *
- *
  */
 class FileContentProvider extends CoreContentProvider implements EventContentProvider
 {
@@ -31,7 +29,7 @@ class FileContentProvider extends CoreContentProvider implements EventContentPro
     }
 
     /**
-     * Get an array with upcoming events
+     * Get an array with upcoming events.
      *
      *
      * @return array
@@ -41,12 +39,12 @@ class FileContentProvider extends CoreContentProvider implements EventContentPro
         $events = $this->getAllEntries();
         $this->sortEntries($events);
 
-        $upcoming=array();
+        $upcoming = array();
         $now = new \DateTime();
         foreach ($events as $event) {
             /* @var $event \Symfonyse\EventBundle\Entity\Event */
             if ($event->getTime() > $now) {
-                $upcoming[]= $event;
+                $upcoming[] = $event;
             }
         }
 
@@ -57,10 +55,8 @@ class FileContentProvider extends CoreContentProvider implements EventContentPro
         return $upcoming;
     }
 
-
-
     /**
-     * Get a event entry
+     * Get a event entry.
      *
      * @param $permalink
      *
@@ -76,13 +72,13 @@ class FileContentProvider extends CoreContentProvider implements EventContentPro
     }
 
     /**
-     * Get all event entries
+     * Get all event entries.
      */
     public function getAllEntries()
     {
         $files = $this->getAllFiles();
 
-        $events=array();
+        $events = array();
         foreach ($files as $file) {
             $events[] = new Event($file);
         }

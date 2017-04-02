@@ -11,7 +11,6 @@ use Symfony\Component\Routing\Router;
 use Symfony\Component\Routing\RouterInterface;
 use Symfonyse\BlogBundle\ContentProvider\ContentProvider as BlogContentProvider;
 
-
 class FeedProvider implements FeedContentProvider
 {
     /**
@@ -38,13 +37,12 @@ class FeedProvider implements FeedContentProvider
         ExcerptInterface $excerpt
     ) {
         $this->blogContentProvider = $blogContentProvider;
-        $this->markdownParser      = $markdownParser;
-        $this->router              = $router;
-        $this->excerpt             = $excerpt;
+        $this->markdownParser = $markdownParser;
+        $this->router = $router;
+        $this->excerpt = $excerpt;
     }
 
     /**
-     *
      * @param Options $options
      *
      * @throws \Debril\RssAtomBundle\Exception\FeedNotFoundException
@@ -60,7 +58,7 @@ class FeedProvider implements FeedContentProvider
 
         foreach ($this->blogContentProvider->getAllEntries() as $entry) {
             $markdown = $this->markdownParser->transformMarkdown($entry->getContent());
-            $url      = $this->router->generate('blog', ['permalink' => $entry->getPermalink()], Router::ABSOLUTE_URL);
+            $url = $this->router->generate('blog', ['permalink' => $entry->getPermalink()], Router::ABSOLUTE_URL);
 
             $item = new FeedItem();
             $item->setUpdated($entry->getModifiedAt());

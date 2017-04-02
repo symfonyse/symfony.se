@@ -1,15 +1,13 @@
 <?php
 
-
 namespace Symfonyse\AuthorBundle\Entity;
 
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;
 
 /**
- * Class Author
+ * Class Author.
  *
  * @author Tobias Nyholm
- *
  */
 class Author extends FileBasedEntity
 {

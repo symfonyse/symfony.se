@@ -8,7 +8,6 @@ class MeetupEvent implements EntityInterface
 {
     /**
      * @var array meta
-     *
      */
     private $meta;
 
@@ -22,7 +21,7 @@ class MeetupEvent implements EntityInterface
      */
     public function getPermalink()
     {
-        return $this->getMeta('id') . '/' . str_replace(' ', '-', $this->getTitle());
+        return $this->getMeta('id').'/'.str_replace(' ', '-', $this->getTitle());
     }
 
     /**
@@ -34,8 +33,6 @@ class MeetupEvent implements EntityInterface
     }
 
     /**
-     *
-     *
      * @param $name
      *
      * @return mixed
@@ -50,13 +47,11 @@ class MeetupEvent implements EntityInterface
     }
 
     /**
-     *
-     *
      * @return \DateTime
      */
     public function getTime()
     {
-        $date=new \DateTime();
+        $date = new \DateTime();
         $date->setTimestamp($this->getMeta('time'));
 
         return $date;

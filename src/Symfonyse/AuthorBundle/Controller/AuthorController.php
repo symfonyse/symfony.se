@@ -7,16 +7,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfonyse\CoreBundle\Controller\BaseController;
 
 /**
- * Class PageController
+ * Class PageController.
  *
  * @author Tobias Nyholm
- *
- *
  */
 class AuthorController extends BaseController
 {
     /**
-     *
      * @Template
      *
      * Two weeks
@@ -26,7 +23,7 @@ class AuthorController extends BaseController
      */
     public function entryAction($permalink)
     {
-        $cp=$this->get('symfonyse.author.content_provider');
+        $cp = $this->get('symfonyse.author.content_provider');
         if (null === $author = $cp->getEntry($permalink)) {
             throw $this->createNotFoundException();
         }
@@ -35,8 +32,8 @@ class AuthorController extends BaseController
         $cp->sortEntries($entries);
 
         return array(
-            'author'=>$author,
-            'entries'=>$entries,
+            'author' => $author,
+            'entries' => $entries,
         );
     }
 }

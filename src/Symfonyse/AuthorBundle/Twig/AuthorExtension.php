@@ -6,7 +6,7 @@ use Symfonyse\AuthorBundle\Entity\Author;
 use Symfonyse\AuthorBundle\Service\PhotoService;
 
 /**
- * Class StaticExtension
+ * Class StaticExtension.
  *
  * A twig extension to make static calls
  */
@@ -14,7 +14,6 @@ class AuthorExtension extends \Twig_Extension
 {
     /**
      * @var \Symfonyse\AuthorBundle\Service\PhotoService photoService
-     *
      */
     protected $photoService;
 
@@ -27,7 +26,7 @@ class AuthorExtension extends \Twig_Extension
     }
 
     /**
-     * Get twig filters
+     * Get twig filters.
      *
      * @return array
      */
@@ -39,7 +38,7 @@ class AuthorExtension extends \Twig_Extension
     }
 
     /**
-     * Get the photo
+     * Get the photo.
      *
      * @param Author $author
      *

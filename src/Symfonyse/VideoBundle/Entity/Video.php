@@ -1,26 +1,22 @@
 <?php
 
-
 namespace Symfonyse\VideoBundle\Entity;
 
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;
 
 /**
- * Class Video
+ * Class Video.
  *
  * @author Tobias Nyholm
- *
  */
 class Video extends FileBasedEntity
 {
     /**
-     *
-     *
      * @return \DateTime
      */
     public function getRecordedAt()
     {
-        $posted=$this->getMeta('timestamp');
+        $posted = $this->getMeta('timestamp');
         if (!$posted) {
             return parent::getPostedAt();
         }
@@ -28,14 +24,13 @@ class Video extends FileBasedEntity
         return new \DateTime($posted);
     }
 
-
     public function getSortableTimestamp()
     {
         return $this->getRecordedAt()->getTimestamp();
     }
 
-    function getType()
+    public function getType()
     {
         return 'video';
     }
-} 
+}

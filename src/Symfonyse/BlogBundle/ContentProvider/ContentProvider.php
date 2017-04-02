@@ -6,16 +6,14 @@ use Symfonyse\BlogBundle\Entity\Entry;
 use Symfonyse\CoreBundle\ContentProvider\CoreContentProvider;
 
 /**
- * Class ContentProvider
+ * Class ContentProvider.
  *
  * @author Tobias Nyholm
- *
- *
  */
 class ContentProvider extends CoreContentProvider
 {
     /**
-     * Get a event entry
+     * Get a event entry.
      *
      * @param $permalink
      *
@@ -31,7 +29,7 @@ class ContentProvider extends CoreContentProvider
     }
 
     /**
-     * Get all event entries
+     * Get all event entries.
      *
      * @return Entry[]
      */

@@ -29,11 +29,6 @@
         <server name="KERNEL_DIR" value="/Users/tobias/Workspace/PHPStorm/API/Symfony/app/" />
     </php>-->
 
-    <listeners>
-        <listener class="\Mockery\Adapter\Phpunit\TestListener"	file="../vendor/mockery/mockery/library/Mockery/Adapter/Phpunit/TestListener.php">
-        </listener>
-    </listeners>
-
     <!-- We filter because of the code coverage report -->
     <filter>
         <whitelist>

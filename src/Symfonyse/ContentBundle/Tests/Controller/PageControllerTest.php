@@ -10,7 +10,7 @@ class PageControllerTest extends BaseTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', $this->generateUrl('page', array('permalink'=>'styrelsen')));
+        $crawler = $client->request('GET', $this->generateUrl('page', array('permalink' => 'styrelsen')));
 
         $this->assertTrue($crawler->filter('html:contains("Tobias Nyholm")')->count() > 0);
     }

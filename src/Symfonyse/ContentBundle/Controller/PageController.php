@@ -8,16 +8,13 @@ use Symfonyse\ContentBundle\Entity\Page;
 use Symfonyse\CoreBundle\Controller\BaseController;
 
 /**
- * Class PageController
+ * Class PageController.
  *
  * @author Tobias Nyholm
- *
- *
  */
 class PageController extends BaseController
 {
     /**
-     *
      * @Template
      *
      * cache for 1 week
@@ -31,10 +28,10 @@ class PageController extends BaseController
             throw $this->createNotFoundException();
         }
 
-        $page=new Page($file);
+        $page = new Page($file);
 
         return array(
-            'page'=>$page,
+            'page' => $page,
         );
     }
 }

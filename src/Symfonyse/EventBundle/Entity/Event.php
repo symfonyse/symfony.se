@@ -1,27 +1,22 @@
 <?php
 
-
 namespace Symfonyse\EventBundle\Entity;
 
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;
 
 /**
- * Class Event
+ * Class Event.
  *
  * @author Tobias Nyholm
- *
  */
 class Event extends FileBasedEntity
 {
-
     /**
-     *
-     *
      * @return \DateTime
      */
     public function getTime()
     {
-        $timestamp=$this->getMeta('timestamp');
+        $timestamp = $this->getMeta('timestamp');
         if (!$timestamp) {
             return parent::getPostedAt();
         }
@@ -29,14 +24,13 @@ class Event extends FileBasedEntity
         return new \DateTime($timestamp);
     }
 
-
     public function getSortableTimestamp()
     {
         return $this->getTime()->getTimestamp();
     }
 
-    function getType()
+    public function getType()
     {
         return 'event';
     }
-} 
+}
