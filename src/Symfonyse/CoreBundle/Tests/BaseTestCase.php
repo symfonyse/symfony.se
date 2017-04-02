@@ -1,37 +1,32 @@
 <?php
 
-
 namespace Symfonyse\CoreBundle\Tests;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
 /**
- * Class BaseTestCase
+ * Class BaseTestCase.
  *
  * @author Tobias Nyholm
- *
  */
 abstract class BaseTestCase extends WebTestCase
 {
     /**
      * @var \Symfony\Component\DependencyInjection\ContainerInterface container
-     *
      */
     private $container = null;
 
     /**
      * @var \Symfony\Bundle\FrameworkBundle\Client client
-     *
      */
     private $client = null;
-
 
     /**
      * Generates a URL from the given parameters.
      *
-     * @param string         $route         The name of the route
-     * @param mixed          $parameters    An array of parameters
-     * @param Boolean|string $referenceType The type of reference (one of the constants in UrlGeneratorInterface)
+     * @param string      $route         The name of the route
+     * @param mixed       $parameters    An array of parameters
+     * @param bool|string $referenceType The type of reference (one of the constants in UrlGeneratorInterface)
      *
      * @return string The generated URL
      *
@@ -43,7 +38,7 @@ abstract class BaseTestCase extends WebTestCase
     }
 
     /**
-     * This is alias for container->get()
+     * This is alias for container->get().
      *
      * @param string $service
      *
@@ -73,7 +68,7 @@ abstract class BaseTestCase extends WebTestCase
     }
 
     /**
-     * Returns a container
+     * Returns a container.
      *
      *
      * @return null|\Symfony\Component\DependencyInjection\ContainerInterface
@@ -86,4 +81,4 @@ abstract class BaseTestCase extends WebTestCase
 
         return $this->container;
     }
-} 
+}

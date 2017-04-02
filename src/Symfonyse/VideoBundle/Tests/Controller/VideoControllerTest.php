@@ -19,7 +19,7 @@ class VideoControllerTest extends BaseTestCase
     {
         $client = static::createClient();
 
-        $crawler = $client->request('GET', $this->generateUrl('video', array('permalink'=>'20130421-TobiasNyholm')));
+        $crawler = $client->request('GET', $this->generateUrl('video', array('permalink' => '20130421-TobiasNyholm')));
 
         $this->assertTrue($crawler->filter('html:contains("Tobias")')->count() > 0);
     }

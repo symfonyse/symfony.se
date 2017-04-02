@@ -5,7 +5,7 @@ namespace Symfonyse\AuthorBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class SymfonyseAuthorBundle
+ * Class SymfonyseAuthorBundle.
  *
  * @author Tobias Nyholm
  *

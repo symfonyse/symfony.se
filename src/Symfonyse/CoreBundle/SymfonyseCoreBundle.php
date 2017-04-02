@@ -5,7 +5,7 @@ namespace Symfonyse\CoreBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class SymfonyseCoreBundle
+ * Class SymfonyseCoreBundle.
  *
  * @author Tobias Nyholm
  *

@@ -22,7 +22,7 @@ class MeetupContentProvider implements EventContentProvider
 
     public function __construct(ClientFactory $clientFactory, $groupName)
     {
-        $this->client    = $clientFactory->getKeyAuthClient();
+        $this->client = $clientFactory->getKeyAuthClient();
         $this->groupName = $groupName;
     }
 
@@ -43,7 +43,7 @@ class MeetupContentProvider implements EventContentProvider
     }
 
     /**
-     * Get an array with upcoming events
+     * Get an array with upcoming events.
      *
      * @return Event[]
      */
@@ -59,7 +59,7 @@ class MeetupContentProvider implements EventContentProvider
     }
 
     /**
-     * Get a event entry
+     * Get a event entry.
      *
      * @param $permalink
      *
@@ -79,7 +79,7 @@ class MeetupContentProvider implements EventContentProvider
     }
 
     /**
-     * Get all event entries
+     * Get all event entries.
      */
     public function getAllEntries()
     {
@@ -93,7 +93,7 @@ class MeetupContentProvider implements EventContentProvider
     }
 
     /**
-     * Create a MeetupEvent instance from the API response
+     * Create a MeetupEvent instance from the API response.
      *
      * @param $input
      *

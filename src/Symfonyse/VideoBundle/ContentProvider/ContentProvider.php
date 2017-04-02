@@ -6,16 +6,14 @@ use Symfonyse\CoreBundle\ContentProvider\CoreContentProvider;
 use Symfonyse\VideoBundle\Entity\Video;
 
 /**
- * Class ContentProvider
+ * Class ContentProvider.
  *
  * @author Tobias Nyholm
- *
- *
  */
 class ContentProvider extends CoreContentProvider
 {
     /**
-     * Get a video entry
+     * Get a video entry.
      *
      * @param $permalink
      *
@@ -31,13 +29,13 @@ class ContentProvider extends CoreContentProvider
     }
 
     /**
-     * Get all video entries
+     * Get all video entries.
      */
     public function getAllEntries()
     {
         $files = $this->getAllFiles();
 
-        $videos=array();
+        $videos = array();
         foreach ($files as $file) {
             $videos[] = new Video($file);
         }

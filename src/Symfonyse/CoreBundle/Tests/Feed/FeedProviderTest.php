@@ -5,7 +5,6 @@ namespace Symfonyse\CoreBundle\Tests\Feed;
 use Debril\RssAtomBundle\Protocol\Parser\FeedContent;
 use dflydev\markdown\MarkdownParser;
 use HappyR\ExcerptBundle\Service\PhpExcerpt;
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\OptionsResolver\Options;
 use Symfonyse\CoreBundle\Feed\FeedProvider;
 
@@ -13,12 +12,12 @@ class FeedProviderTest extends \PHPUnit_FrameWork_TestCase
 {
     public function testProvider()
     {
-        $router          = $this->getRouter();
-        $markdownParser  = new MarkdownParser();
+        $router = $this->getRouter();
+        $markdownParser = new MarkdownParser();
         $contentProvider = $this->getContentProvider();
-        $excerpt         = new PhpExcerpt();
-        $provider        = new FeedProvider($contentProvider, $markdownParser, $router, $excerpt);
-        $options         = new Options();
+        $excerpt = new PhpExcerpt();
+        $provider = new FeedProvider($contentProvider, $markdownParser, $router, $excerpt);
+        $options = new Options();
 
         $response = $provider->getFeedContent($options);
 

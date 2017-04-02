@@ -5,7 +5,7 @@ namespace Symfonyse\ContentBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class SymfonyseContentBundle
+ * Class SymfonyseContentBundle.
  *
  * @author Tobias Nyholm
  *

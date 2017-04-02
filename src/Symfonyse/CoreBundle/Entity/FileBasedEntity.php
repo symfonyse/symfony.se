@@ -6,37 +6,32 @@ use Symfony\Component\Yaml\Yaml;
 use Symfonyse\CoreBundle\Model\FileInfo;
 
 /**
- * Class FileBasedEntity
+ * Class FileBasedEntity.
  *
  * @author Tobias Nyholm
- *
- *
  */
 abstract class FileBasedEntity implements EntityInterface
 {
     /**
      * @var \Symfonyse\CoreBundle\Model\FileInfo fileInfo
-     *
      */
     protected $fileInfo;
 
     /**
      * @var array meta
-     *
      */
     private $meta;
 
     /**
      * @var string content
-     *
      */
     protected $content;
 
     /**
      * @var bool fileLoaded
-     * Use this to find if the file is loaded or not
+     *           Use this to find if the file is loaded or not
      */
-    private $fileLoaded=false;
+    private $fileLoaded = false;
 
     /**
      * @param FileInfo $file
@@ -47,24 +42,24 @@ abstract class FileBasedEntity implements EntityInterface
     }
 
     /**
-     * Get the title as string
+     * Get the title as string.
      *
      * @return string
      */
-    function __toString()
+    public function __toString()
     {
         return $this->getTitle();
     }
 
     /**
-     * Get the type of the entity. This should be the same as the route
+     * Get the type of the entity. This should be the same as the route.
      *
      * @return string
      */
     abstract public function getType();
 
     /**
-     * Get the absolute path to the file
+     * Get the absolute path to the file.
      *
      * @return string
      */
@@ -74,7 +69,7 @@ abstract class FileBasedEntity implements EntityInterface
     }
 
     /**
-     * Get the content of the file
+     * Get the content of the file.
      */
     public function getContent()
     {
@@ -85,7 +80,7 @@ abstract class FileBasedEntity implements EntityInterface
 
     /**
      * Load file.
-     * Parse the meta data and get the content
+     * Parse the meta data and get the content.
      */
     protected function loadFile()
     {
@@ -93,9 +88,9 @@ abstract class FileBasedEntity implements EntityInterface
             return;
         }
 
-        $content=$this->fileInfo->getContent();
+        $content = $this->fileInfo->getContent();
         $matches = array();
-        if (preg_match("/---(.*?)---(.*)/ms", $content, $matches)) {
+        if (preg_match('/---(.*?)---(.*)/ms', $content, $matches)) {
             $this->meta = Yaml::parse($matches[1]);
             $this->content = trim($matches[2]);
         } else {
@@ -104,12 +99,11 @@ abstract class FileBasedEntity implements EntityInterface
 
         $this->content = preg_replace('|\{\%.*?\%\}|sim', '', $this->content);
 
-        $this->fileLoaded=true;
+        $this->fileLoaded = true;
     }
 
     /**
-     *
-     * @return boolean
+     * @return bool
      */
     public function isFileLoaded()
     {
@@ -117,8 +111,6 @@ abstract class FileBasedEntity implements EntityInterface
     }
 
     /**
-     *
-     *
      * @param $name
      * @param $value
      *
@@ -126,14 +118,12 @@ abstract class FileBasedEntity implements EntityInterface
      */
     public function setMeta($name, $value)
     {
-        $this->meta[$name]=$value;
+        $this->meta[$name] = $value;
 
         return $this;
     }
 
     /**
-     *
-     *
      * @param $name
      *
      * @return mixed|null
@@ -149,13 +139,11 @@ abstract class FileBasedEntity implements EntityInterface
     }
 
     /**
-     *
-     *
      * @return \DateTime
      */
     public function getPostedAt()
     {
-        $posted=$this->getMeta('published');
+        $posted = $this->getMeta('published');
         if (!$posted) {
             return $this->getModifiedAt();
         }
@@ -164,8 +152,6 @@ abstract class FileBasedEntity implements EntityInterface
     }
 
     /**
-     *
-     *
      * @return \DateTime
      */
     public function getModifiedAt()
@@ -174,7 +160,7 @@ abstract class FileBasedEntity implements EntityInterface
     }
 
     /**
-     * Get the title
+     * Get the title.
      *
      * @return string
      */
@@ -188,7 +174,7 @@ abstract class FileBasedEntity implements EntityInterface
     }
 
     /**
-     * get the permalink
+     * get the permalink.
      *
      *
      * @return string
@@ -199,7 +185,7 @@ abstract class FileBasedEntity implements EntityInterface
     }
 
     /**
-     * Get a unix timestamp that we should use when we sort with this entity
+     * Get a unix timestamp that we should use when we sort with this entity.
      *
      * @return int
      */

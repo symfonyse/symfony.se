@@ -5,19 +5,16 @@ namespace Symfonyse\BlogBundle\Entity;
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;
 
 /**
- * Class Entry
+ * Class Entry.
  *
  * @author Tobias Nyholm
- *
- *
  */
 class Entry extends FileBasedEntity
 {
     /**
-     *
      * @return string
      */
-    function getType()
+    public function getType()
     {
         return 'blog';
     }

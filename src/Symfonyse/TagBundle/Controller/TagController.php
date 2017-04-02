@@ -7,15 +7,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 
 /**
- * Class TagController
+ * Class TagController.
  *
  * @author Tobias Nyholm
- *
  */
 class TagController extends BaseController
 {
     /**
-     *
      * @Template
      *
      * cache for 4 weeks
@@ -25,7 +23,7 @@ class TagController extends BaseController
      */
     public function entryAction($permalink)
     {
-        $cp=$this->get('symfonyse.tag.content_provider');
+        $cp = $this->get('symfonyse.tag.content_provider');
         if (null === $tag = $cp->getEntry($permalink)) {
             throw $this->createNotFoundException();
         }
@@ -34,13 +32,13 @@ class TagController extends BaseController
         $cp->sortEntries($entries);
 
         return array(
-            'tag'=>$tag,
-            'entries'=>$entries,
+            'tag' => $tag,
+            'entries' => $entries,
         );
     }
 
     /**
-     * Get all tags with count
+     * Get all tags with count.
      *
      * @Template
      *
@@ -51,21 +49,21 @@ class TagController extends BaseController
      */
     public function indexAction()
     {
-        $cp=$this->get('symfonyse.tag.content_provider');
+        $cp = $this->get('symfonyse.tag.content_provider');
         $entries = $cp->getAllEntries();
 
-        usort($entries, function($a, $b) {
-                $timeDiff = $b->getCount() - $a->getCount();
+        usort($entries, function ($a, $b) {
+            $timeDiff = $b->getCount() - $a->getCount();
 
-                if ($timeDiff == 0){
-                    return strcmp($a->getTitle(), $b->getTitle());
-                }
+            if ($timeDiff == 0) {
+                return strcmp($a->getTitle(), $b->getTitle());
+            }
 
-                return $timeDiff;
-            });
+            return $timeDiff;
+        });
 
         return array(
-            'entries'=>$entries,
+            'entries' => $entries,
         );
     }
-} 
+}

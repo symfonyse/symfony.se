@@ -14,15 +14,14 @@ interface EventContentProvider
     public function getNextEvent();
 
     /**
-     * Get an array with upcoming events
+     * Get an array with upcoming events.
      *
      * @return Event[]
      */
-
     public function getUpcomingEvents();
 
     /**
-     * Get a event entry
+     * Get a event entry.
      *
      * @param $permalink
      *
@@ -31,7 +30,7 @@ interface EventContentProvider
     public function getEntry($permalink);
 
     /**
-     * Get all event entries
+     * Get all event entries.
      */
     public function getAllEntries();
 }

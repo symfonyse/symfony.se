@@ -3,13 +3,12 @@
 namespace Symfonyse\CoreBundle\Twig;
 
 /**
- * Class StaticExtension
+ * Class StaticExtension.
  *
  * A twig extension to make static calls
  */
 class StaticExtension extends \Twig_Extension
 {
-
     /**
      * @inherit
      *
@@ -24,7 +23,7 @@ class StaticExtension extends \Twig_Extension
     }
 
     /**
-     * Return the value of the static variable or null if not found
+     * Return the value of the static variable or null if not found.
      *
      * @param string $class
      * @param string $property
@@ -39,7 +38,7 @@ class StaticExtension extends \Twig_Extension
         }
 
         //check if const exists
-        $constant=sprintf('%s::%s', get_class($class), $property);
+        $constant = sprintf('%s::%s', get_class($class), $property);
         if (defined($constant)) {
             return constant($constant);
         }
@@ -48,18 +47,17 @@ class StaticExtension extends \Twig_Extension
     }
 
     /**
-     * Return the result of a call to static function
+     * Return the result of a call to static function.
      *
      * @param string $class
      * @param string $function
-     * @param mixed $args
+     * @param mixed  $args
      *
      * @return mixed|null
      */
     public function getStaticCall($class, $function, $args = null)
     {
         if (class_exists($class) && method_exists($class, $function)) {
-
             return $class::$function($args);
         }
 

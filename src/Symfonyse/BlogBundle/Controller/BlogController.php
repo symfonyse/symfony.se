@@ -7,15 +7,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfonyse\CoreBundle\Controller\BaseController;
 
 /**
- * Class BlogController
+ * Class BlogController.
  *
  * @author Tobias Nyholm
- *
  */
 class BlogController extends BaseController
 {
     /**
-     *
      * @Template
      *
      * cache for 2 weeks
@@ -25,17 +23,16 @@ class BlogController extends BaseController
      */
     public function indexAction()
     {
-        $cp=$this->get('symfonyse.blog.content_provider');
-        $entries=$cp->getAllEntries();
+        $cp = $this->get('symfonyse.blog.content_provider');
+        $entries = $cp->getAllEntries();
         $cp->sortEntries($entries);
 
         return array(
-            'entries'=>$entries,
+            'entries' => $entries,
         );
     }
 
     /**
-     *
      * @Template
      *
      * cache for 1 week
@@ -50,12 +47,12 @@ class BlogController extends BaseController
         }
 
         return array(
-            'entry'=>$entry,
+            'entry' => $entry,
         );
     }
 
     /**
-     * Get some entries for the homepage
+     * Get some entries for the homepage.
      *
      * @Template
      *
@@ -66,21 +63,19 @@ class BlogController extends BaseController
      */
     public function entriesForHomepageAction()
     {
-        $cp= $this->get('symfonyse.blog.content_provider');
+        $cp = $this->get('symfonyse.blog.content_provider');
         $entries = $cp->getAllEntries();
         $cp->sortEntries($entries);
 
-        $publishedEntries=array();
+        $publishedEntries = array();
         $now = new \DateTime();
         foreach ($entries as $event) {
             /* @var $event \Symfonyse\EventBundle\Entity\Event */
             if ($event->getPostedAt() < $now) {
-                $publishedEntries[]= $event;
+                $publishedEntries[] = $event;
             }
         }
 
-
-        return array('entries'=>$publishedEntries);
+        return array('entries' => $publishedEntries);
     }
-
-} 
+}

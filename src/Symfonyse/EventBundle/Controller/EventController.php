@@ -7,17 +7,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfonyse\CoreBundle\Controller\BaseController;
 
 /**
- * Class EventController
+ * Class EventController.
  *
  * @author Tobias Nyholm
- *
- *
  */
 class EventController extends BaseController
 {
     /**
-     *
-     * Show upcoming events
+     * Show upcoming events.
      *
      * @Template
      *
@@ -28,16 +25,15 @@ class EventController extends BaseController
      */
     public function indexAction()
     {
-        $cp=$this->get('symfonyse.event.content_provider');
-        $events=$cp->getUpcomingEvents();
+        $cp = $this->get('symfonyse.event.content_provider');
+        $events = $cp->getUpcomingEvents();
 
         return array(
-            'events'=>$events,
+            'events' => $events,
         );
     }
 
     /**
-     *
      * @Template("SymfonyseEventBundle:Event:box.html.twig")
      *
      * cache for 6 hours
@@ -52,12 +48,11 @@ class EventController extends BaseController
         }
 
         return array(
-            'event'=>$event,
+            'event' => $event,
         );
     }
 
     /**
-     *
      * @Template()
      *
      * cache for 6 hours
@@ -74,7 +69,7 @@ class EventController extends BaseController
         }
 
         return array(
-            'event'=>$event,
+            'event' => $event,
         );
     }
 }

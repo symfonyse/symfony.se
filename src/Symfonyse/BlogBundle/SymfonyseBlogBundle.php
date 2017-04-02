@@ -5,7 +5,7 @@ namespace Symfonyse\BlogBundle;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class SymfonyseBlogBundle
+ * Class SymfonyseBlogBundle.
  *
  * @author Tobias Nyholm
  *

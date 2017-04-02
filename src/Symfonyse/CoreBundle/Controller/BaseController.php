@@ -5,15 +5,14 @@ namespace Symfonyse\CoreBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Class BaseController
+ * Class BaseController.
  *
  * @author Tobias Nyholm
- *
  */
 abstract class BaseController extends Controller
 {
     /**
-     * Get the entity manager
+     * Get the entity manager.
      *
      * @param string $name (optional)
      *
@@ -25,10 +24,10 @@ abstract class BaseController extends Controller
     }
 
     /**
-     * Return a repository for that entity
+     * Return a repository for that entity.
      *
-     * @param string $entity
-     * @param \Doctrine\Common\Persistence\ObjectManager $em (optional)
+     * @param string                                     $entity
+     * @param \Doctrine\Common\Persistence\ObjectManager $em     (optional)
      *
      * @return \Doctrine\Common\Persistence\ObjectRepository
      */
@@ -40,4 +39,4 @@ abstract class BaseController extends Controller
 
         return $em->getRepository($entity);
     }
-} 
+}

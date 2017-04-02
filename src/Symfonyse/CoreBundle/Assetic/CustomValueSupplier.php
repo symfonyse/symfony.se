@@ -5,7 +5,7 @@ namespace Symfonyse\CoreBundle\Assetic;
 use Symfony\Bundle\AsseticBundle\DefaultValueSupplier;
 
 /**
- * Class CustomValueSupplier
+ * Class CustomValueSupplier.
  *
  * @author Tobias Nyholm
  *
@@ -14,7 +14,7 @@ use Symfony\Bundle\AsseticBundle\DefaultValueSupplier;
 class CustomValueSupplier extends DefaultValueSupplier
 {
     /**
-     * Get values for Assetic
+     * Get values for Assetic.
      *
      * @return array
      */
@@ -24,7 +24,7 @@ class CustomValueSupplier extends DefaultValueSupplier
         $values = parent::getValues();
 
         //get the git version as version
-        $values['version']=$this->container->getParameter('git_commit');
+        $values['version'] = $this->container->getParameter('git_commit');
 
         return $values;
     }

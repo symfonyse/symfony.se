@@ -5,11 +5,9 @@ namespace Symfonyse\TagBundle\Entity;
 use Symfonyse\CoreBundle\Entity\FileBasedEntity;
 
 /**
- * Class Tag
+ * Class Tag.
  *
  * @author Tobias Nyholm
- *
- *
  */
 class Tag extends FileBasedEntity
 {
@@ -21,7 +19,6 @@ class Tag extends FileBasedEntity
     protected $count;
 
     /**
-     *
      * @param int $count
      *
      * @return $this
@@ -34,7 +31,6 @@ class Tag extends FileBasedEntity
     }
 
     /**
-     *
      * @return int
      */
     public function getCount()
@@ -42,9 +38,8 @@ class Tag extends FileBasedEntity
         return $this->count;
     }
 
-
     /**
-     * Get the type of the entity. This should be the same as the route
+     * Get the type of the entity. This should be the same as the route.
      *
      * @return string
      */

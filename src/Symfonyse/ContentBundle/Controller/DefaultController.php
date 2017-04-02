@@ -7,16 +7,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfonyse\CoreBundle\Controller\BaseController;
 
 /**
- * Class DefaultController
+ * Class DefaultController.
  *
  * @author Tobias Nyholm
- *
- *
  */
 class DefaultController extends BaseController
 {
     /**
-     *
      * @Template
      *
      * cache for 1 week

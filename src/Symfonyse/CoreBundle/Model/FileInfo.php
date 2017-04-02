@@ -3,18 +3,16 @@
 namespace Symfonyse\CoreBundle\Model;
 
 /**
- * Class File
+ * Class File.
  *
  * @author Tobias Nyholm
- *
  */
 class FileInfo extends \SplFileInfo
 {
     /**
      * @var string permalink
      *
-     * This is the path relative the dataDir. This might contain slashes.
-     *
+     * This is the path relative the dataDir. This might contain slashes
      */
     private $permalink;
 
@@ -29,7 +27,6 @@ class FileInfo extends \SplFileInfo
     }
 
     /**
-     *
      * @return string
      */
     public function getPermalink()
@@ -38,7 +35,7 @@ class FileInfo extends \SplFileInfo
     }
 
     /**
-     * Get the content of the file
+     * Get the content of the file.
      *
      * @return string
      */

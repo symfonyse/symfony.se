@@ -6,11 +6,9 @@ use Symfonyse\CoreBundle\ContentProvider\CoreContentProvider;
 use Symfonyse\TagBundle\Entity\Tag;
 
 /**
- * Class ContentProvider
+ * Class ContentProvider.
  *
  * @author Tobias Nyholm
- *
- *
  */
 class ContentProvider extends CoreContentProvider
 {
@@ -18,12 +16,10 @@ class ContentProvider extends CoreContentProvider
      * @var CoreContentProvider[] contentProviders
      *
      * This is an array with content providers that provide entries that have a "tags" meta tag
-     *
      */
     private $contentProviders;
 
     /**
-     *
      * @param \Symfonyse\CoreBundle\ContentProvider\CoreContentProvider[] $cps
      *
      * @return $this
@@ -36,7 +32,7 @@ class ContentProvider extends CoreContentProvider
     }
 
     /**
-     * Get a Author entry
+     * Get a Author entry.
      *
      * @param $permalink
      *
@@ -52,7 +48,7 @@ class ContentProvider extends CoreContentProvider
     }
 
     /**
-     * Get all entries that is tagged with $tag
+     * Get all entries that is tagged with $tag.
      *
      * @param Tag $tag
      *
@@ -60,22 +56,22 @@ class ContentProvider extends CoreContentProvider
      */
     public function getEntriesByTag(Tag $tag)
     {
-        $tagEntries=array();
+        $tagEntries = array();
         foreach ($this->contentProviders as $cp) {
-            $tagEntries = array_merge($tagEntries, array_filter($cp->getAllEntries(), function($e) use ($tag) {
+            $tagEntries = array_merge($tagEntries, array_filter($cp->getAllEntries(), function ($e) use ($tag) {
                 if (null == $tags = $e->getMeta('tags')) {
                     return false;
                 }
+
                 return in_array($tag->getTitle(), $tags, false);
             }));
         }
-
 
         return $tagEntries;
     }
 
     /**
-     * Get all tags with the correct entry count
+     * Get all tags with the correct entry count.
      *
      *
      * @return Tag[]
@@ -85,24 +81,24 @@ class ContentProvider extends CoreContentProvider
         /*
          * Find out how often the tags are being used
          */
-        $tags=array();
+        $tags = array();
         foreach ($this->contentProviders as $cp) {
-            $taggableEntries=$cp->getAllEntries();
+            $taggableEntries = $cp->getAllEntries();
             foreach ($taggableEntries as $entry) {
-                if ($entry->getMeta('tags')===null) {
+                if ($entry->getMeta('tags') === null) {
                     continue;
                 }
                 foreach ($entry->getMeta('tags') as $tag) {
                     if (empty($tags[$tag])) {
-                        $tags[$tag]=0;
+                        $tags[$tag] = 0;
                     }
-                    $tags[$tag]++;
+                    ++$tags[$tag];
                 }
             }
         }
 
         $files = $this->getAllFiles();
-        $entries=array();
+        $entries = array();
         foreach ($files as $file) {
             $tag = new Tag($file);
 
@@ -110,10 +106,9 @@ class ContentProvider extends CoreContentProvider
                 $tag->setCount($tags[$tag->getTitle()]);
             }
 
-            $entries[]=$tag;
+            $entries[] = $tag;
         }
 
         return $entries;
     }
-
 }
