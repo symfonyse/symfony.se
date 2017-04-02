@@ -6,4 +6,5 @@ php:
 install:
   - composer install
 
-script: phpunit -c app/
+script:
+  - ./vendor/bin/phpunit -c app/

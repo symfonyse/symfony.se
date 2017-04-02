@@ -6,6 +6,7 @@ use Debril\RssAtomBundle\Protocol\Parser\FeedContent;
 use dflydev\markdown\MarkdownParser;
 use HappyR\ExcerptBundle\Service\PhpExcerpt;
 use Symfony\Component\OptionsResolver\Options;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfonyse\CoreBundle\Feed\FeedProvider;
 
 class FeedProviderTest extends \PHPUnit_FrameWork_TestCase
@@ -17,7 +18,7 @@ class FeedProviderTest extends \PHPUnit_FrameWork_TestCase
         $contentProvider = $this->getContentProvider();
         $excerpt = new PhpExcerpt();
         $provider = new FeedProvider($contentProvider, $markdownParser, $router, $excerpt);
-        $options = new Options();
+        $options = new OptionsResolver();
 
         $response = $provider->getFeedContent($options);
 
