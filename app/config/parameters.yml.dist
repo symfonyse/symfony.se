@@ -10,4 +10,5 @@ parameters:
     locale:            sv
     secret:            ChangedForSensioLabsInsight
     site_domain:       localhost
+    site_schema:       http
     meetup_api_key:    ChangeMe

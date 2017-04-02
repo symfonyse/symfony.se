@@ -17,21 +17,22 @@ framework:
         engines: ['twig']
         #assets_version: SomeVersionScheme
         assets_base_urls:
-          http: [http://%site_domain%]
+          http: ["%site_schema%://%site_domain%"]
+          ssl: ["%site_schema%://%site_domain%"]
     default_locale:  "%locale%"
     trusted_proxies: ~
     session:
-      save_path: %kernel.root_dir%/var/sessions
+      save_path: "%kernel.root_dir%/var/sessions"
       name: sysession
     fragments:       ~
     http_method_override: true
 
 # Twig Configuration
 twig:
-    debug:            %kernel.debug%
-    strict_variables: %kernel.debug%
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
     globals:
-      site_url: http://%site_domain%
+      site_url: "%site_schema%://%site_domain%"
       ga_analytics: UA-26746572-1
 
 # Assetic Configuration
