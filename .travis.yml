@@ -7,4 +7,4 @@ install:
   - composer install
 
 script:
-  - /vendor/phpunit/phpunit/phpunit -c app/
+  - ./vendor/phpunit/phpunit/phpunit -c app/
